@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import blueContainerStyle from "../../styles/BlueContainer";
 import { inputColor } from "../../styles/consts";
-const AddNote = () => {
+const AddCurrency = () => {
   const [isEditing, setIsEditing] = useState(false);
   const cancelEditing = () => {
     setIsEditing(false);
@@ -12,23 +12,26 @@ const AddNote = () => {
   };
   return (
     <View style={{ marginTop: 20 }}>
-      <Text style={styles.headerStyle}>Note</Text>
+      <Text style={styles.headerStyle}>Currency</Text>
       <View style={styles.blueContainer}>
         {!isEditing ? (
           <View>
-            <Button
-              title="edit"
-              onPress={() => {
-                setIsEditing(true);
-              }}
-            />
+            <Text style={styles.textInput}>PLN</Text>
+            <View style={{ marginTop: 10 }}>
+              <Button
+                title="edit"
+                onPress={() => {
+                  setIsEditing(true);
+                }}
+              />
+            </View>
           </View>
         ) : (
           <View>
             <TextInput
-              placeholder="note"
+              placeholder="PLN"
               placeholderTextColor={inputColor}
-              style={{ ...styles.textInput, marginLeft: 5 }}
+              style={{ ...styles.textInput }}
             />
             <View
               style={{
@@ -49,8 +52,9 @@ const AddNote = () => {
 
 const styles = StyleSheet.create({
   blueContainer: {
-    minHeight: 40,
+    minHeight: 90,
     marginTop: 5,
+    width: 150,
     ...blueContainerStyle,
   },
   headerStyle: {
@@ -59,10 +63,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   textInput: {
+    textAlign: "center",
     color: "white",
     paddingHorizontal: 20,
     paddingTop: 10,
     fontSize: 20,
   },
 });
-export default AddNote;
+export default AddCurrency;

@@ -11,25 +11,27 @@ const GroupType = () => {
     setIsEditing(false);
   };
   return (
-    <View style={{ marginTop: 40 }}>
+    <View style={{ marginTop: 20 }}>
       <Text style={styles.headerStyle}>Group type</Text>
       <View style={styles.blueContainer}>
         {!isEditing ? (
           <View>
-            <Text style={styles.textInput}> Friends</Text>
-            <Button
-              title="edit"
-              onPress={() => {
-                setIsEditing(true);
-              }}
-            />
+            <Text style={styles.textInput}>Friends</Text>
+            <View style={{ marginTop: 10 }}>
+              <Button
+                title="edit"
+                onPress={() => {
+                  setIsEditing(true);
+                }}
+              />
+            </View>
           </View>
         ) : (
           <View>
             <TextInput
               placeholder="Friends"
               placeholderTextColor={inputColor}
-              style={{ ...styles.textInput, marginLeft: 5 }}
+              style={{ ...styles.textInput }}
             />
             <View
               style={{
@@ -50,8 +52,9 @@ const GroupType = () => {
 
 const styles = StyleSheet.create({
   blueContainer: {
-    minHeight: 40,
+    minHeight: 90,
     marginTop: 5,
+    width: 150,
     ...blueContainerStyle,
   },
   headerStyle: {
@@ -60,6 +63,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   textInput: {
+    textAlign: "center",
     color: "white",
     paddingHorizontal: 20,
     paddingTop: 10,

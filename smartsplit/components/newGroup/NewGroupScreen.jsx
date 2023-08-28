@@ -15,6 +15,7 @@ import AddFriend from "./AddFriend";
 import { inputColor } from "../../styles/consts";
 import GroupType from "./GroupType";
 import AddNote from "./AddNote";
+import AddCurrency from "./AddCurrency";
 
 const NewGroupScreen = () => {
   const names = ["kacper", "dumin"];
@@ -60,13 +61,18 @@ const NewGroupScreen = () => {
           )}
         </View>
       </View>
-      <GroupType />
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <GroupType />
+        <AddCurrency />
+      </View>
+
       <AddNote />
+
       <View
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          marginTop: 40,
+          marginTop: 70,
           padding: 20,
         }}
       >
