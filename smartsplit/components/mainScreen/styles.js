@@ -1,14 +1,6 @@
 import { StyleSheet } from "react-native";
-
+import blueContainerStyle from "../../styles/BlueContainer";
 export const mainScreenStyles = StyleSheet.create({
-  headerStyle: {
-    fontSize: 35,
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "left",
-    marginTop: 130,
-    marginBottom: 30,
-  },
   circleButton: {
     borderRadius: "50%",
     backgroundColor: "#191B3F",
@@ -25,15 +17,10 @@ export const mainScreenStyles = StyleSheet.create({
 
 export const groupShortcutStyles = StyleSheet.create({
   container: {
-    borderRadius: 10,
     paddingTop: 8,
     paddingHorizontal: 22,
     height: 130,
-    backgroundColor: "#191B3F",
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.7,
-    shadowRadius: 5,
+    ...blueContainerStyle,
   },
   name: {
     color: "white",

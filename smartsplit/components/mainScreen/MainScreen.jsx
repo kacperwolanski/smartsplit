@@ -2,11 +2,12 @@ import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import GroupShortcut from "./GroupShortcut";
 import { mainScreenStyles } from "./styles";
+import headerStyle from "../../styles/headerStyle";
 
 const MainScreen = ({ groups }) => {
   return (
     <View>
-      <Text style={mainScreenStyles.headerStyle}>Your groups</Text>
+      <Text style={headerStyle}>Your groups</Text>
       <View style={{ gap: 20 }}>
         <GroupShortcut groupData={groups[0]} />
         <GroupShortcut groupData={groups[0]} />
