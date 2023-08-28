@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import MainScreen from "./components/mainScreen/MainScreen";
+import NewGroupScreen from "./components/newGroup/NewGroupScreen";
 
 export default App = () => {
   const groups = [
@@ -24,7 +25,7 @@ export default App = () => {
   ];
   return (
     <View style={styles.container}>
-      <MainScreen groups={groups} />
+      <NewGroupScreen />
     </View>
   );
 };
