@@ -16,17 +16,26 @@ import { inputColor } from "../../styles/consts";
 import GroupType from "./GroupType";
 import AddNote from "./AddNote";
 import AddCurrency from "./AddCurrency";
+import useStore from "../../store";
 
 const NewGroupScreen = () => {
+  const { moveToScreen } = useStore();
   const names = ["kacper", "dumin"];
+
+  const handleSavePress = () => {
+    moveToScreen("/mainScreen");
+  };
+  const handleCancelPress = () => {
+    moveToScreen("/mainScreen");
+  };
+
   const styles = newGroupStyles;
   const [isAddingFriend, setIsAddingFriend] = useState(false);
 
   const handleAddingFriend = (isAdding) => {
     setIsAddingFriend(isAdding);
   };
-  const cancelGroup = () => {};
-  const saveGroup = () => {};
+
   return (
     <View>
       <Text style={headerStyle}>Add new group</Text>
@@ -82,8 +91,8 @@ const NewGroupScreen = () => {
           padding: 20,
         }}
       >
-        <Button color="white" title="cancel" onPress={cancelGroup} />
-        <Button title="save" onPress={saveGroup} />
+        <Button color="white" title="cancel" onPress={handleCancelPress} />
+        <Button title="save" onPress={handleSavePress} />
       </View>
     </View>
   );
