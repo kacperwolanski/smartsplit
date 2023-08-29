@@ -61,7 +61,13 @@ const NewGroupScreen = () => {
           )}
         </View>
       </View>
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginTop: 10,
+        }}
+      >
         <GroupType />
         <AddCurrency />
       </View>
