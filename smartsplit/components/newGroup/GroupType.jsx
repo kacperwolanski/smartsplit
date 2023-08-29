@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-import blueContainerStyle from "../../styles/BlueContainer";
+import blueContainerStyle from "../../styles/blueContainer";
 import { inputColor } from "../../styles/consts";
 const GroupType = () => {
   const [isEditing, setIsEditing] = useState(false);
