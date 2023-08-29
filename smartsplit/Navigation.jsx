@@ -3,15 +3,21 @@ import useStore from "./store";
 import MainScreen from "./components/mainScreen/MainScreen";
 import { View } from "react-native";
 import NewGroupScreen from "./components/newGroup/NewGroupScreen";
+import GroupDetailsScreen from "./components/groupDetails/GroupDetailsScreen";
 
 const Navigation = () => {
-  const { actualScreen, groups } = useStore();
+  const { actualScreen, actualGroup } = useStore();
 
   console.log(actualScreen);
   return (
     <View>
-      {actualScreen === "/mainScreen" && <MainScreen groups={groups} />}
+      {actualScreen === "/mainScreen" && <MainScreen />}
       {actualScreen === "/addGroup" && <NewGroupScreen />}
+      {actualGroup && actualScreen === `/group/${actualGroup.id}` && (
+        <GroupDetailsScreen />
+      )}
+      {/* <GroupDetailsScreen group={groups[0]} /> */}
+      {/* <MainScreen /> */}
     </View>
   );
 };

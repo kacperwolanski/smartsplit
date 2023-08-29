@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import headerStyle from "../../styles/headerStyle";
-import blueContainerStyle from "../../styles/BlueContainer";
+import blueContainerStyle from "../../styles/blueContainer";
 import EditButton from "../buttons/EditButton";
 import FriendName from "./FriendName";
 import AddFriend from "./AddFriend";

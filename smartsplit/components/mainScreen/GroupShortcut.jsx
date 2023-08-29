@@ -1,11 +1,20 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { groupShortcutStyles } from "./styles";
+import useStore from "../../store";
 
 const GroupShortcut = ({ groupData }) => {
-  const { name, amount, createDate } = groupData;
+  const { name, amount, createDate, id } = groupData;
+  const { setActualGroup, moveToScreen } = useStore();
+  const handlePress = () => {
+    setActualGroup(groupData);
+    moveToScreen(`/group/${id}`);
+  };
   return (
-    <View style={groupShortcutStyles.container}>
+    <TouchableOpacity
+      style={groupShortcutStyles.container}
+      onPress={handlePress}
+    >
       <Text style={groupShortcutStyles.date}>{createDate}</Text>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text style={groupShortcutStyles.name}>{name}</Text>
@@ -17,7 +26,7 @@ const GroupShortcut = ({ groupData }) => {
           <Text style={{ color: "white" }}>{amount}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
