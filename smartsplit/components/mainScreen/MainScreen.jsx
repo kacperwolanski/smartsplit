@@ -4,6 +4,7 @@ import GroupShortcut from "./GroupShortcut";
 import headerStyle from "../../styles/headerStyle";
 import useStore from "../../store";
 import CirclePlusButton from "../buttons/CirclePlusButton";
+import ScreenContent from "../../ScreenContent";
 
 const MainScreen = () => {
   const { moveToScreen, groups } = useStore();
@@ -20,12 +21,13 @@ const MainScreen = () => {
   return (
     <View>
       <Text style={headerStyle}>Your groups</Text>
-      <ScrollView>{groupsViewElement}</ScrollView>
+      <ScreenContent>
+        <ScrollView>{groupsViewElement}</ScrollView>
+      </ScreenContent>
       <View
         style={{
-          justifyContent: "flex-start",
           alignItems: "flex-end",
-          marginTop: 20,
+          marginRight: 20,
         }}
       >
         <CirclePlusButton onPressFunc={handlePress} />
