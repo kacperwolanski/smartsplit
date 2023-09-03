@@ -1,9 +1,9 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const RemoveButton = ({ onPressFunc }) => {
+const RemoveButton = ({ removeFunction }) => {
   return (
-    <TouchableOpacity style={styles.buttonContainer} onPress={onPressFunc}>
+    <TouchableOpacity style={styles.buttonContainer} onPress={removeFunction}>
       <Text style={styles.text}>-</Text>
     </TouchableOpacity>
   );

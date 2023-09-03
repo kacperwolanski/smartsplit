@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import headerStyle from "../../styles/headerStyle";
 import blueContainerStyle from "../../styles/blueContainer";
-import EditButton from "../buttons/EditButton";
 import FriendName from "./FriendName";
 import AddFriend from "./AddFriend";
 import { inputColor } from "../../styles/consts";
@@ -17,12 +16,28 @@ import GroupType from "./GroupType";
 import AddNote from "./AddNote";
 import AddCurrency from "./AddCurrency";
 import useStore from "../../store";
+import getFormattedDate from "../../helpers/getFormattedDate";
 
 const NewGroupScreen = () => {
-  const { moveToScreen } = useStore();
-  const names = ["kacper", "dumin"];
+  const { moveToScreen, groups, addGroup } = useStore();
+
+  const [groupName, setGroupName] = useState("");
+  const [groupType, setGroupType] = useState("Friends");
+  const [groupCurrency, setGroupCurrency] = useState("PLN");
+  const [groupNote, setGroupNote] = useState("");
+  const [isAddingFriend, setIsAddingFriend] = useState(false);
+  const [friends, setFriends] = useState([]);
 
   const handleSavePress = () => {
+    const newGroup = {
+      name: groupName,
+      amount: friends.length,
+      people: friends,
+      createDate: getFormattedDate(),
+      groupType: groupType,
+      id: groups.length,
+    };
+    addGroup(newGroup);
     moveToScreen("/mainScreen");
   };
   const handleCancelPress = () => {
@@ -30,12 +45,37 @@ const NewGroupScreen = () => {
   };
 
   const styles = newGroupStyles;
-  const [isAddingFriend, setIsAddingFriend] = useState(false);
 
   const handleAddingFriend = (isAdding) => {
     setIsAddingFriend(isAdding);
   };
+  const updateFriends = (newFriends) => {
+    setFriends(newFriends);
+  };
+  const handleGroupNameChange = (newGroupName) => {
+    setGroupName(newGroupName);
+  };
+  const handleGroupTypeChange = (newGroupType) => {
+    setGroupType(newGroupType);
+  };
+  const handleGroupCurrencyChange = (newGroupCurrency) => {
+    setGroupCurrency(newGroupCurrency);
+  };
+  const handleGroupNoteChange = (newGroupNote) => {
+    setGroupNote(newGroupNote);
+  };
 
+  const ableToAdd = groupName && friends.length > 1;
+
+  const friendsViewElement = friends.map((friend) => {
+    return (
+      <FriendName
+        friend={friend}
+        friends={friends}
+        updateFriends={updateFriends}
+      />
+    );
+  });
   return (
     <View>
       <Text style={headerStyle}>Add new group</Text>
@@ -43,19 +83,16 @@ const NewGroupScreen = () => {
         <View style={styles.groupNameContainer}>
           <TextInput
             placeholder="group name"
+            value={groupName}
             placeholderTextColor={inputColor}
             style={styles.groupNameInput}
+            onChangeText={handleGroupNameChange}
           />
-          <View style={styles.editButton}>
-            <EditButton />
-          </View>
         </View>
         <View>
           <View style={{ marginTop: 10, marginBottom: 10 }}>
             <ScrollView style={{ maxHeight: 200 }}>
-              <FriendName friendName={names[0]} />
-              <FriendName friendName={names[1]} />
-              <FriendName friendName={names[0]} />
+              {friendsViewElement}
             </ScrollView>
           </View>
           {!isAddingFriend ? (
@@ -66,7 +103,11 @@ const NewGroupScreen = () => {
               }}
             ></Button>
           ) : (
-            <AddFriend handleAddingFriend={handleAddingFriend} />
+            <AddFriend
+              handleAddingFriend={handleAddingFriend}
+              updateFriends={updateFriends}
+              friends={friends}
+            />
           )}
         </View>
       </View>
@@ -92,7 +133,7 @@ const NewGroupScreen = () => {
         }}
       >
         <Button color="white" title="cancel" onPress={handleCancelPress} />
-        <Button title="save" onPress={handleSavePress} />
+        <Button title="save" onPress={handleSavePress} disabled={!ableToAdd} />
       </View>
     </View>
   );

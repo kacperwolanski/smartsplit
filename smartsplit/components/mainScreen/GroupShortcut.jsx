@@ -4,7 +4,8 @@ import { groupShortcutStyles } from "./styles";
 import useStore from "../../store";
 
 const GroupShortcut = ({ groupData }) => {
-  const { name, amount, createDate, id } = groupData;
+  const styles = groupShortcutStyles;
+  const { name, amount, createDate, id, groupType } = groupData;
   const { setActualGroup, moveToScreen } = useStore();
   const handlePress = () => {
     setActualGroup(groupData);
@@ -15,17 +16,18 @@ const GroupShortcut = ({ groupData }) => {
       style={groupShortcutStyles.container}
       onPress={handlePress}
     >
-      <Text style={groupShortcutStyles.date}>{createDate}</Text>
+      <Text style={styles.date}>{createDate}</Text>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text style={groupShortcutStyles.name}>{name}</Text>
+        <Text style={styles.name}>{name}</Text>
         <View style={{ flexDirection: "row", gap: 2, marginTop: 6 }}>
           <Image
             source={require("../../assets/personIcon.png")}
-            style={groupShortcutStyles.personImage}
+            style={styles.personImage}
           />
           <Text style={{ color: "white" }}>{amount}</Text>
         </View>
       </View>
+      <Text style={styles.groupType}>{groupType}</Text>
     </TouchableOpacity>
   );
 };
