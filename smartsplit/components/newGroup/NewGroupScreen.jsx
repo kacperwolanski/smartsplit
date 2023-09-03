@@ -1,25 +1,17 @@
 import React, { useState } from "react";
-import {
-  Button,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Button, ScrollView, Text, TextInput, View } from "react-native";
 import headerStyle from "../../styles/headerStyle";
-import blueContainerStyle from "../../styles/blueContainer";
 import FriendName from "./FriendName";
 import AddFriend from "./AddFriend";
 import { inputColor } from "../../styles/consts";
-import GroupType from "./GroupType";
-import AddNote from "./AddNote";
-import AddCurrency from "./AddCurrency";
 import useStore from "../../store";
 import getFormattedDate from "../../helpers/getFormattedDate";
+import BlueTextInput from "../BlueTextInput";
+import { newGroupStyles } from "./styles";
 
 const NewGroupScreen = () => {
   const { moveToScreen, groups, addGroup } = useStore();
+  const styles = newGroupStyles;
 
   const [groupName, setGroupName] = useState("");
   const [groupType, setGroupType] = useState("Friends");
@@ -43,8 +35,6 @@ const NewGroupScreen = () => {
   const handleCancelPress = () => {
     moveToScreen("/mainScreen");
   };
-
-  const styles = newGroupStyles;
 
   const handleAddingFriend = (isAdding) => {
     setIsAddingFriend(isAdding);
@@ -118,11 +108,26 @@ const NewGroupScreen = () => {
           marginTop: 10,
         }}
       >
-        <GroupType />
-        <AddCurrency />
+        <BlueTextInput
+          placeholder={groupType}
+          saveFunction={handleGroupTypeChange}
+          header="Group type"
+          dimensions={{ minHeight: 90, minWidth: 150 }}
+        />
+        <BlueTextInput
+          placeholder={groupCurrency}
+          saveFunction={setGroupCurrency}
+          header="Currency"
+          dimensions={{ minHeight: 90, minWidth: 150 }}
+        />
       </View>
 
-      <AddNote />
+      <BlueTextInput
+        placeholder={groupNote}
+        saveFunction={setGroupNote}
+        header="Note"
+        dimensions={{ minHeight: 80, minWidth: 150 }}
+      />
 
       <View
         style={{
@@ -140,26 +145,3 @@ const NewGroupScreen = () => {
 };
 
 export default NewGroupScreen;
-const newGroupStyles = StyleSheet.create({
-  container: {
-    paddingTop: 8,
-    paddingBottom: 10,
-    paddingHorizontal: 18,
-    minHeight: 130,
-    ...blueContainerStyle,
-  },
-  groupNameContainer: {
-    borderBottomWidth: 0.2,
-    borderBottomColor: "white",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  groupNameInput: {
-    color: "white",
-    fontSize: 24,
-    paddingVertical: 12,
-  },
-  editButton: {
-    marginTop: 15,
-  },
-});
