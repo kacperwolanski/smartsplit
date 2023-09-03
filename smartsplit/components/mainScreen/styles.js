@@ -22,4 +22,8 @@ export const groupShortcutStyles = StyleSheet.create({
     height: 14,
     marginTop: 1,
   },
+  groupType: {
+    color: "white",
+    textAlign: "right",
+  },
 });

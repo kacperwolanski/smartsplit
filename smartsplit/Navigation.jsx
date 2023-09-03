@@ -16,8 +16,6 @@ const Navigation = () => {
       {actualGroup && actualScreen === `/group/${actualGroup.id}` && (
         <GroupDetailsScreen />
       )}
-      {/* <GroupDetailsScreen group={groups[0]} /> */}
-      {/* <MainScreen /> */}
     </View>
   );
 };

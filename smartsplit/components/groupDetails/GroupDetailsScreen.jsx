@@ -53,7 +53,9 @@ const GroupDetailsScreen = () => {
           />
         </View>
 
-        <CirclePlusButton />
+        <View style={{ marginLeft: 172 }}>
+          <CirclePlusButton />
+        </View>
       </View>
     </View>
   );

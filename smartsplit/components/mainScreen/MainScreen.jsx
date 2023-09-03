@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import GroupShortcut from "./GroupShortcut";
 import headerStyle from "../../styles/headerStyle";
 import useStore from "../../store";
@@ -10,15 +10,24 @@ const MainScreen = () => {
   const handlePress = () => {
     moveToScreen("/addGroup");
   };
+  const groupsViewElement = groups.map((group) => {
+    return (
+      <View style={{ marginBottom: 20 }}>
+        <GroupShortcut groupData={group} />
+      </View>
+    );
+  });
   return (
     <View>
       <Text style={headerStyle}>Your groups</Text>
-      <View style={{ gap: 20 }}>
-        <GroupShortcut groupData={groups[0]} />
-        <GroupShortcut groupData={groups[1]} />
-        <GroupShortcut groupData={groups[2]} />
-      </View>
-      <View style={{ justifyContent: "flex-start", alignItems: "flex-end" }}>
+      <ScrollView>{groupsViewElement}</ScrollView>
+      <View
+        style={{
+          justifyContent: "flex-start",
+          alignItems: "flex-end",
+          marginTop: 20,
+        }}
+      >
         <CirclePlusButton onPressFunc={handlePress} />
       </View>
     </View>
