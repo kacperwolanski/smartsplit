@@ -3,6 +3,7 @@ export default headerStyle = {
   color: "white",
   fontWeight: "bold",
   textAlign: "left",
-  marginTop: 130,
-  marginBottom: 20,
+  marginTop: 100,
+  marginBottom: 30,
+  marginLeft: 20,
 };

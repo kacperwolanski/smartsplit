@@ -7,8 +7,6 @@ import GroupDetailsScreen from "./components/groupDetails/GroupDetailsScreen";
 
 const Navigation = () => {
   const { actualScreen, actualGroup } = useStore();
-
-  console.log(actualScreen);
   return (
     <View>
       {actualScreen === "/mainScreen" && <MainScreen />}

@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { inputColor } from "../styles/consts";
 
-const BlueTextInput = ({ placeholder, saveFunction, header, dimensions }) => {
-  const { minWidth, minHeight } = dimensions;
-  const styleDimensions = { minHeight: minHeight, minWidth: minWidth };
+const BlueTextInput = ({ placeholder, saveFunction, header, width }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedValue, setEditedValue] = useState("");
   const cancelEditing = () => {
@@ -14,10 +12,11 @@ const BlueTextInput = ({ placeholder, saveFunction, header, dimensions }) => {
     saveFunction(editedValue);
     setIsEditing(false);
   };
+
   return (
     <View style={{ marginTop: 20 }}>
       <Text style={styles.headerStyle}>{header}</Text>
-      <View style={[styles.blueContainer, styleDimensions]}>
+      <View style={[styles.blueContainer, { width: width }]}>
         {!isEditing ? (
           <View>
             <Text style={styles.textInput}>{placeholder}</Text>
@@ -35,11 +34,14 @@ const BlueTextInput = ({ placeholder, saveFunction, header, dimensions }) => {
             <TextInput
               placeholder={placeholder}
               value={editedValue}
-              onTextChange={(newValue) => {
+              onChangeText={(newValue) => {
                 setEditedValue(newValue);
               }}
               placeholderTextColor={inputColor}
-              style={{ ...styles.textInput }}
+              style={{
+                ...styles.textInput,
+                width: width,
+              }}
             />
             <View
               style={{
