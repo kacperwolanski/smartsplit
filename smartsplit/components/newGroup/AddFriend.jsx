@@ -26,7 +26,7 @@ const AddFriend = ({ handleAddingFriend, updateFriends, friends }) => {
       />
       <View style={styles.buttonsContainer}>
         <Button color="white" title="cancel" onPress={cancelAddingFriend} />
-        <Button title="add" onPress={addFriend} />
+        <Button title="save" onPress={addFriend} />
       </View>
     </View>
   );

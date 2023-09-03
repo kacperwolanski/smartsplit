@@ -1,11 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import EditButton from "../buttons/EditButton";
 import RemoveButton from "../buttons/RemoveButton";
+import { friendNameStyles } from "./styles";
 
 const FriendName = ({ friend, friends, updateFriends }) => {
   const { name, id } = friend;
-
+  const styles = friendNameStyles;
   const handleRemoveFriend = () => {
     const newFriends = friends.filter((friend) => {
       return friend.id !== id;
@@ -24,20 +25,3 @@ const FriendName = ({ friend, friends, updateFriends }) => {
 };
 
 export default FriendName;
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  friendName: {
-    color: "white",
-    fontSize: 18,
-  },
-  buttonsContainer: {
-    flexDirection: "row",
-    gap: 5,
-  },
-});

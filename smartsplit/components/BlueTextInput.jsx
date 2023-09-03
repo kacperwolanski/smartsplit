@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-import blueContainerStyle from "../../styles/blueContainer";
-import { inputColor } from "../../styles/consts";
-const AddCurrency = () => {
+import { inputColor } from "../styles/consts";
+
+const BlueTextInput = ({ placeholder, saveFunction, header, dimensions }) => {
+  const { minWidth, minHeight } = dimensions;
+  const styleDimensions = { minHeight: minHeight, minWidth: minWidth };
   const [isEditing, setIsEditing] = useState(false);
+  const [editedValue, setEditedValue] = useState("");
   const cancelEditing = () => {
     setIsEditing(false);
   };
   const saveChanges = () => {
+    saveFunction(editedValue);
     setIsEditing(false);
   };
   return (
     <View style={{ marginTop: 20 }}>
-      <Text style={styles.headerStyle}>Currency</Text>
-      <View style={styles.blueContainer}>
+      <Text style={styles.headerStyle}>{header}</Text>
+      <View style={[styles.blueContainer, styleDimensions]}>
         {!isEditing ? (
           <View>
-            <Text style={styles.textInput}>PLN</Text>
+            <Text style={styles.textInput}>{placeholder}</Text>
             <View style={{ marginTop: 10 }}>
               <Button
                 title="edit"
@@ -29,7 +33,11 @@ const AddCurrency = () => {
         ) : (
           <View>
             <TextInput
-              placeholder="PLN"
+              placeholder={placeholder}
+              value={editedValue}
+              onTextChange={(newValue) => {
+                setEditedValue(newValue);
+              }}
               placeholderTextColor={inputColor}
               style={{ ...styles.textInput }}
             />
@@ -52,9 +60,7 @@ const AddCurrency = () => {
 
 const styles = StyleSheet.create({
   blueContainer: {
-    minHeight: 90,
     marginTop: 5,
-    width: 150,
     ...blueContainerStyle,
   },
   headerStyle: {
@@ -70,4 +76,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-export default AddCurrency;
+export default BlueTextInput;
