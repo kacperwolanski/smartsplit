@@ -28,7 +28,7 @@ const NewGroupScreen = () => {
       people: friends,
       createDate: getFormattedDate(),
       groupType: groupType,
-      id: groups.length,
+      id: Math.floor(Math.random() * 10000),
     };
     addGroup(newGroup);
     moveToScreen("/mainScreen");
@@ -49,16 +49,10 @@ const NewGroupScreen = () => {
   const handleGroupTypeChange = (newGroupType) => {
     setGroupType(newGroupType);
   };
-  const handleGroupCurrencyChange = (newGroupCurrency) => {
-    setGroupCurrency(newGroupCurrency);
-  };
-  const handleGroupNoteChange = (newGroupNote) => {
-    setGroupNote(newGroupNote);
-  };
 
   const ableToAdd = groupName && friends.length > 1;
 
-  console.log("gt: ", groupType);
+  console.log(groups);
   const friendsViewElement = friends.map((friend) => {
     return (
       <FriendName
@@ -83,7 +77,7 @@ const NewGroupScreen = () => {
             />
           </View>
           <View>
-            <View style={{ marginTop: 10, marginBottom: 10 }}>
+            <View style={{ paddingVertical: 10 }}>
               <ScrollView style={{ maxHeight: 200 }}>
                 {friendsViewElement}
               </ScrollView>
@@ -133,7 +127,7 @@ const NewGroupScreen = () => {
       </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color="white" title="cancel" onPress={handleCancelPress} />
-        <Button title="save" onPress={handleSavePress} disabled={ableToAdd} />
+        <Button title="save" onPress={handleSavePress} disabled={!ableToAdd} />
       </View>
     </View>
   );

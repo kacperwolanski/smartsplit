@@ -1,9 +1,9 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
-const EditButton = () => {
+const EditButton = ({ onPressFunc }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPressFunc}>
       <Image
         source={require("../../assets/editIcon.png")}
         style={styles.editIcon}
