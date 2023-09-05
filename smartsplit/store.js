@@ -14,6 +14,7 @@ const useStore = create((set, get) => ({
       ],
       createDate: "10.02.2021",
       groupType: "Friends",
+      groupCurrency: "PLN",
       id: "1",
     },
   ],

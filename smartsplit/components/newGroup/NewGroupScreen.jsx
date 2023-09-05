@@ -8,7 +8,7 @@ import useStore from "../../store";
 import getFormattedDate from "../../helpers/getFormattedDate";
 import BlueTextInput from "../BlueTextInput";
 import { newGroupStyles } from "./styles";
-import ScreenContent from "../../ScreenContent";
+import ScreenContent from "../appComponents/ScreenContent";
 
 const NewGroupScreen = () => {
   const { moveToScreen, groups, addGroup } = useStore();
@@ -28,6 +28,7 @@ const NewGroupScreen = () => {
       people: friends,
       createDate: getFormattedDate(),
       groupType: groupType,
+      groupCurrency: groupCurrency,
       id: Math.floor(Math.random() * 10000),
     };
     addGroup(newGroup);

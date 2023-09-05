@@ -4,7 +4,7 @@ import GroupShortcut from "./GroupShortcut";
 import headerStyle from "../../styles/headerStyle";
 import useStore from "../../store";
 import CirclePlusButton from "../buttons/CirclePlusButton";
-import ScreenContent from "../../ScreenContent";
+import ScreenContent from "../appComponents/ScreenContent";
 
 const MainScreen = () => {
   const { moveToScreen, groups } = useStore();
