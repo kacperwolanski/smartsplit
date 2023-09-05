@@ -1,6 +1,5 @@
 import { create } from "zustand";
 const useStore = create((set, get) => ({
-  actualScreen: "/mainScreen",
   actualGroupId: {},
   groups: [
     {
@@ -18,12 +17,20 @@ const useStore = create((set, get) => ({
       id: "1",
     },
   ],
+  path: ["/mainScreen"],
 
-  moveToScreen: (newScreen) => set(() => ({ actualScreen: newScreen })),
   setActualGroup: (newGroup) => set(() => ({ actualGroup: newGroup })),
   addGroup: (newGroup) => {
     const { groups } = get();
     set(() => ({ groups: [...groups, newGroup] }));
+  },
+  updatePath: (destination) => {
+    const { path } = get();
+    if (destination === "back") {
+      set(() => ({ path: path.slice(0, -1) }));
+    } else {
+      set(() => ({ path: [...path, destination] }));
+    }
   },
 }));
 

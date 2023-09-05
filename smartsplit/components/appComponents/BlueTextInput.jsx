@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-import { inputColor } from "../styles/consts";
+import { inputColor } from "../../styles/consts";
 
 const BlueTextInput = ({ placeholder, saveFunction, header, width }) => {
   const [isEditing, setIsEditing] = useState(false);

@@ -6,11 +6,13 @@ import AddFriend from "./AddFriend";
 import { inputColor } from "../../styles/consts";
 import useStore from "../../store";
 import getFormattedDate from "../../helpers/getFormattedDate";
-import BlueTextInput from "../BlueTextInput";
+import BlueTextInput from "../appComponents/BlueTextInput";
 import { newGroupStyles } from "./styles";
 import ScreenContent from "../appComponents/ScreenContent";
+import { usePath } from "../../hooks/usePathHook";
 
 const NewGroupScreen = () => {
+  const { goBack } = usePath();
   const { moveToScreen, groups, addGroup } = useStore();
   const styles = newGroupStyles;
 
@@ -32,10 +34,10 @@ const NewGroupScreen = () => {
       id: Math.floor(Math.random() * 10000),
     };
     addGroup(newGroup);
-    moveToScreen("/mainScreen");
+    goBack();
   };
   const handleCancelPress = () => {
-    moveToScreen("/mainScreen");
+    goBack();
   };
 
   const handleAddingFriend = (isAdding) => {
@@ -53,7 +55,6 @@ const NewGroupScreen = () => {
 
   const ableToAdd = groupName && friends.length > 1;
 
-  console.log(groups);
   const friendsViewElement = friends.map((friend) => {
     return (
       <FriendName

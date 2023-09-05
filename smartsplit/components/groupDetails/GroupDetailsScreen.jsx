@@ -6,9 +6,11 @@ import FriendName from "./FriendName";
 import OptionButton from "../buttons/OptionButton";
 import { coinsIconUrl, historyIconUrl, optionsIconUrl } from "../../appConsts";
 import ScreenContent from "../appComponents/ScreenContent";
+import { usePath } from "../../hooks/usePathHook";
 
 const GroupDetailsScreen = () => {
-  const { moveToScreen, actualGroup } = useStore();
+  const { goBack } = usePath();
+  const { actualGroup } = useStore();
   const { name, people, groupCurrency, id } = actualGroup;
   const styles = groupDetailsScreen;
   const friendsViewElement = people.map((person) => {
@@ -42,7 +44,7 @@ const GroupDetailsScreen = () => {
               color="white"
               title="back"
               onPress={() => {
-                moveToScreen("/mainScreen");
+                goBack();
               }}
             />
           </View>

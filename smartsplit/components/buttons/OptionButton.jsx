@@ -2,8 +2,10 @@ import React from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { historyIconUrl, optionsIconUrl } from "../../appConsts";
 import useStore from "../../store";
+import { usePath } from "../../hooks/usePathHook";
 const OptionButton = ({ imagePath, pathKeyword }) => {
-  const { actualGroup, moveToScreen } = useStore();
+  const { moveTo } = usePath();
+  const { actualGroup } = useStore();
   const { id } = actualGroup;
   let additionalStyle = {
     marginTop: imagePath === optionsIconUrl ? 3 : -2,
@@ -12,7 +14,7 @@ const OptionButton = ({ imagePath, pathKeyword }) => {
   };
 
   const handleNavigateToScreen = () => {
-    moveToScreen(`/group/${id}/${pathKeyword}`);
+    moveTo(`/group/${id}/${pathKeyword}`);
   };
 
   return (
