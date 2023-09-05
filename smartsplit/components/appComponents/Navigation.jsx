@@ -6,7 +6,7 @@ import NewGroupScreen from "../newGroup/NewGroupScreen";
 import GroupDetailsScreen from "../groupDetails/GroupDetailsScreen";
 import OptionsScreen from "../groupDetails/buttonsScreens/OptionsScreen";
 import HistoryScreen from "../groupDetails/buttonsScreens/HistoryScreen";
-import SummaryScreen from "../groupDetails/buttonsScreens/SummaryScreen";
+import SummaryScreen from "../groupDetails/buttonsScreens/summary/SummaryScreen";
 
 const Navigation = () => {
   const { path, actualGroup } = useStore();
