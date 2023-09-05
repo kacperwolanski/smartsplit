@@ -11,11 +11,15 @@ import { usePath } from "../../hooks/usePathHook";
 const GroupDetailsScreen = () => {
   const { goBack } = usePath();
   const { actualGroup } = useStore();
-  const { name, people, groupCurrency, id } = actualGroup;
+  const { name, people, groupCurrency } = actualGroup;
   const styles = groupDetailsScreen;
-  const friendsViewElement = people.map((person) => {
+  const friendsViewElement = people.map((person, index) => {
     return (
-      <FriendName friendName={person.name} groupCurrency={groupCurrency} />
+      <FriendName
+        key={index}
+        friendName={person.name}
+        groupCurrency={groupCurrency}
+      />
     );
   });
   return (
@@ -76,7 +80,7 @@ export const groupDetailsScreen = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     position: "absolute",
-    top: 120,
+    top: 70,
     left: 0,
     right: 0,
     padding: 20,

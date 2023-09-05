@@ -3,11 +3,12 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { groupShortcutStyles } from "./styles";
 import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
+import { controlTextLen } from "../../helpers/controlTextLen";
 
 const GroupShortcut = ({ groupData }) => {
-  const { moveTo, goBack } = usePath();
+  const { moveTo } = usePath();
   const styles = groupShortcutStyles;
-  const { name, amount, createDate, id, groupType } = groupData;
+  const { name, amount, createDate, id, groupType, groupNote } = groupData;
   const { setActualGroup } = useStore();
   const handlePress = () => {
     setActualGroup(groupData);
@@ -30,6 +31,7 @@ const GroupShortcut = ({ groupData }) => {
         </View>
       </View>
       <Text style={styles.groupType}>{groupType}</Text>
+      <Text style={styles.groupNote}>{controlTextLen(groupNote, 30)}</Text>
     </TouchableOpacity>
   );
 };

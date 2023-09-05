@@ -13,7 +13,7 @@ import { usePath } from "../../hooks/usePathHook";
 
 const NewGroupScreen = () => {
   const { goBack } = usePath();
-  const { moveToScreen, groups, addGroup } = useStore();
+  const { addGroup } = useStore();
   const styles = newGroupStyles;
 
   const [groupName, setGroupName] = useState("");
@@ -31,6 +31,7 @@ const NewGroupScreen = () => {
       createDate: getFormattedDate(),
       groupType: groupType,
       groupCurrency: groupCurrency,
+      groupNote: groupNote,
       id: Math.floor(Math.random() * 10000),
     };
     addGroup(newGroup);
@@ -64,6 +65,11 @@ const NewGroupScreen = () => {
       />
     );
   });
+  const scrollTop = () => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({ x: 0, y: 100, animated: true });
+    }
+  };
   return (
     <View>
       <Text style={headerStyle}>Add new group</Text>
@@ -126,6 +132,7 @@ const NewGroupScreen = () => {
           saveFunction={setGroupNote}
           header="Note"
         />
+        <View style={{ minHeight: 200 }}></View>
       </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color="white" title="cancel" onPress={handleCancelPress} />

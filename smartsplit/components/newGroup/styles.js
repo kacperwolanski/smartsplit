@@ -30,6 +30,7 @@ export const newGroupStyles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 20,
+    marginTop: 10,
   },
 });
 

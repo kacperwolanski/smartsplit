@@ -5,11 +5,10 @@ import headerStyle from "../../styles/headerStyle";
 import useStore from "../../store";
 import CirclePlusButton from "../buttons/CirclePlusButton";
 import ScreenContent from "../appComponents/ScreenContent";
-
 import { usePath } from "../../hooks/usePathHook";
 
 const MainScreen = () => {
-  const { groups, path } = useStore();
+  const { groups } = useStore();
   const { moveTo } = usePath();
   const handlePress = () => {
     moveTo("/addGroup");
@@ -28,6 +27,7 @@ const MainScreen = () => {
       <ScreenContent>
         <ScrollView>{groupsViewElement}</ScrollView>
       </ScreenContent>
+
       <View
         style={{
           alignItems: "flex-end",
