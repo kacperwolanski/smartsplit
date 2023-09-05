@@ -1,10 +1,11 @@
 import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import useStore from "./store";
-import Navigation from "./Navigation";
+import Navigation from "./components/appComponents/Navigation";
+
 export default App = () => {
   const { actualScreen } = useStore();
-  console.log(actualScreen);
+
   return (
     <LinearGradient
       colors={[

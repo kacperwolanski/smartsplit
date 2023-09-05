@@ -1,14 +1,22 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { historyIconUrl, optionsIconUrl } from "../../appConsts";
-const OptionButton = ({ imagePath }) => {
+import useStore from "../../store";
+const OptionButton = ({ imagePath, pathKeyword }) => {
+  const { actualGroup, moveToScreen } = useStore();
+  const { id } = actualGroup;
   let additionalStyle = {
+    marginTop: imagePath === optionsIconUrl ? 3 : -2,
     marginLeft: imagePath === optionsIconUrl ? 5 : 0,
     marginRight: imagePath === historyIconUrl ? 5 : 0,
   };
 
+  const handleNavigateToScreen = () => {
+    moveToScreen(`/group/${id}/${pathKeyword}`);
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handleNavigateToScreen}>
       <Image
         source={{ uri: imagePath }}
         style={[styles.icon, additionalStyle]}

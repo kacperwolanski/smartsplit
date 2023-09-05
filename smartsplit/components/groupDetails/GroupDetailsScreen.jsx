@@ -5,37 +5,30 @@ import useStore from "../../store";
 import FriendName from "./FriendName";
 import OptionButton from "../buttons/OptionButton";
 import { coinsIconUrl, historyIconUrl, optionsIconUrl } from "../../appConsts";
+import ScreenContent from "../appComponents/ScreenContent";
 
 const GroupDetailsScreen = () => {
   const { moveToScreen, actualGroup } = useStore();
-  const { name, people } = actualGroup;
+  const { name, people, groupCurrency, id } = actualGroup;
   const styles = groupDetailsScreen;
+  const friendsViewElement = people.map((person) => {
+    return (
+      <FriendName friendName={person.name} groupCurrency={groupCurrency} />
+    );
+  });
   return (
     <View>
       <Text style={headerStyle}>{name}</Text>
-
-      <View style={styles.container}>
-        <FriendName friendName="andrzej" />
-        <FriendName friendName="kszychu" />
-        <FriendName friendName="franio" />
-      </View>
-      <View style={[styles.container, styles.buttonsContainer]}>
-        <View style={{ flexDirection: "row", gap: 30, marginTop: 20 }}>
-          <OptionButton imagePath={coinsIconUrl} />
-          <OptionButton imagePath={historyIconUrl} />
+      <ScreenContent>
+        <View style={styles.container}>{friendsViewElement}</View>
+        <View style={[styles.container, styles.buttonsContainer]}>
+          <View style={{ flexDirection: "row", gap: 20, marginTop: 20 }}>
+            <OptionButton imagePath={coinsIconUrl} pathKeyword="summary" />
+            <OptionButton imagePath={historyIconUrl} pathKeyword="history" />
+            <OptionButton imagePath={optionsIconUrl} pathKeyword="options" />
+          </View>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            gap: 30,
-            marginTop: 30,
-            marginBottom: 10,
-          }}
-        >
-          <OptionButton imagePath={optionsIconUrl} />
-          <OptionButton imagePath={"xxx"} />
-        </View>
-      </View>
+      </ScreenContent>
       <View
         style={{
           flexDirection: "row",
@@ -43,17 +36,17 @@ const GroupDetailsScreen = () => {
           paddingHorizontal: 10,
         }}
       >
-        <View style={{ marginTop: 50 }}>
-          <Button
-            color="white"
-            title="cancel"
-            onPress={() => {
-              moveToScreen("/mainScreen");
-            }}
-          />
-        </View>
+        <View style={styles.underButtonsContainer}>
+          <View style={{ marginTop: 50 }}>
+            <Button
+              color="white"
+              title="back"
+              onPress={() => {
+                moveToScreen("/mainScreen");
+              }}
+            />
+          </View>
 
-        <View style={{ marginLeft: 172 }}>
           <CirclePlusButton />
         </View>
       </View>
@@ -76,5 +69,14 @@ export const groupDetailsScreen = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
     alignItems: "center",
+  },
+  underButtonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    position: "absolute",
+    top: 120,
+    left: 0,
+    right: 0,
+    padding: 20,
   },
 });

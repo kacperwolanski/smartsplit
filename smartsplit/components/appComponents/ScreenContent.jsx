@@ -9,7 +9,7 @@ export default ScreenContent;
 
 const styles = StyleSheet.create({
   container: {
-    maxHeight: 500,
+    maxHeight: 600,
     padding: 20,
   },
 });

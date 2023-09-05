@@ -1,12 +1,15 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
-const FriendName = ({ friendName }) => {
+const FriendName = ({ friendName, moneyStatus, groupCurrency }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.friendName}>{friendName}</Text>
       <View style={styles.buttonsContainer}>
-        <Text style={{ color: "white", marginTop: 5 }}>-145PLN</Text>
+        <Text style={{ color: "white", marginTop: 5 }}>
+          {moneyStatus}
+          {groupCurrency}
+        </Text>
         <Image
           source={require("../../assets/coins.png")}
           style={styles.coinsIcon}
