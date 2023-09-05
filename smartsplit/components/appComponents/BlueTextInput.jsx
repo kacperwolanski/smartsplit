@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { inputColor } from "../../styles/consts";
 
-const BlueTextInput = ({ placeholder, saveFunction, header, width }) => {
+const BlueTextInput = ({
+  placeholder,
+  saveFunction,
+  header,
+  width,
+  scrollTop,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedValue, setEditedValue] = useState("");
   const cancelEditing = () => {
@@ -32,6 +38,8 @@ const BlueTextInput = ({ placeholder, saveFunction, header, width }) => {
         ) : (
           <View>
             <TextInput
+              multiline={true}
+              onFocus={scrollTop}
               placeholder={placeholder}
               value={editedValue}
               onChangeText={(newValue) => {
