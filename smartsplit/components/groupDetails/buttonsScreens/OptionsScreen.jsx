@@ -1,9 +1,14 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../../appComponents/ScreenContent";
 import { usePath } from "../../../hooks/usePathHook";
+import BlueTextInput from "../../appComponents/BlueTextInput";
+import useStore from "../../../store";
+import headerStyle from "../../../styles/headerStyle";
 
 const OptionsScreen = () => {
   const { goBack } = usePath();
+  const { actualGroup } = useStore();
+  const { name, people, groupCurrency, groupType, groupNote } = actualGroup;
 
   const handleBackPress = () => {
     goBack();
@@ -12,7 +17,32 @@ const OptionsScreen = () => {
   return (
     <View>
       <Text style={headerStyle}>Options</Text>
-      <ScreenContent></ScreenContent>
+      <ScreenContent>
+        <BlueTextInput
+          placeholder={name}
+          saveFunction={() => {}}
+          header="Group name"
+        />
+        <BlueTextInput
+          placeholder={groupType}
+          saveFunction={() => {}}
+          header="Group type"
+        />
+        <BlueTextInput
+          placeholder={groupCurrency}
+          saveFunction={() => {}}
+          header="Group currency"
+        />
+        <BlueTextInput
+          placeholder={groupNote}
+          saveFunction={() => {}}
+          header="Group note"
+        />
+        <View style={{ marginTop: 50, gap: 10 }}>
+          <Text style={styles.headerStyle}>Delete group</Text>
+          <Button color="#C7372F" title="delete "></Button>
+        </View>
+      </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color="white" title="back" onPress={handleBackPress} />
         <Button title="save" />
@@ -33,5 +63,10 @@ const styles = StyleSheet.create({
     right: 0,
     paddingHorizontal: 20,
     marginTop: 38,
+  },
+  headerStyle: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
