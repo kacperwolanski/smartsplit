@@ -9,23 +9,28 @@ import HistoryScreen from "../groupDetails/buttonsScreens/HistoryScreen";
 import SummaryScreen from "../groupDetails/buttonsScreens/SummaryScreen";
 
 const Navigation = () => {
-  const { actualScreen, actualGroup } = useStore();
+  const { path, actualGroup } = useStore();
+  const lastPathElement = path[path.length - 1];
+
   return (
     <View>
-      {actualScreen === "/mainScreen" && <MainScreen />}
-      {actualScreen === "/addGroup" && <NewGroupScreen />}
-      {actualGroup && actualScreen === `/group/${actualGroup.id}` && (
+      {lastPathElement === "/mainScreen" && <MainScreen />}
+      {lastPathElement === "/addGroup" && <NewGroupScreen />}
+      {actualGroup && lastPathElement === `/group/${actualGroup.id}` && (
         <GroupDetailsScreen />
       )}
-      {actualGroup && actualScreen === `/group/${actualGroup.id}/summary` && (
-        <SummaryScreen />
-      )}
-      {actualGroup && actualScreen === `/group/${actualGroup.id}/history` && (
-        <HistoryScreen />
-      )}
-      {actualGroup && actualScreen === `/group/${actualGroup.id}/options` && (
-        <OptionsScreen />
-      )}
+      {actualGroup &&
+        lastPathElement === `/group/${actualGroup.id}/summary` && (
+          <SummaryScreen />
+        )}
+      {actualGroup &&
+        lastPathElement === `/group/${actualGroup.id}/history` && (
+          <HistoryScreen />
+        )}
+      {actualGroup &&
+        lastPathElement === `/group/${actualGroup.id}/options` && (
+          <OptionsScreen />
+        )}
     </View>
   );
 };

@@ -6,18 +6,22 @@ import useStore from "../../store";
 import CirclePlusButton from "../buttons/CirclePlusButton";
 import ScreenContent from "../appComponents/ScreenContent";
 
+import { usePath } from "../../hooks/usePathHook";
+
 const MainScreen = () => {
-  const { moveToScreen, groups } = useStore();
+  const { groups, path } = useStore();
+  const { moveTo } = usePath();
   const handlePress = () => {
-    moveToScreen("/addGroup");
+    moveTo("/addGroup");
   };
   const groupsViewElement = groups.map((group) => {
     return (
-      <View style={{ marginBottom: 20 }}>
+      <View style={{ marginBottom: 20 }} key={group.id}>
         <GroupShortcut groupData={group} />
       </View>
     );
   });
+
   return (
     <View>
       <Text style={headerStyle}>Your groups</Text>

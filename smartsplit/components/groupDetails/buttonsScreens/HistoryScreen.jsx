@@ -1,11 +1,12 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../../appComponents/ScreenContent";
-import useStore from "../../../store";
+import { usePath } from "../../../hooks/usePathHook";
 
 const HistoryScreen = () => {
-  const { moveToScreen } = useStore();
+  const { goBack } = usePath();
+
   const handleBackPress = () => {
-    moveToScreen("");
+    goBack();
   };
 
   return (

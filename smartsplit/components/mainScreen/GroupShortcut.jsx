@@ -2,14 +2,16 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { groupShortcutStyles } from "./styles";
 import useStore from "../../store";
+import { usePath } from "../../hooks/usePathHook";
 
 const GroupShortcut = ({ groupData }) => {
+  const { moveTo, goBack } = usePath();
   const styles = groupShortcutStyles;
   const { name, amount, createDate, id, groupType } = groupData;
-  const { setActualGroup, moveToScreen } = useStore();
+  const { setActualGroup } = useStore();
   const handlePress = () => {
     setActualGroup(groupData);
-    moveToScreen(`/group/${id}`);
+    moveTo(`/group/${id}`);
   };
   return (
     <TouchableOpacity

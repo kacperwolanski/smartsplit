@@ -4,7 +4,7 @@ import useStore from "./store";
 import Navigation from "./components/appComponents/Navigation";
 
 export default App = () => {
-  const { actualScreen } = useStore();
+  const { path } = useStore();
 
   return (
     <LinearGradient
