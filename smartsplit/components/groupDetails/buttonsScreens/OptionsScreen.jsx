@@ -38,9 +38,11 @@ const OptionsScreen = () => {
           saveFunction={() => {}}
           header="Group note"
         />
-        <View style={{ marginTop: 50, gap: 10 }}>
+        <View style={{ marginTop: 20 }}>
           <Text style={styles.headerStyle}>Delete group</Text>
-          <Button color="#C7372F" title="delete "></Button>
+          <View style={styles.deleteButtonContainer}>
+            <Button color="#C7372F" title="delete "></Button>
+          </View>
         </View>
       </ScreenContent>
       <View style={styles.buttonsContainer}>
@@ -68,5 +70,11 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
+  },
+  deleteButtonContainer: {
+    marginTop: 5,
+    gap: 10,
+    padding: 10,
+    ...blueContainerStyle,
   },
 });
