@@ -9,7 +9,7 @@ import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 
 const GroupDetailsScreen = () => {
-  const { goBack } = usePath();
+  const { goBack, moveTo } = usePath();
   const { actualGroup } = useStore();
   const { name, people, groupCurrency } = actualGroup;
   const styles = groupDetailsScreen;
@@ -22,6 +22,9 @@ const GroupDetailsScreen = () => {
       />
     );
   });
+  const handleAddPaymentPress = () => {
+    moveTo("/addPayment");
+  };
   return (
     <View>
       <Text style={headerStyle}>{name}</Text>
@@ -53,7 +56,7 @@ const GroupDetailsScreen = () => {
             />
           </View>
 
-          <CirclePlusButton />
+          <CirclePlusButton onPressFunc={handleAddPaymentPress} />
         </View>
       </View>
     </View>
