@@ -65,11 +65,7 @@ const NewGroupScreen = () => {
       />
     );
   });
-  const scrollTop = () => {
-    if (scrollViewRef.current) {
-      scrollViewRef.current.scrollTo({ x: 0, y: 100, animated: true });
-    }
-  };
+
   return (
     <View>
       <Text style={headerStyle}>Add new group</Text>
@@ -94,7 +90,7 @@ const NewGroupScreen = () => {
               <Button
                 title="add friend"
                 onPress={() => {
-                  handleAddingFriend(true);
+                  setIsAddingFriend(true);
                 }}
               ></Button>
             ) : (
