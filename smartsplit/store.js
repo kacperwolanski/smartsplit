@@ -18,12 +18,42 @@ const useStore = create((set, get) => ({
       id: "1",
     },
   ],
+  payments: [
+    {
+      person: "krystofer",
+      title: "woda gazowana",
+      amount: "50PLN",
+      date: "01.02.2023",
+    },
+    {
+      person: "kacper",
+      title: "koktajle",
+      amount: "5PLN",
+      date: "01.05.2023",
+    },
+    {
+      person: "dumin",
+      title: "woda gazowana",
+      amount: "150PLN",
+      date: "01.10.2023",
+    },
+    {
+      person: "swierku",
+      title: "woda destylowana",
+      amount: "98PLN",
+      date: "01.05.2023",
+    },
+  ],
   path: ["/mainScreen"],
 
   setActualGroup: (newGroup) => set(() => ({ actualGroup: newGroup })),
   addGroup: (newGroup) => {
     const { groups } = get();
     set(() => ({ groups: [...groups, newGroup] }));
+  },
+  addPayment: (newPayment) => {
+    const { payments } = get();
+    set(() => ({ payments: [...payments, newPayment] }));
   },
   updatePath: (destination) => {
     const { path } = get();
