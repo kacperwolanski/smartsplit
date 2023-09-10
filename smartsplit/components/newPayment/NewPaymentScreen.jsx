@@ -1,63 +1,56 @@
 import React, { useState } from "react";
-import {
-  Button,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
-import { inputColor } from "../../styles/consts";
 import headerStyle from "../../styles/headerStyle";
-import AddFriend from "../newGroup/AddFriend";
-
 import BlueTextInput from "../appComponents/BlueTextInput";
 import useStore from "../../store";
-import FriendName from "./FriendName";
+import ChoosePeople from "./ChoosePeople";
 
 const NewPaymentScreen = () => {
-  const [whoPays, setWhoPays] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [whoPays, setWhoPays] = useState([]);
+  const [forWho, setForWho] = useState([]);
+  const [amount, setAmount] = useState("0");
+  const [note, setNote] = useState("");
+
   const { actualGroup } = useStore();
-  const { people } = actualGroup;
+  const { people, groupCurrency } = actualGroup;
 
   const { goBack } = usePath();
 
-  const handleAmountChange = (amount) => {
-    setAmount(amount);
-  };
-
-  const handlePayerChange = (payer) => {
-    setWhoPays(payer);
-  };
-
-  const friendsViewElements = people.map((person) => {
-    return <FriendName person={person} key={person.id} />;
-  });
-
-  console.log(people);
+  const handleAddPayment = () => {};
   return (
     <View>
       <Text style={headerStyle}>Add new payment</Text>
       <ScreenContent>
+        <View>
+          <Text style={styles.headerStyle}>Who pays?</Text>
+          <ChoosePeople
+            people={people}
+            peopleAmount={1}
+            chosenPeopleFunc={setWhoPays}
+            chosenPeople={whoPays}
+          />
+        </View>
         <BlueTextInput
-          placeholder={whoPays}
-          saveFunction={() => {
-            handlePayerChange(payer);
-          }}
-          header="Who pays?"
+          placeholder={amount}
+          saveFunction={setAmount}
+          header={`Amount ${groupCurrency}`}
         />
         <View>
           <Text style={styles.headerStyle}>For who?</Text>
-          <View style={styles.friendsContainer}>{friendsViewElements}</View>
+          <ChoosePeople
+            people={people}
+            peopleAmount={people.length}
+            chosenPeopleFunc={setForWho}
+            chosenPeople={forWho}
+          />
         </View>
 
         <BlueTextInput
-          placeholder={"0 PLN"}
-          saveFunction={handleAmountChange}
-          header="Amount"
+          placeholder={note}
+          saveFunction={setNote}
+          header={"Note"}
         />
       </ScreenContent>
 
@@ -71,12 +64,7 @@ const NewPaymentScreen = () => {
             }}
           />
         </View>
-        <Button
-          title="add"
-          onPress={() => {
-            goBack();
-          }}
-        />
+        <Button title="add" onPress={handleAddPayment} />
       </View>
     </View>
   );
@@ -92,12 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 5,
   },
-  friendsContainer: {
-    paddingBottom: 10,
-    paddingVertical: 20,
-    paddingHorizontal: 90,
-    ...blueContainerStyle,
-  },
+
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",

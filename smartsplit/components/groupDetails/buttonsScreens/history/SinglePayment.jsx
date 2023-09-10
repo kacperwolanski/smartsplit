@@ -6,11 +6,11 @@ const SinglePayment = ({ payment }) => {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row" }}>
-        <Text style={styles.boldText}>{person} </Text>
+        <Text style={styles.boldText}>{person.name} </Text>
 
         <Text style={styles.boldText}>{amount}</Text>
       </View>
-      <Text style={{ fontSize: 12, color: "white" }}>{title}</Text>
+      <Text style={{ fontSize: 12, color: "white" }}>{note}</Text>
     </View>
   );
 };
