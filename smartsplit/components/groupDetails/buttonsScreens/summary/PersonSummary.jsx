@@ -6,8 +6,8 @@ const PersonSummary = ({ index, personName, summaries }) => {
   const randomState = ["+80PLN", "-145PLN", "+20PLN", "-9PLN"][
     Math.floor(Math.random() * 4)
   ];
-  const summariesViewElement = summaries.map((summary) => {
-    return <SingleSummary />;
+  const summariesViewElement = summaries.map((summary, index) => {
+    return <SingleSummary summary={summary} key={index} />;
   });
   return (
     <View style={{ padding: 25 }}>

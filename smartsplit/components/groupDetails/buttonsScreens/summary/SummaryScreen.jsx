@@ -3,30 +3,33 @@ import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
 import useStore from "../../../../store";
 import PersonSummary from "./PersonSummary";
+import { useSummaries } from "../../../../hooks/useSummariesHook";
+import { useEffect } from "react";
 
 const SummaryScreen = () => {
   const { goBack } = usePath();
-  const { actualGroup } = useStore();
+  const { addSummaries } = useSummaries();
+  const { actualGroup, summaries, payments } = useStore();
   const { people } = actualGroup;
   const handleBackPress = () => {
     goBack();
   };
 
-  const summary1 = ["", "", "", ""];
-  const summary2 = ["", ""];
-  const summary3 = ["", "", ""];
-  const summary4 = [""];
-  const summaries = [summary1, summary2, summary3, summary4];
-  const summariesViewElement = people.map((person, index) => {
+  const summariesViewElement = summaries.map((summary, index) => {
+    const summaryPersonName = summary.person.name;
     return (
       <PersonSummary
         key={index}
         index={index}
-        personName={person.name}
-        summaries={summaries[index]}
+        personName={summaryPersonName}
+        summaries={summary.payments}
       />
     );
   });
+
+  useEffect(() => {
+    if (!summaries.length) addSummaries();
+  }, []);
 
   return (
     <View>
@@ -37,7 +40,7 @@ const SummaryScreen = () => {
           <View style={{ padding: 20 }}>
             <View style={styles.totalContainer}>
               <Text style={{ fontSize: 10, color: "white" }}>
-                Total amount:
+                Total expense:
               </Text>
               <Text style={styles.total}>900PLN</Text>
             </View>
@@ -46,7 +49,6 @@ const SummaryScreen = () => {
       </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color="white" title="back" onPress={handleBackPress} />
-        <Button title="save" />
       </View>
     </View>
   );

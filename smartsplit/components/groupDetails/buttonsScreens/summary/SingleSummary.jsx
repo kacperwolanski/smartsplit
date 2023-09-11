@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const SingleSummary = () => {
+const SingleSummary = ({ summary }) => {
+  const { forWho, amount } = summary;
+  const { name } = forWho;
   return (
     <View>
-      <Text style={styles.summary}>-15PLN for Dumin</Text>
+      <Text style={styles.summary}>{`${amount}PLN for ${name}`}</Text>
     </View>
   );
 };

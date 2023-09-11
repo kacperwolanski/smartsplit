@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
@@ -6,19 +6,39 @@ import headerStyle from "../../styles/headerStyle";
 import BlueTextInput from "../appComponents/BlueTextInput";
 import useStore from "../../store";
 import ChoosePeople from "./ChoosePeople";
+import getFormattedDate from "../../helpers/getFormattedDate";
 
 const NewPaymentScreen = () => {
   const [whoPays, setWhoPays] = useState([]);
   const [forWho, setForWho] = useState([]);
   const [amount, setAmount] = useState("0");
   const [note, setNote] = useState("");
+  const [isAbleToAdd, setIsAbleToAdd] = useState(false);
 
-  const { actualGroup } = useStore();
+  const { actualGroup, addPayment, addSummary } = useStore();
   const { people, groupCurrency } = actualGroup;
 
   const { goBack } = usePath();
 
-  const handleAddPayment = () => {};
+  const handleAddPayment = () => {
+    if (isAbleToAdd) {
+      const newPayment = {
+        person: whoPays[0],
+        forWho: forWho,
+        note: note,
+        amount: amount,
+        date: getFormattedDate(),
+      };
+      addPayment(newPayment);
+      addSummary(null);
+      goBack();
+    }
+  };
+  useEffect(() => {
+    setIsAbleToAdd(
+      whoPays.length && forWho.length && amount.length && note.length
+    );
+  }, [whoPays, forWho, amount, note]);
   return (
     <View>
       <Text style={headerStyle}>Add new payment</Text>
@@ -64,7 +84,11 @@ const NewPaymentScreen = () => {
             }}
           />
         </View>
-        <Button title="add" onPress={handleAddPayment} />
+        <Button
+          title="add"
+          onPress={handleAddPayment}
+          disabled={!isAbleToAdd}
+        />
       </View>
     </View>
   );

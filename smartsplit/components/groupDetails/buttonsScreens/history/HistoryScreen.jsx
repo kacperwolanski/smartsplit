@@ -29,7 +29,6 @@ const HistoryScreen = () => {
       </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color="white" title="back" onPress={handleBackPress} />
-        <Button title="save" />
       </View>
     </View>
   );

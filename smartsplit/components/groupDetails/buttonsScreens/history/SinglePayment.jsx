@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const SinglePayment = ({ payment }) => {
-  const { person, title, amount, date } = payment;
+  const { person, note, amount, date } = payment;
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row" }}>

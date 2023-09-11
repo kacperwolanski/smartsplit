@@ -41,7 +41,7 @@ const FriendName = ({ person, onPressFunc, ableToMark }) => {
           styles.name,
           {
             color: getBorderColor(),
-            fontWeight: !isClicked ? "" : "bold",
+            fontWeight: !isClicked ? "normal" : "bold",
           },
         ]}
       >
