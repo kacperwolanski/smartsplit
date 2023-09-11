@@ -35,9 +35,7 @@ const NewPaymentScreen = () => {
     }
   };
   useEffect(() => {
-    setIsAbleToAdd(
-      whoPays.length && forWho.length && amount.length && note.length
-    );
+    setIsAbleToAdd(whoPays.length && forWho.length && amount.length);
   }, [whoPays, forWho, amount, note]);
   return (
     <View>
@@ -56,6 +54,7 @@ const NewPaymentScreen = () => {
           placeholder={amount}
           saveFunction={setAmount}
           header={`Amount ${groupCurrency}`}
+          inputType={"numbers"}
         />
         <View>
           <Text style={styles.headerStyle}>For who?</Text>

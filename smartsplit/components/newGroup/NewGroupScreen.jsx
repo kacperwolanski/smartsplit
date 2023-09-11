@@ -19,7 +19,7 @@ const NewGroupScreen = () => {
   const [groupName, setGroupName] = useState("");
   const [groupType, setGroupType] = useState("Friends");
   const [groupCurrency, setGroupCurrency] = useState("PLN");
-  const [groupNote, setGroupNote] = useState("");
+  const [groupNote, setGroupNote] = useState("note");
   const [isAddingFriend, setIsAddingFriend] = useState(false);
   const [friends, setFriends] = useState([]);
 
@@ -90,7 +90,7 @@ const NewGroupScreen = () => {
               <Button
                 title="add friend"
                 onPress={() => {
-                  setIsAddingFriend(true);
+                  handleAddingFriend(true);
                 }}
               ></Button>
             ) : (
@@ -120,6 +120,7 @@ const NewGroupScreen = () => {
             saveFunction={setGroupCurrency}
             header="Currency"
             width={150}
+            inputType={"strings"}
           />
         </View>
 
