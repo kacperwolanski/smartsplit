@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import SinglePayment from "./SinglePayment";
 
 const DayPayments = ({ date, payments, index }) => {
-  const paymentViewElements = payments.map((payment) => {
-    return <SinglePayment payment={payment} />;
+  const paymentViewElements = payments.map((payment, index) => {
+    return <SinglePayment payment={payment} key={index} />;
   });
   return (
     <View style={{ paddingHorizontal: 20 }}>
