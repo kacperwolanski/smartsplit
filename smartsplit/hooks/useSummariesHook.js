@@ -4,9 +4,8 @@ import useStore from "../store";
 export const useSummaries = () => {
   const { actualGroup, payments, addSummary, summaries } = useStore();
   const { people } = actualGroup;
-  console.log(payments, summaries);
+
   const addSummaries = () => {
-    console.log("add");
     people.forEach((person) => {
       const newSummary = { person: person, payments: [] };
       payments.forEach((payment) => {
@@ -16,19 +15,58 @@ export const useSummaries = () => {
           !isObjectEqual(payer, person)
         ) {
           const amount = (payment.amount / payment.forWho.length).toFixed(2);
-          const newPayment = {
-            forWho: { name: payer.name, id: payer.id },
-            amount: amount,
-          };
-          newSummary.payments = [...newSummary.payments, newPayment];
+          const addedPayments = newSummary.payments;
+          if (addedPayments.length) {
+            addedPayments.forEach((payment) => {
+              if (isObjectEqual(payment.forWho, payer)) {
+                const previousAmount = payment.amount;
+                newSummary.payments = updatedPayment(
+                  payer,
+                  parseInt(previousAmount) + parseInt(amount),
+                  addedPayments
+                );
+              } else {
+                newSummary.payments = addNewPayment(
+                  newSummary.payments,
+                  payer.name,
+                  payer.id,
+                  amount
+                );
+              }
+            });
+          } else {
+            newSummary.payments = addNewPayment(
+              newSummary.payments,
+              payer.name,
+              payer.id,
+              amount
+            );
+          }
         }
       });
 
       if (newSummary.payments.length) {
-        console.log("ns: ", newSummary, summaries);
         addSummary(newSummary);
       }
     });
   };
   return { addSummaries };
+};
+
+const addNewPayment = (payments, payerName, payerId, amount) => {
+  const newPayment = {
+    forWho: { name: payerName, id: payerId },
+    amount: amount,
+  };
+  return [...payments, newPayment];
+};
+const updatedPayment = (forWho, newAmount, payments) => {
+  const newPayments = payments.filter((payment) => {
+    !isObjectEqual(payment.forWho, forWho);
+  });
+  const updatedPayment = {
+    forWho: forWho,
+    amount: newAmount,
+  };
+  return [...newPayments, updatedPayment];
 };

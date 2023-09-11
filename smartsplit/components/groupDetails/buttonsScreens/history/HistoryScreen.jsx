@@ -12,14 +12,17 @@ const HistoryScreen = () => {
     goBack();
   };
 
-  const dayPaymentsViewElement = (
-    <View>
-      <DayPayments date={payments[0].date} payments={[payments[0]]} index={0} />
-      <DayPayments date={payments[1].date} payments={[payments[1]]} index={1} />
-      <DayPayments date={payments[2].date} payments={[payments[2]]} index={2} />
-      <DayPayments date={payments[3].date} payments={[payments[3]]} index={3} />
-    </View>
-  );
+  const dayPaymentsViewElement = payments.map((payment, index) => {
+    return (
+      <View key={index}>
+        <DayPayments
+          date={payments[0].date}
+          payments={[payments[0]]}
+          index={0}
+        />
+      </View>
+    );
+  });
 
   return (
     <View>

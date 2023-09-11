@@ -8,6 +8,7 @@ const BlueTextInput = ({
   header,
   width,
   scrollTop,
+  inputType,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedValue, setEditedValue] = useState("");
@@ -17,6 +18,16 @@ const BlueTextInput = ({
   const saveChanges = () => {
     saveFunction(editedValue);
     setIsEditing(false);
+  };
+
+  const handleValueChange = (inputText) => {
+    if (inputType === "numbers") {
+      const numericText = inputText.replace(/[^0-9]/g, "");
+      setEditedValue(numericText);
+    } else if (inputType === "strings") {
+      const alphabetText = inputText.replace(/[^A-Za-z]/g, "");
+      setEditedValue(alphabetText);
+    } else setEditedValue(inputText);
   };
 
   return (
@@ -42,9 +53,7 @@ const BlueTextInput = ({
               onFocus={scrollTop}
               placeholder={placeholder}
               value={editedValue}
-              onChangeText={(newValue) => {
-                setEditedValue(newValue);
-              }}
+              onChangeText={handleValueChange}
               placeholderTextColor={inputColor}
               style={{
                 ...styles.textInput,
@@ -80,7 +89,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     textAlign: "center",
-    color: "white",
+    color: inputColor,
     paddingHorizontal: 20,
     paddingTop: 10,
     fontSize: 20,
