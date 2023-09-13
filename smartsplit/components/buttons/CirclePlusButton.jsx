@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { darkerBlue } from "../../styles/consts";
 
 const CirclePlusButton = ({ onPressFunc }) => {
   return (
@@ -23,14 +24,14 @@ export default CirclePlusButton;
 const styles = StyleSheet.create({
   circleButtonStyle: {
     borderRadius: "50%",
-    backgroundColor: "#191B3F",
+    backgroundColor: darkerBlue,
     width: 70,
     height: 70,
     justifyContent: "center",
     marginTop: 40,
-    shadowColor: "black",
+    shadowColor: "white",
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.7,
-    shadowRadius: 5,
+    shadowOpacity: 0.6,
+    shadowRadius: 7,
   },
 });

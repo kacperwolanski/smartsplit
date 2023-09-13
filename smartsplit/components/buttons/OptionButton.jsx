@@ -3,6 +3,7 @@ import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { historyIconUrl, optionsIconUrl } from "../../appConsts";
 import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
+import { darkerBlue } from "../../styles/consts";
 const OptionButton = ({ imagePath, pathKeyword }) => {
   const { moveTo } = usePath();
   const { actualGroup } = useStore();
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 20,
-    backgroundColor: "#191B3F",
+    backgroundColor: darkerBlue,
     justifyContent: "center",
     alignItems: "center",
   },

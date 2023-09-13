@@ -1,7 +1,8 @@
-import { StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import useStore from "./store";
 import Navigation from "./components/appComponents/Navigation";
+import { coinsIconUrl } from "./appConsts";
 
 export default App = () => {
   const { path } = useStore();
@@ -19,6 +20,7 @@ export default App = () => {
       style={{ flex: 1 }}
     >
       <View style={styles.container}>
+        {/* <Image source={{ uri: coinsIconUrl }} style={styles.coinsIcon} /> */}
         <Navigation />
       </View>
     </LinearGradient>
@@ -29,5 +31,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderWidth: 1,
+  },
+  coinsIcon: {
+    position: "absolute",
+    top: 300,
+    left: -50,
+    width: 500,
+    height: 500,
+    opacity: 0.1,
   },
 });
