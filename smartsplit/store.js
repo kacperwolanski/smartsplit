@@ -6,10 +6,10 @@ const useStore = create((set, get) => ({
       name: "group1",
       amount: "4",
       people: [
-        { name: "krystofer", id: "1" },
-        { name: "kacper", id: "2" },
-        { name: "kamil", id: "3" },
-        { name: "dumin", id: "4" },
+        { name: "krystofer", id: "1", status: 0 },
+        { name: "kacper", id: "2", status: 0 },
+        { name: "kamil", id: "3", status: 0 },
+        { name: "dumin", id: "4", status: 0 },
       ],
       createDate: "10.02.2021",
       groupType: "Friends",
@@ -22,9 +22,9 @@ const useStore = create((set, get) => ({
     {
       person: { name: "krystofer", id: "1" },
       forWho: [
-        { name: "kacper", id: "2" },
-        { name: "krystofer", id: "1" },
-        { name: "dumin", id: "4" },
+        { name: "kacper", id: "2", status: 0 },
+        { name: "krystofer", id: "1", status: 0 },
+        { name: "dumin", id: "4", status: 0 },
       ],
       note: "woda gazowana",
       amount: 50,
@@ -64,6 +64,9 @@ const useStore = create((set, get) => ({
   path: ["/mainScreen"],
 
   setActualGroup: (newGroup) => set(() => ({ actualGroup: newGroup })),
+  updateGroups: (updatedGroups) => {
+    set(() => ({ groups: updatedGroups }));
+  },
   addGroup: (newGroup) => {
     const { groups } = get();
     set(() => ({ groups: [...groups, newGroup] }));

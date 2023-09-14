@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import CirclePlusButton from "../buttons/CirclePlusButton";
 import useStore from "../../store";
@@ -7,17 +7,22 @@ import OptionButton from "../buttons/OptionButton";
 import { coinsIconUrl, historyIconUrl, optionsIconUrl } from "../../appConsts";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
+import { useSummaries } from "../../hooks/useSummariesHook";
+import useMoneyStatus from "../../hooks/useMoneyStatusHook";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
-  const { actualGroup } = useStore();
+  const { actualGroup, summaries } = useStore();
   const { name, people, groupCurrency } = actualGroup;
   const styles = groupDetailsScreen;
+  const { addSummaries } = useSummaries();
+  const { getMoneyStatus } = useMoneyStatus();
   const friendsViewElement = people.map((person, index) => {
     return (
       <FriendName
         key={index}
         friendName={person.name}
+        moneyStatus={person.status}
         groupCurrency={groupCurrency}
       />
     );
@@ -25,6 +30,13 @@ const GroupDetailsScreen = () => {
   const handleAddPaymentPress = () => {
     moveTo("/addPayment");
   };
+
+  useEffect(() => {
+    if (!summaries.length) {
+      addSummaries();
+      getMoneyStatus();
+    }
+  }, []);
   return (
     <View>
       <Text style={headerStyle}>{name}</Text>
