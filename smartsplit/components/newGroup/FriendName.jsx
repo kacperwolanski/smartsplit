@@ -33,7 +33,7 @@ const FriendName = ({ friend, friends, updateFriends }) => {
 
       updateFriends([
         ...newFriends,
-        { name: editedName, id: Math.floor(Math.random() * 10000) },
+        { name: editedName, id: Math.floor(Math.random() * 10000), status: 0 },
       ]);
       setEditedName("");
     }

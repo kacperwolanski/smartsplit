@@ -3,13 +3,10 @@ import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
 import useStore from "../../../../store";
 import PersonSummary from "./PersonSummary";
-import { useSummaries } from "../../../../hooks/useSummariesHook";
-import { useEffect } from "react";
 
 const SummaryScreen = () => {
   const { goBack } = usePath();
-  const { addSummaries } = useSummaries();
-  const { actualGroup, summaries, payments } = useStore();
+  const { actualGroup, summaries } = useStore();
   const { people } = actualGroup;
   const handleBackPress = () => {
     goBack();
@@ -26,10 +23,6 @@ const SummaryScreen = () => {
       />
     );
   });
-
-  useEffect(() => {
-    if (!summaries.length) addSummaries();
-  }, []);
 
   return (
     <View>
