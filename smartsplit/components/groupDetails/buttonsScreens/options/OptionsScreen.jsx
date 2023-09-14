@@ -1,10 +1,11 @@
 import { Button, StyleSheet, Text, View } from "react-native";
-import ScreenContent from "../../appComponents/ScreenContent";
-import { usePath } from "../../../hooks/usePathHook";
-import BlueTextInput from "../../appComponents/BlueTextInput";
-import useStore from "../../../store";
-import headerStyle from "../../../styles/headerStyle";
+import ScreenContent from "../../../appComponents/ScreenContent";
+import { usePath } from "../../../../hooks/usePathHook";
+import BlueTextInput from "../../../appComponents/BlueTextInput";
+import useStore from "../../../../store";
+import headerStyle from "../../../../styles/headerStyle";
 import { useState } from "react";
+import DeleteModal from "./DeleteModal";
 
 const OptionsScreen = () => {
   const { goBack } = usePath();
@@ -14,9 +15,10 @@ const OptionsScreen = () => {
   const [newType, setNewType] = useState(groupType);
   const [newCurrency, setNewCurrency] = useState(groupCurrency);
   const [newNote, setNewNote] = useState(groupNote);
-
-  const handleBackPress = () => {
-    goBack();
+  const [isDeleting, setIsDeleting] = useState(false);
+  const { moveTo } = usePath();
+  const handleDeletePress = () => {
+    setIsDeleting(true);
   };
   const handleSavePress = () => {
     const updatedGroup = {
@@ -34,7 +36,14 @@ const OptionsScreen = () => {
     goBack();
   };
 
-  const handleDeletePress = () => {};
+  const handleDeleteGroup = () => {
+    const filteredGroups = groups.filter((group) => {
+      group.id !== actualGroup.id;
+    });
+    updateGroups(filteredGroups);
+    moveTo("/mainScreen");
+  };
+
   return (
     <View>
       <Text style={headerStyle}>Options</Text>
@@ -66,16 +75,25 @@ const OptionsScreen = () => {
           <View style={styles.deleteButtonContainer}>
             <Button
               color="#C7372F"
-              title="delete "
+              title="delete"
               onPress={handleDeletePress}
             ></Button>
           </View>
         </View>
       </ScreenContent>
       <View style={styles.buttonsContainer}>
-        <Button color="white" title="back" onPress={handleBackPress} />
+        <Button color="white" title="back" onPress={goBack} />
         <Button title="save" onPress={handleSavePress} />
       </View>
+      {isDeleting && (
+        <View>
+          <DeleteModal
+            setIsDeleting={setIsDeleting}
+            handleDeleteGroup={handleDeleteGroup}
+            groupName={name}
+          />
+        </View>
+      )}
     </View>
   );
 };
