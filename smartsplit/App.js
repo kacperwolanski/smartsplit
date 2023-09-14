@@ -1,11 +1,8 @@
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import useStore from "./store";
 import Navigation from "./components/appComponents/Navigation";
 
 export default App = () => {
-  const { path } = useStore();
-
   return (
     <LinearGradient
       colors={[
