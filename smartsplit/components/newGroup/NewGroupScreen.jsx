@@ -114,6 +114,7 @@ const NewGroupScreen = () => {
             saveFunction={handleGroupTypeChange}
             header="Group type"
             width={150}
+            inputType="strings"
           />
           <BlueTextInput
             placeholder={groupCurrency}
