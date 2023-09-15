@@ -3,23 +3,26 @@ import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
 import useStore from "../../../../store";
 import DayPayments from "./DayPayments";
+import usePaymentsByDate from "../../../../hooks/usePaymentsByDateHook";
 
 const HistoryScreen = () => {
   const { goBack } = usePath();
   const { payments } = useStore();
-
+  const { getPaymentsByDate } = usePaymentsByDate();
   const handleBackPress = () => {
     goBack();
   };
 
-  const dayPaymentsViewElement = payments.map((payment, index) => {
+  const paymentsByDate = getPaymentsByDate();
+  console.log(paymentsByDate);
+  //{date:...,payments:[...]}
+
+  const dayPaymentsViewElement = paymentsByDate.map((paymentByDate, index) => {
+    const { date, payments } = paymentByDate;
+
     return (
       <View key={index}>
-        <DayPayments
-          date={payments[0].date}
-          payments={[payments[0]]}
-          index={0}
-        />
+        <DayPayments date={date} payments={payments} index={0} />
       </View>
     );
   });

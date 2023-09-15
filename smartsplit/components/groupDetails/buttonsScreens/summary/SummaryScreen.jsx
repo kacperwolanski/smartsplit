@@ -6,19 +6,20 @@ import PersonSummary from "./PersonSummary";
 
 const SummaryScreen = () => {
   const { goBack } = usePath();
-  const { actualGroup, summaries } = useStore();
-  const { people } = actualGroup;
+  const { summaries } = useStore();
+
   const handleBackPress = () => {
     goBack();
   };
 
   const summariesViewElement = summaries.map((summary, index) => {
-    const summaryPersonName = summary.person.name;
+    const summaryPerson = summary.person;
+
     return (
       <PersonSummary
         key={index}
         index={index}
-        personName={summaryPersonName}
+        summaryPerson={summaryPerson}
         summaries={summary.payments}
       />
     );
@@ -32,9 +33,7 @@ const SummaryScreen = () => {
           {summariesViewElement}
           <View style={{ padding: 20 }}>
             <View style={styles.totalContainer}>
-              <Text style={{ fontSize: 10, color: "white" }}>
-                Total expense:
-              </Text>
+              <Text style={{ fontSize: 10, color: "white" }}>In total:</Text>
               <Text style={styles.total}>900PLN</Text>
             </View>
           </View>

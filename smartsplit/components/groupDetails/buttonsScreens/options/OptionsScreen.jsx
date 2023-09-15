@@ -10,7 +10,7 @@ import DeleteModal from "./DeleteModal";
 const OptionsScreen = () => {
   const { goBack } = usePath();
   const { actualGroup, setActualGroup, groups, updateGroups } = useStore();
-  const { name, people, groupCurrency, groupType, groupNote } = actualGroup;
+  const { name, groupCurrency, groupType, groupNote } = actualGroup;
   const [newName, setNewName] = useState(name);
   const [newType, setNewType] = useState(groupType);
   const [newCurrency, setNewCurrency] = useState(groupCurrency);

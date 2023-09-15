@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import SinglePayment from "./SinglePayment";
 
 const DayPayments = ({ date, payments, index }) => {
+  console.log(date, payments);
   const paymentViewElements = payments.map((payment, index) => {
     return <SinglePayment payment={payment} key={index} />;
   });
