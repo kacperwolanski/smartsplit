@@ -9,6 +9,7 @@ import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 import { useSummaries } from "../../hooks/useSummariesHook";
 import useMoneyStatus from "../../hooks/useMoneyStatusHook";
+import { blueContainerStyle } from "../../styles/blueContainer";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
@@ -41,7 +42,9 @@ const GroupDetailsScreen = () => {
     <View>
       <Text style={headerStyle}>{name}</Text>
       <ScreenContent>
-        <View style={styles.container}>{friendsViewElement}</View>
+        <View style={[styles.container, blueContainerStyle]}>
+          {friendsViewElement}
+        </View>
         <View style={[styles.container, styles.buttonsContainer]}>
           <View style={{ flexDirection: "row", gap: 20, marginTop: 20 }}>
             <OptionButton imagePath={coinsIconUrl} pathKeyword="summary" />
@@ -84,7 +87,6 @@ export const groupDetailsScreen = StyleSheet.create({
     paddingBottom: 10,
     paddingHorizontal: 18,
     minHeight: 130,
-    ...blueContainerStyle,
   },
   buttonsContainer: {
     paddingTop: 20,
@@ -95,7 +97,7 @@ export const groupDetailsScreen = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     position: "absolute",
-    top: 70,
+    top: 12,
     left: 0,
     right: 0,
     padding: 20,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { inputColor } from "../../styles/consts";
-
+import { blueContainerStyle } from "../../styles/blueContainer";
 const BlueTextInput = ({
   placeholder,
   saveFunction,
@@ -33,7 +33,9 @@ const BlueTextInput = ({
   return (
     <View style={{ marginTop: 20 }}>
       <Text style={styles.headerStyle}>{header}</Text>
-      <View style={[styles.blueContainer, { width: width }]}>
+      <View
+        style={[styles.blueContainer, { width: width }, blueContainerStyle]}
+      >
         {!isEditing ? (
           <View>
             <Text style={styles.textInput}>{placeholder}</Text>
@@ -80,7 +82,6 @@ const BlueTextInput = ({
 const styles = StyleSheet.create({
   blueContainer: {
     marginTop: 5,
-    ...blueContainerStyle,
   },
   headerStyle: {
     color: "white",

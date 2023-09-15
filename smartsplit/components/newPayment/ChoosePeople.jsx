@@ -29,7 +29,9 @@ const ChoosePeople = ({
       />
     );
   });
-  return <View style={styles.container}>{ViewElements}</View>;
+  return (
+    <View style={[styles.container, blueContainerStyle]}>{ViewElements}</View>
+  );
 };
 
 export default ChoosePeople;
@@ -39,6 +41,5 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingVertical: 20,
     paddingHorizontal: 90,
-    ...blueContainerStyle,
   },
 });

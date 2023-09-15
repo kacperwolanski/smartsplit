@@ -6,7 +6,7 @@ import useStore from "../../../../store";
 import headerStyle from "../../../../styles/headerStyle";
 import { useState } from "react";
 import DeleteModal from "./DeleteModal";
-
+import { blueContainerStyle } from "../../../../styles/blueContainer";
 const OptionsScreen = () => {
   const { goBack } = usePath();
   const { actualGroup, setActualGroup, groups, updateGroups } = useStore();
@@ -72,7 +72,7 @@ const OptionsScreen = () => {
         />
         <View style={{ marginTop: 20 }}>
           <Text style={styles.headerStyle}>Delete group</Text>
-          <View style={styles.deleteButtonContainer}>
+          <View style={[styles.deleteButtonContainer, blueContainerStyle]}>
             <Button
               color="#C7372F"
               title="delete"
@@ -120,6 +120,5 @@ const styles = StyleSheet.create({
     marginTop: 5,
     gap: 10,
     padding: 10,
-    ...blueContainerStyle,
   },
 });

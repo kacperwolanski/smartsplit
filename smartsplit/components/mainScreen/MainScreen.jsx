@@ -1,43 +1,38 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
-import GroupShortcut from "./GroupShortcut";
-import headerStyle from "../../styles/headerStyle";
-import useStore from "../../store";
-import CirclePlusButton from "../buttons/CirclePlusButton";
-import ScreenContent from "../appComponents/ScreenContent";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { usePath } from "../../hooks/usePathHook";
+import ScreenContent from "../appComponents/ScreenContent";
+import headerStyle from "../../styles/headerStyle";
+import { blueContainerStyle } from "../../styles/blueContainer";
 
 const MainScreen = () => {
-  const { groups } = useStore();
   const { moveTo } = usePath();
-  const handlePress = () => {
-    moveTo("/addGroup");
+  const handleGroupsClick = () => {
+    moveTo("/yourGroups");
   };
-  const groupsViewElement = groups.map((group) => {
-    return (
-      <View style={{ marginBottom: 20 }} key={group.id}>
-        <GroupShortcut groupData={group} />
-      </View>
-    );
-  });
-
   return (
-    <View>
-      <Text style={headerStyle}>Your groups</Text>
-      <ScreenContent>
-        <ScrollView>{groupsViewElement}</ScrollView>
-      </ScreenContent>
-
-      <View
-        style={{
-          alignItems: "flex-end",
-          marginRight: 20,
-        }}
-      >
-        <CirclePlusButton onPressFunc={handlePress} />
+    <ScreenContent>
+      <View style={styles.container}>
+        <Text style={headerStyle}>Hello Kacper</Text>
+        <TouchableOpacity
+          onPress={handleGroupsClick}
+          style={[styles.groupsButton, blueContainerStyle]}
+        >
+          <Text>Your groups</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.groupsButton, blueContainerStyle]}>
+          <Text>Options</Text>
+        </TouchableOpacity>
       </View>
-    </View>
+    </ScreenContent>
   );
 };
 
 export default MainScreen;
+
+const styles = StyleSheet.create({
+  container: {},
+  groupsButton: {
+    padding: 20,
+  },
+});

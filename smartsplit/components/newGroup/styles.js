@@ -6,7 +6,6 @@ export const newGroupStyles = StyleSheet.create({
     paddingBottom: 10,
     paddingHorizontal: 18,
     minHeight: 130,
-    ...blueContainerStyle,
   },
   groupNameContainer: {
     borderBottomWidth: 0.2,

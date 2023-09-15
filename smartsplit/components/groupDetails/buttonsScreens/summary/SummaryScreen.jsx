@@ -3,7 +3,7 @@ import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
 import useStore from "../../../../store";
 import PersonSummary from "./PersonSummary";
-
+import { blueContainerStyle } from "../../../../styles/blueContainer";
 const SummaryScreen = () => {
   const { goBack } = usePath();
   const { summaries } = useStore();
@@ -39,7 +39,7 @@ const SummaryScreen = () => {
           </View>
         </View>
       </ScreenContent>
-      <View style={styles.buttonsContainer}>
+      <View style={blueContainerStyle}>
         <Button color="white" title="back" onPress={handleBackPress} />
       </View>
     </View>
@@ -49,9 +49,6 @@ const SummaryScreen = () => {
 export default SummaryScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    ...blueContainerStyle,
-  },
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",

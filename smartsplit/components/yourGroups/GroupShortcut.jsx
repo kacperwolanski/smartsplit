@@ -4,7 +4,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
 import { controlTextLen } from "../../helpers/controlTextLen";
-import { groupShortcutStyles } from "./styles";
+import { groupShortcutStyles } from "../yourGroups/styles";
 
 const GroupShortcut = ({ groupData }) => {
   const { moveTo } = usePath();

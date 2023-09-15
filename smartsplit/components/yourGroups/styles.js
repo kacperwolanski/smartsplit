@@ -1,12 +1,11 @@
 import { StyleSheet } from "react-native";
-import blueContainerStyle from "../../styles/blueContainer";
+
 export const groupShortcutStyles = StyleSheet.create({
   container: {
     paddingTop: 8,
     paddingBottom: 10,
     paddingHorizontal: 18,
     minHeight: 130,
-    ...blueContainerStyle,
   },
   name: {
     color: "white",

@@ -4,7 +4,7 @@ import { usePath } from "../../../../hooks/usePathHook";
 import useStore from "../../../../store";
 import DayPayments from "./DayPayments";
 import usePaymentsByDate from "../../../../hooks/usePaymentsByDateHook";
-
+import { blueContainerStyle } from "../../../../styles/blueContainer";
 const HistoryScreen = () => {
   const { goBack } = usePath();
   const { payments } = useStore();
@@ -14,8 +14,6 @@ const HistoryScreen = () => {
   };
 
   const paymentsByDate = getPaymentsByDate();
-  console.log(paymentsByDate);
-  //{date:...,payments:[...]}
 
   const dayPaymentsViewElement = paymentsByDate.map((paymentByDate, index) => {
     const { date, payments } = paymentByDate;
@@ -31,7 +29,7 @@ const HistoryScreen = () => {
     <View>
       <Text style={headerStyle}>History</Text>
       <ScreenContent>
-        <View style={styles.container}>{dayPaymentsViewElement}</View>
+        <View style={blueContainerStyle}>{dayPaymentsViewElement}</View>
       </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color="white" title="back" onPress={handleBackPress} />
@@ -43,9 +41,6 @@ const HistoryScreen = () => {
 export default HistoryScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    ...blueContainerStyle,
-  },
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
