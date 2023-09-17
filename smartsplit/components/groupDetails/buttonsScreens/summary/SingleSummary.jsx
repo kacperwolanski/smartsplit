@@ -1,8 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import useStore from "../../../../store";
+import useTheme from "../../../../hooks/useThemeHook";
 
 const SingleSummary = ({ summary }) => {
+  const { theme } = useTheme();
   const { actualGroup } = useStore();
   const { groupCurrency } = actualGroup;
   const { forWho, amount } = summary;
@@ -10,7 +12,7 @@ const SingleSummary = ({ summary }) => {
   return (
     <View>
       <Text
-        style={styles.summary}
+        style={{ marginTop: 5, color: theme.mainFontColor }}
       >{`${amount}${groupCurrency} for ${name}`}</Text>
     </View>
   );
@@ -18,8 +20,5 @@ const SingleSummary = ({ summary }) => {
 
 export default SingleSummary;
 const styles = StyleSheet.create({
-  summary: {
-    color: "white",
-    marginTop: 5,
-  },
+  summary: {},
 });

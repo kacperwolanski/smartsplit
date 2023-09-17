@@ -1,9 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import SingleSummary from "./SingleSummary";
+import useTheme from "../../../../hooks/useThemeHook";
 
 const PersonSummary = ({ index, summaryPerson, summaries }) => {
   const { name, status } = summaryPerson;
+  const { theme } = useTheme();
   const summariesViewElement = summaries.map((summary, index) => {
     return <SingleSummary summary={summary} key={index} />;
   });
@@ -11,7 +13,9 @@ const PersonSummary = ({ index, summaryPerson, summaries }) => {
     <View style={{ padding: 25 }}>
       <View style={[styles.container, { borderTopWidth: index ? 0.2 : 0 }]}>
         <View>
-          <Text style={styles.personName}>{name}</Text>
+          <Text style={[styles.personName, { color: theme.mainFontColor }]}>
+            {name}
+          </Text>
           <View style={{ flexDirection: "row" }}>
             <Text
               style={[
@@ -43,11 +47,10 @@ const styles = StyleSheet.create({
     padding: 5,
     justifyContent: "space-between",
   },
-  summariesContainer: {},
+
   personName: {
     minWidth: 90,
     fontSize: 20,
-    color: "white",
   },
   stateStyle: {
     paddingVertical: 5,

@@ -22,7 +22,6 @@ export default DayPayments;
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 20,
-
     borderTopColor: "white",
   },
   date: {

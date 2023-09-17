@@ -9,10 +9,12 @@ import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 import { useSummaries } from "../../hooks/useSummariesHook";
 import useMoneyStatus from "../../hooks/useMoneyStatusHook";
-import { blueContainerStyle } from "../../styles/blueContainer";
+import useTheme from "../../hooks/useThemeHook";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
+  const { theme, mainHeader, contentField } = useTheme();
+
   const { actualGroup, summaries } = useStore();
   const { name, people, groupCurrency } = actualGroup;
   const styles = groupDetailsScreen;
@@ -40,12 +42,10 @@ const GroupDetailsScreen = () => {
   }, []);
   return (
     <View>
-      <Text style={headerStyle}>{name}</Text>
+      <Text style={mainHeader}>{name}</Text>
       <ScreenContent>
-        <View style={[styles.container, blueContainerStyle]}>
-          {friendsViewElement}
-        </View>
-        <View style={[styles.container, styles.buttonsContainer]}>
+        <View style={contentField}>{friendsViewElement}</View>
+        <View style={[contentField, styles.buttonsContainer]}>
           <View style={{ flexDirection: "row", gap: 20, marginTop: 20 }}>
             <OptionButton imagePath={coinsIconUrl} pathKeyword="summary" />
             <OptionButton imagePath={historyIconUrl} pathKeyword="history" />
@@ -63,7 +63,7 @@ const GroupDetailsScreen = () => {
         <View style={styles.underButtonsContainer}>
           <View style={{ marginTop: 50 }}>
             <Button
-              color="white"
+              color={theme.mainFontColor}
               title="back"
               onPress={() => {
                 goBack();
@@ -87,11 +87,11 @@ export const groupDetailsScreen = StyleSheet.create({
     paddingBottom: 10,
     paddingHorizontal: 18,
     minHeight: 130,
+    borderRadius: 20,
   },
   buttonsContainer: {
-    paddingTop: 20,
-    paddingBottom: 20,
     alignItems: "center",
+    marginTop: 20,
   },
   underButtonsContainer: {
     flexDirection: "row",

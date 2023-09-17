@@ -1,16 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import useTheme from "../../../../hooks/useThemeHook";
 
 const SinglePayment = ({ payment }) => {
-  const { person, note, amount, date } = payment;
+  const { person, note, amount } = payment;
+  const { theme } = useTheme();
+  const boldText = { fontWeight: "bold", color: theme.mainFontColor };
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row" }}>
-        <Text style={styles.boldText}>{person.name} </Text>
+        <Text style={boldText}>{person.name} </Text>
 
-        <Text style={styles.boldText}>{amount}</Text>
+        <Text style={boldText}>{amount}</Text>
       </View>
-      <Text style={{ fontSize: 12, color: "white" }}>{note}</Text>
+      <Text style={{ fontSize: 12, color: theme.mainFontColor }}>{note}</Text>
     </View>
   );
 };
@@ -18,5 +21,4 @@ const SinglePayment = ({ payment }) => {
 export default SinglePayment;
 const styles = StyleSheet.create({
   container: { padding: 5 },
-  boldText: { fontWeight: "bold", color: "white" },
 });

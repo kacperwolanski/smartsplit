@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
-import headerStyle from "../../styles/headerStyle";
 import BlueTextInput from "../appComponents/BlueTextInput";
 import useStore from "../../store";
 import ChoosePeople from "./ChoosePeople";
 import getFormattedDate from "../../helpers/getFormattedDate";
+import useTheme from "../../hooks/useThemeHook";
 
 const NewPaymentScreen = () => {
   const [whoPays, setWhoPays] = useState([]);
@@ -14,7 +14,7 @@ const NewPaymentScreen = () => {
   const [amount, setAmount] = useState("0");
   const [note, setNote] = useState("");
   const [isAbleToAdd, setIsAbleToAdd] = useState(false);
-
+  const { mainHeader } = useTheme();
   const { actualGroup, addPayment, addSummary } = useStore();
   const { people, groupCurrency } = actualGroup;
 
@@ -39,7 +39,7 @@ const NewPaymentScreen = () => {
   }, [whoPays, forWho, amount, note]);
   return (
     <View>
-      <Text style={headerStyle}>Add new payment</Text>
+      <Text style={mainHeader}>Add new payment</Text>
       <ScreenContent>
         <View>
           <Text style={styles.headerStyle}>Who pays?</Text>

@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import useTheme from "../../../../hooks/useThemeHook";
 
 const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
+  const { theme } = useTheme();
   const handleYesPress = () => {
     handleDeleteGroup();
     setIsDeleting(false);
@@ -15,7 +17,7 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
         <Text
           style={{
             marginTop: 5,
-            color: "white",
+            color: theme.mainFontColor,
             fontSize: 18,
             textAlign: "justify",
           }}
@@ -30,7 +32,7 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
         >
           <Button
             title="cancel"
-            color="white"
+            color={theme.mainFontColor}
             onPress={() => {
               setIsDeleting(false);
             }}

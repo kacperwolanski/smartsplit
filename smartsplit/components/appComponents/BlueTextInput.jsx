@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { inputColor } from "../../styles/consts";
-import { blueContainerStyle } from "../../styles/blueContainer";
+import useTheme from "../../hooks/useThemeHook";
+
 const BlueTextInput = ({
   placeholder,
   saveFunction,
@@ -12,6 +13,7 @@ const BlueTextInput = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedValue, setEditedValue] = useState("");
+  const { contentField } = useTheme();
   const cancelEditing = () => {
     setIsEditing(false);
   };
@@ -33,9 +35,7 @@ const BlueTextInput = ({
   return (
     <View style={{ marginTop: 20 }}>
       <Text style={styles.headerStyle}>{header}</Text>
-      <View
-        style={[styles.blueContainer, { width: width }, blueContainerStyle]}
-      >
+      <View style={[contentField, { marginTop: 5, width: width }]}>
         {!isEditing ? (
           <View>
             <Text style={styles.textInput}>{placeholder}</Text>
@@ -59,6 +59,8 @@ const BlueTextInput = ({
               placeholderTextColor={inputColor}
               style={{
                 ...styles.textInput,
+                marginLeft: -15,
+
                 width: width,
               }}
             />
@@ -80,9 +82,6 @@ const BlueTextInput = ({
 };
 
 const styles = StyleSheet.create({
-  blueContainer: {
-    marginTop: 5,
-  },
   headerStyle: {
     color: "white",
     fontSize: 20,

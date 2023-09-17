@@ -1,12 +1,16 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import useTheme from "../../hooks/useThemeHook";
 
 const FriendName = ({ friendName, moneyStatus, groupCurrency }) => {
+  const { theme } = useTheme();
   return (
     <View style={styles.container}>
-      <Text style={styles.friendName}>{friendName}</Text>
+      <Text style={{ fontSize: 18, color: theme.mainFontColor }}>
+        {friendName}
+      </Text>
       <View style={styles.buttonsContainer}>
-        <Text style={{ color: "white", marginTop: 5 }}>
+        <Text style={{ color: theme.mainFontColor, marginTop: 5 }}>
           {moneyStatus}
           {groupCurrency}
         </Text>
@@ -27,10 +31,6 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     flexDirection: "row",
     justifyContent: "space-between",
-  },
-  friendName: {
-    color: "white",
-    fontSize: 18,
   },
   buttonsContainer: {
     flexDirection: "row",
