@@ -39,7 +39,7 @@ const SummaryScreen = () => {
           </View>
         </View>
       </ScreenContent>
-      <View style={blueContainerStyle}>
+      <View>
         <Button color="white" title="back" onPress={handleBackPress} />
       </View>
     </View>

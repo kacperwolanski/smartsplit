@@ -10,28 +10,36 @@ const MainScreen = () => {
   const handleGroupsClick = () => {
     moveTo("/yourGroups");
   };
+  const handleOptionsClick = () => {
+    moveTo("/mainOptions");
+  };
   return (
-    <ScreenContent>
-      <View style={styles.container}>
-        <Text style={headerStyle}>Hello Kacper</Text>
-        <TouchableOpacity
-          onPress={handleGroupsClick}
-          style={[styles.groupsButton, blueContainerStyle]}
-        >
-          <Text>Your groups</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.groupsButton, blueContainerStyle]}>
-          <Text>Options</Text>
-        </TouchableOpacity>
-      </View>
-    </ScreenContent>
+    <View>
+      <Text style={headerStyle}>Hello Kacper</Text>
+      <ScreenContent>
+        <View style={styles.container}>
+          <TouchableOpacity
+            onPress={handleGroupsClick}
+            style={[styles.groupsButton, blueContainerStyle]}
+          >
+            <Text>Your groups</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={handleOptionsClick}
+            style={[styles.groupsButton, blueContainerStyle]}
+          >
+            <Text>Options</Text>
+          </TouchableOpacity>
+        </View>
+      </ScreenContent>
+    </View>
   );
 };
 
 export default MainScreen;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { gap: 20 },
   groupsButton: {
     padding: 20,
   },

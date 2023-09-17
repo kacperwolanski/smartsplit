@@ -62,6 +62,8 @@ const useStore = create((set, get) => ({
   ],
   summaries: [],
   path: ["/mainScreen"],
+  appLanguage: "English",
+  appTheme: "dark",
 
   setActualGroup: (newGroup) => set(() => ({ actualGroup: newGroup })),
   updateGroups: (updatedGroups) => {
@@ -90,6 +92,9 @@ const useStore = create((set, get) => ({
     } else {
       set(() => ({ path: [...path, destination] }));
     }
+  },
+  setAppLanguage: (selectedLanguage) => {
+    set(() => ({ appLanguage: selectedLanguage }));
   },
 }));
 

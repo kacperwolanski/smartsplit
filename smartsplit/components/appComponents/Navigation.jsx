@@ -9,6 +9,7 @@ import SummaryScreen from "../groupDetails/buttonsScreens/summary/SummaryScreen"
 import HistoryScreen from "../groupDetails/buttonsScreens/history/HistoryScreen";
 import NewPaymentScreen from "../newPayment/NewPaymentScreen";
 import YourGroupsScreen from "../yourGroups/YourGroupsScreen";
+import MainOptions from "../mainScreen/mainOptions/MainOptions";
 
 const Navigation = () => {
   const { path, actualGroup } = useStore();
@@ -17,6 +18,7 @@ const Navigation = () => {
   return (
     <View>
       {lastPathElement === "/mainScreen" && <MainScreen />}
+      {lastPathElement === "/mainOptions" && <MainOptions />}
       {lastPathElement === "/yourGroups" && <YourGroupsScreen />}
       {lastPathElement === "/addGroup" && <NewGroupScreen />}
       {lastPathElement === "/addPayment" && <NewPaymentScreen />}
