@@ -10,6 +10,7 @@ import { usePath } from "../../hooks/usePathHook";
 import { useSummaries } from "../../hooks/useSummariesHook";
 import useMoneyStatus from "../../hooks/useMoneyStatusHook";
 import useTheme from "../../hooks/useThemeHook";
+import SettingsField from "../appComponents/SettingsField";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
@@ -44,13 +45,25 @@ const GroupDetailsScreen = () => {
     <View>
       <Text style={mainHeader}>{name}</Text>
       <ScreenContent>
-        <View style={contentField}>{friendsViewElement}</View>
-        <View style={[contentField, styles.buttonsContainer]}>
-          <View style={{ flexDirection: "row", gap: 20, marginTop: 20 }}>
-            <OptionButton imagePath={coinsIconUrl} pathKeyword="summary" />
-            <OptionButton imagePath={historyIconUrl} pathKeyword="history" />
-            <OptionButton imagePath={optionsIconUrl} pathKeyword="options" />
-          </View>
+        <SettingsField title="GROUP MEMBERS">
+          <View style={{ padding: 10 }}>{friendsViewElement}</View>
+        </SettingsField>
+        <View style={{ marginTop: 20 }}>
+          <SettingsField title="DETAILS">
+            <View style={styles.buttonsContainer}>
+              <View style={{ flexDirection: "row", gap: 20 }}>
+                <OptionButton imagePath={coinsIconUrl} pathKeyword="summary" />
+                <OptionButton
+                  imagePath={historyIconUrl}
+                  pathKeyword="history"
+                />
+                <OptionButton
+                  imagePath={optionsIconUrl}
+                  pathKeyword="options"
+                />
+              </View>
+            </View>
+          </SettingsField>
         </View>
       </ScreenContent>
       <View
@@ -92,12 +105,13 @@ export const groupDetailsScreen = StyleSheet.create({
   buttonsContainer: {
     alignItems: "center",
     marginTop: 20,
+    paddingBottom: 20,
   },
   underButtonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     position: "absolute",
-    top: 12,
+    top: 30,
     left: 0,
     right: 0,
     padding: 20,

@@ -12,7 +12,6 @@ export const groupShortcutStyles = StyleSheet.create({
     fontSize: 24,
   },
   date: {
-    color: "#3B579E",
     marginBottom: 5,
     fontSize: 12,
   },

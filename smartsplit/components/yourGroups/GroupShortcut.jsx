@@ -22,7 +22,9 @@ const GroupShortcut = ({ groupData }) => {
       style={[groupShortcutStyles.container, contentField]}
       onPress={handlePress}
     >
-      <Text style={styles.date}>{createDate}</Text>
+      <Text style={[styles.date, { color: theme.buttonColor }]}>
+        {createDate}
+      </Text>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text style={styles.name}>{name}</Text>
         <View style={{ flexDirection: "row", gap: 2, marginTop: 6 }}>

@@ -1,19 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ThemeButton from "./ThemeButton";
-import useTheme from "../../../../hooks/useThemeHook";
 
 const ThemeChanger = () => {
-  const { theme } = useTheme();
   return (
     <View>
-      <Text style={[styles.header, { color: theme.mainFontColor }]}>THEME</Text>
-      <View
-        style={[
-          styles.buttonsContainer,
-          { backgroundColor: theme.contentFieldColor },
-        ]}
-      >
+      <View style={styles.buttonsContainer}>
         <ThemeButton theme={"light"} />
         <ThemeButton theme={"babyBlue"} />
         <ThemeButton theme={"dark"} />
@@ -30,9 +22,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 40,
     justifyContent: "center",
-  },
-  header: {
-    fontSize: 13,
-    marginBottom: 5,
   },
 });

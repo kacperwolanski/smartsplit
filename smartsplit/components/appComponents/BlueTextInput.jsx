@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { inputColor } from "../../styles/consts";
 import useTheme from "../../hooks/useThemeHook";
+import SettingsField from "./SettingsField";
 
 const BlueTextInput = ({
   placeholder,
@@ -13,7 +14,7 @@ const BlueTextInput = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedValue, setEditedValue] = useState("");
-  const { contentField } = useTheme();
+  const { theme } = useTheme();
   const cancelEditing = () => {
     setIsEditing(false);
   };
@@ -34,49 +35,50 @@ const BlueTextInput = ({
 
   return (
     <View style={{ marginTop: 20 }}>
-      <Text style={styles.headerStyle}>{header}</Text>
-      <View style={[contentField, { marginTop: 5, width: width }]}>
-        {!isEditing ? (
-          <View>
-            <Text style={styles.textInput}>{placeholder}</Text>
-            <View style={{ marginTop: 10 }}>
-              <Button
-                title="edit"
-                onPress={() => {
-                  setIsEditing(true);
+      <SettingsField title={header}>
+        <View style={{ marginTop: 5, width: width }}>
+          {!isEditing ? (
+            <View>
+              <Text style={styles.textInput}>{placeholder}</Text>
+              <View style={{ marginTop: 10 }}>
+                <Button
+                  color={theme.buttonColor}
+                  title="edit"
+                  onPress={() => {
+                    setIsEditing(true);
+                  }}
+                />
+              </View>
+            </View>
+          ) : (
+            <View>
+              <TextInput
+                multiline={true}
+                onFocus={scrollTop}
+                placeholder={placeholder}
+                value={editedValue}
+                onChangeText={handleValueChange}
+                placeholderTextColor={inputColor}
+                style={{
+                  ...styles.textInput,
+
+                  width: width,
                 }}
               />
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  marginTop: 10,
+                }}
+              >
+                <Button color="white" title="cancel" onPress={cancelEditing} />
+                <Button title="save" onPress={saveChanges} />
+              </View>
             </View>
-          </View>
-        ) : (
-          <View>
-            <TextInput
-              multiline={true}
-              onFocus={scrollTop}
-              placeholder={placeholder}
-              value={editedValue}
-              onChangeText={handleValueChange}
-              placeholderTextColor={inputColor}
-              style={{
-                ...styles.textInput,
-                marginLeft: -15,
-
-                width: width,
-              }}
-            />
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                marginTop: 10,
-              }}
-            >
-              <Button color="white" title="cancel" onPress={cancelEditing} />
-              <Button title="save" onPress={saveChanges} />
-            </View>
-          </View>
-        )}
-      </View>
+          )}
+        </View>
+      </SettingsField>
     </View>
   );
 };

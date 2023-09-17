@@ -7,6 +7,7 @@ import LanguageChanger from "./LanguageChanger";
 import ThemeChanger from "./theme/ThemeChanger";
 import About from "./About";
 import useTheme from "../../../hooks/useThemeHook";
+import SettingsField from "../../appComponents/SettingsField";
 
 const MainOptions = () => {
   const { goBack } = usePath();
@@ -16,8 +17,13 @@ const MainOptions = () => {
       <Text style={mainHeader}>App options</Text>
       <ScreenContent>
         <View style={styles.container}>
-          <LanguageChanger />
-          <ThemeChanger />
+          <SettingsField title={"LANGUAGE"}>
+            <LanguageChanger />
+          </SettingsField>
+          <SettingsField title={"APP THEME"}>
+            <ThemeChanger />
+          </SettingsField>
+
           {/* <Button title="sign out" />
           <About /> */}
           <Button title="back" onPress={goBack}></Button>
