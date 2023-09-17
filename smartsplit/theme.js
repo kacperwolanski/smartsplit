@@ -13,18 +13,13 @@ export const DarkTheme = {
   settingsFontColor: "#b3b5b3",
 };
 export const LightTheme = {
-  mainFontColor: "white",
-  mainBackground: [
-    "rgba(115,213,25,2)",
-    "rgba(11,01,176,0.4)",
-    "rgba(17,108,16,0.4)",
-    "rgba(20,255,55,2)",
-  ],
-  buttonColor: "#rgb(126, 177, 242)",
+  mainFontColor: "black",
+  mainBackground: ["#edeced", "#edeced", "#edeced", "#edeced"],
+  buttonColor: "black",
   passiveSysBtn: "white",
-  activeSysBtn: "blue",
-  contentFieldColor: "rgba(126, 177, 242, 0.2)",
-  settingsFontColor: "#ebedeb",
+  activeSysBtn: "black",
+  contentFieldColor: "#fbfbfb",
+  settingsFontColor: "#979197",
 };
 export const BlueTheme = {
   mainFontColor: "white",

@@ -11,7 +11,7 @@ import SettingsField from "../../appComponents/SettingsField";
 
 const MainOptions = () => {
   const { goBack } = usePath();
-  const { mainHeader } = useTheme();
+  const { mainHeader, theme } = useTheme();
   return (
     <View>
       <Text style={mainHeader}>App options</Text>
@@ -26,7 +26,11 @@ const MainOptions = () => {
 
           {/* <Button title="sign out" />
           <About /> */}
-          <Button title="back" onPress={goBack}></Button>
+          <Button
+            color={theme.passiveSysBtn}
+            title="back"
+            onPress={goBack}
+          ></Button>
         </View>
       </ScreenContent>
     </View>
