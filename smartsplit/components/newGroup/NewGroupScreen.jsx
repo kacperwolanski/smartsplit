@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, ScrollView, Text, TextInput, View } from "react-native";
+
 import FriendName from "./FriendName";
 import AddFriend from "./AddFriend";
 import { inputColor } from "../../styles/consts";
@@ -14,6 +15,7 @@ import useTheme from "../../hooks/useThemeHook";
 const NewGroupScreen = () => {
   const { goBack } = usePath();
   const { addGroup } = useStore();
+  const { theme } = useTheme();
   const { contentField, mainHeader } = useTheme();
   const styles = newGroupStyles;
 
@@ -89,6 +91,7 @@ const NewGroupScreen = () => {
             </View>
             {!isAddingFriend ? (
               <Button
+                color={theme.buttonColor}
                 title="add friend"
                 onPress={() => {
                   handleAddingFriend(true);
@@ -135,7 +138,12 @@ const NewGroupScreen = () => {
       </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color="white" title="cancel" onPress={handleCancelPress} />
-        <Button title="save" onPress={handleSavePress} disabled={!ableToAdd} />
+        <Button
+          color={theme.buttonColor}
+          title="save"
+          onPress={handleSavePress}
+          disabled={!ableToAdd}
+        />
       </View>
     </View>
   );

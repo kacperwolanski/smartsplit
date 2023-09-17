@@ -6,6 +6,7 @@ import useStore from "../../../../store";
 import { useState } from "react";
 import DeleteModal from "./DeleteModal";
 import useTheme from "../../../../hooks/useThemeHook";
+import SettingsField from "../../../appComponents/SettingsField";
 
 const OptionsScreen = () => {
   const { goBack } = usePath();
@@ -48,50 +49,50 @@ const OptionsScreen = () => {
   return (
     <View>
       <Text style={mainHeader}>Options</Text>
-      <ScreenContent>
-        <BlueTextInput
-          placeholder={newName}
-          saveFunction={setNewName}
-          header="Group name"
-        />
-        <BlueTextInput
-          placeholder={newType}
-          saveFunction={setNewType}
-          header="Group type"
-          inputType="strings"
-        />
-        <BlueTextInput
-          placeholder={newCurrency}
-          saveFunction={setNewCurrency}
-          header="Group currency"
-          inputType="strings"
-        />
-        <BlueTextInput
-          placeholder={newNote}
-          saveFunction={setNewNote}
-          header="Group note"
-        />
-        <View style={{ marginTop: 20 }}>
-          <Text style={[styles.headerStyle, { color: theme.mainFontColor }]}>
-            Delete group
-          </Text>
-          <View
-            style={[
-              styles.deleteButtonContainer,
-              { backgroundColor: theme.contentFieldColor },
-            ]}
-          >
-            <Button
-              color="#C7372F"
-              title="delete"
-              onPress={handleDeletePress}
-            ></Button>
+      <View style={{ marginTop: -20 }}>
+        <ScreenContent>
+          <BlueTextInput
+            placeholder={newName}
+            saveFunction={setNewName}
+            header="GROUP NAME"
+          />
+          <BlueTextInput
+            placeholder={newType}
+            saveFunction={setNewType}
+            header="GROUP TYPE"
+            inputType="strings"
+          />
+          <BlueTextInput
+            placeholder={newCurrency}
+            saveFunction={setNewCurrency}
+            header="GROUP CURRENCY"
+            inputType="strings"
+          />
+          <BlueTextInput
+            placeholder={newNote}
+            saveFunction={setNewNote}
+            header="GROUP NOTE"
+          />
+          <View style={{ marginTop: 20 }}>
+            <SettingsField title="DELETE GROUP">
+              <View style={[styles.deleteButtonContainer]}>
+                <Button
+                  color="#C7372F"
+                  title="delete"
+                  onPress={handleDeletePress}
+                ></Button>
+              </View>
+            </SettingsField>
           </View>
-        </View>
-      </ScreenContent>
+        </ScreenContent>
+      </View>
       <View style={styles.buttonsContainer}>
         <Button color={theme.passiveSysBtn} title="back" onPress={goBack} />
-        <Button title="save" onPress={handleSavePress} />
+        <Button
+          color={theme.buttonColor}
+          title="save"
+          onPress={handleSavePress}
+        />
       </View>
       {isDeleting && (
         <View>

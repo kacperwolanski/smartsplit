@@ -63,7 +63,7 @@ const useStore = create((set, get) => ({
   summaries: [],
   path: ["/mainScreen"],
   appLanguage: "English",
-  appTheme: "dark",
+  appTheme: "light",
 
   setActualGroup: (newGroup) => set(() => ({ actualGroup: newGroup })),
   updateGroups: (updatedGroups) => {

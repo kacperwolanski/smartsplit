@@ -9,6 +9,11 @@ const Select = ({ options, selectFunc }) => {
     return (
       <TouchableOpacity
         key={index}
+        style={{
+          borderTopWidth: 0.3,
+          marginTop: 20,
+          borderTopColor: theme.settingsFontColor,
+        }}
         onPress={() => {
           selectFunc(option);
         }}

@@ -1,15 +1,12 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
-
 import DayPayments from "./DayPayments";
 import usePaymentsByDate from "../../../../hooks/usePaymentsByDateHook";
+import SettingsField from "../../../appComponents/SettingsField";
 
-import useTheme from "../../../../hooks/useThemeHook";
 const HistoryScreen = () => {
   const { goBack } = usePath();
-
-  const { theme } = useTheme();
   const { getPaymentsByDate } = usePaymentsByDate();
   const handleBackPress = () => {
     goBack();
@@ -31,9 +28,7 @@ const HistoryScreen = () => {
     <View>
       <Text style={headerStyle}>History</Text>
       <ScreenContent>
-        <View style={{ backgroundColor: theme.contentFieldColor }}>
-          {dayPaymentsViewElement}
-        </View>
+        <SettingsField title="PAYMENTS">{dayPaymentsViewElement}</SettingsField>
       </ScreenContent>
       <View style={styles.buttonsContainer}>
         <Button color={"white"} title="back" onPress={handleBackPress} />
@@ -49,7 +44,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     position: "absolute",
-    top: 700,
+    top: 650,
     left: 0,
     right: 0,
     paddingHorizontal: 20,

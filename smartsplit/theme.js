@@ -1,28 +1,25 @@
 export const DarkTheme = {
   mainFontColor: "white",
   mainBackground: [
-    "rgba(35,23,245,0.2)",
-    "rgba(51,11,16,4)",
-    "rgba(55,108,16,0.4)",
-    "rgba(1,255,25,0.2)",
+    "rgba(0,0,0,1)",
+    "rgba(0,0,0,1)",
+    "rgba(0,0,0,1)",
+    "rgba(0,0,0,1)",
   ],
-  buttonColor: "#rgb(126, 177, 242)",
+  buttonColor: "#e68600",
   passiveSysBtn: "white",
   activeSysBtn: "blue",
-  contentFieldColor: "rgba(126, 177, 242, 0.2)",
+  contentFieldColor: "rgba(53,54,58,255)",
+  settingsFontColor: "#b3b5b3",
 };
 export const LightTheme = {
-  mainFontColor: "white",
-  mainBackground: [
-    "rgba(115,213,25,2)",
-    "rgba(11,01,176,0.4)",
-    "rgba(17,108,16,0.4)",
-    "rgba(20,255,55,2)",
-  ],
-  buttonColor: "#rgb(126, 177, 242)",
+  mainFontColor: "black",
+  mainBackground: ["#edeced", "#edeced", "#edeced", "#edeced"],
+  buttonColor: "black",
   passiveSysBtn: "white",
-  activeSysBtn: "blue",
-  contentFieldColor: "rgba(126, 177, 242, 0.2)",
+  activeSysBtn: "black",
+  contentFieldColor: "#fbfbfb",
+  settingsFontColor: "#979197",
 };
 export const BlueTheme = {
   mainFontColor: "white",
@@ -36,4 +33,5 @@ export const BlueTheme = {
   passiveSysBtn: "white",
   activeSysBtn: "blue",
   contentFieldColor: "rgba(126, 177, 242, 0.2)",
+  settingsFontColor: "#ebedeb",
 };

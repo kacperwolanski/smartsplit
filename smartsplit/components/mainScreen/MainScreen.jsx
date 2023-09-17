@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { usePath } from "../../hooks/usePathHook";
 import ScreenContent from "../appComponents/ScreenContent";
 import useTheme from "../../hooks/useThemeHook";
+import SettingsField from "../appComponents/SettingsField";
 
 const MainScreen = () => {
   const { mainHeader, contentField } = useTheme();
@@ -18,12 +19,16 @@ const MainScreen = () => {
       <Text style={mainHeader}>Hello Kacper</Text>
       <ScreenContent>
         <View style={styles.container}>
-          <TouchableOpacity onPress={handleGroupsClick} style={contentField}>
-            <Text>Your groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleOptionsClick} style={contentField}>
-            <Text>Options</Text>
-          </TouchableOpacity>
+          <SettingsField title="YOUR GROUPS">
+            <TouchableOpacity onPress={handleGroupsClick} style={contentField}>
+              <Text>jhuj</Text>
+            </TouchableOpacity>
+          </SettingsField>
+          <SettingsField title="APP OPTIONS">
+            <TouchableOpacity onPress={handleOptionsClick} style={contentField}>
+              <Text>jhuj</Text>
+            </TouchableOpacity>
+          </SettingsField>
         </View>
       </ScreenContent>
     </View>

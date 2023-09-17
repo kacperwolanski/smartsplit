@@ -21,7 +21,6 @@ const useTheme = () => {
   const mainHeader = [headerStyle, { color: theme.mainFontColor }];
   const contentField = {
     backgroundColor: theme.contentFieldColor,
-    padding: 15,
     borderRadius: 10,
   };
   return { theme, mainHeader, contentField };
