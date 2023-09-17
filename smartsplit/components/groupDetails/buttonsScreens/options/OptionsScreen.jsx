@@ -3,12 +3,13 @@ import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
 import BlueTextInput from "../../../appComponents/BlueTextInput";
 import useStore from "../../../../store";
-import headerStyle from "../../../../styles/headerStyle";
 import { useState } from "react";
 import DeleteModal from "./DeleteModal";
-import { blueContainerStyle } from "../../../../styles/blueContainer";
+import useTheme from "../../../../hooks/useThemeHook";
+
 const OptionsScreen = () => {
   const { goBack } = usePath();
+  const { theme, mainHeader } = useTheme();
   const { actualGroup, setActualGroup, groups, updateGroups } = useStore();
   const { name, groupCurrency, groupType, groupNote } = actualGroup;
   const [newName, setNewName] = useState(name);
@@ -46,7 +47,7 @@ const OptionsScreen = () => {
 
   return (
     <View>
-      <Text style={headerStyle}>Options</Text>
+      <Text style={mainHeader}>Options</Text>
       <ScreenContent>
         <BlueTextInput
           placeholder={newName}
@@ -71,8 +72,15 @@ const OptionsScreen = () => {
           header="Group note"
         />
         <View style={{ marginTop: 20 }}>
-          <Text style={styles.headerStyle}>Delete group</Text>
-          <View style={[styles.deleteButtonContainer, blueContainerStyle]}>
+          <Text style={[styles.headerStyle, { color: theme.mainFontColor }]}>
+            Delete group
+          </Text>
+          <View
+            style={[
+              styles.deleteButtonContainer,
+              { backgroundColor: theme.contentFieldColor },
+            ]}
+          >
             <Button
               color="#C7372F"
               title="delete"
@@ -82,7 +90,7 @@ const OptionsScreen = () => {
         </View>
       </ScreenContent>
       <View style={styles.buttonsContainer}>
-        <Button color="white" title="back" onPress={goBack} />
+        <Button color={theme.passiveSysBtn} title="back" onPress={goBack} />
         <Button title="save" onPress={handleSavePress} />
       </View>
       {isDeleting && (
@@ -112,7 +120,6 @@ const styles = StyleSheet.create({
     marginTop: 38,
   },
   headerStyle: {
-    color: "white",
     fontSize: 20,
     fontWeight: "bold",
   },

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { blueContainerStyle } from "../../styles/blueContainer";
 import { mainFontColor } from "../../styles/consts";
+import useTheme from "../../hooks/useThemeHook";
 
 const Select = ({ options, selectFunc }) => {
-  console.log(options);
+  const { theme } = useTheme();
   const optionsViewElements = options.map((option, index) => {
     return (
       <TouchableOpacity
@@ -13,7 +13,9 @@ const Select = ({ options, selectFunc }) => {
           selectFunc(option);
         }}
       >
-        <Text style={styles.options}>{option}</Text>
+        <Text style={[styles.options, { color: theme.mainFontColor }]}>
+          {option}
+        </Text>
       </TouchableOpacity>
     );
   });
@@ -24,7 +26,6 @@ export default Select;
 
 const styles = StyleSheet.create({
   options: {
-    color: mainFontColor,
     marginTop: 20,
     textAlign: "center",
     fontSize: 16,

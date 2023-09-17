@@ -3,9 +3,11 @@ import { Image, StyleSheet, TouchableOpacity } from "react-native";
 import { historyIconUrl, optionsIconUrl } from "../../appConsts";
 import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
-import { darkerBlue } from "../../styles/consts";
+import useTheme from "../../hooks/useThemeHook";
+
 const OptionButton = ({ imagePath, pathKeyword }) => {
   const { moveTo } = usePath();
+  const { theme } = useTheme();
   const { actualGroup } = useStore();
   const { id } = actualGroup;
   let additionalStyle = {
@@ -19,7 +21,10 @@ const OptionButton = ({ imagePath, pathKeyword }) => {
   };
 
   return (
-    <TouchableOpacity style={styles.container} onPress={handleNavigateToScreen}>
+    <TouchableOpacity
+      style={[styles.container, { backgroundColor: theme.buttonColor }]}
+      onPress={handleNavigateToScreen}
+    >
       <Image
         source={{ uri: imagePath }}
         style={[styles.icon, additionalStyle]}
@@ -35,7 +40,7 @@ const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 20,
-    backgroundColor: darkerBlue,
+
     justifyContent: "center",
     alignItems: "center",
   },

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, ScrollView, Text, TextInput, View } from "react-native";
-import headerStyle from "../../styles/headerStyle";
 import FriendName from "./FriendName";
 import AddFriend from "./AddFriend";
 import { inputColor } from "../../styles/consts";
@@ -10,10 +9,12 @@ import BlueTextInput from "../appComponents/BlueTextInput";
 import { newGroupStyles } from "./styles";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
+import useTheme from "../../hooks/useThemeHook";
 
 const NewGroupScreen = () => {
   const { goBack } = usePath();
   const { addGroup } = useStore();
+  const { contentField, mainHeader } = useTheme();
   const styles = newGroupStyles;
 
   const [groupName, setGroupName] = useState("");
@@ -68,9 +69,9 @@ const NewGroupScreen = () => {
 
   return (
     <View>
-      <Text style={headerStyle}>Add new group</Text>
+      <Text style={mainHeader}>Add new group</Text>
       <ScreenContent>
-        <View style={styles.container}>
+        <View style={[styles.container, contentField]}>
           <View style={styles.groupNameContainer}>
             <TextInput
               placeholder="group name"

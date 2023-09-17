@@ -3,11 +3,13 @@ import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
 import useStore from "../../../../store";
 import PersonSummary from "./PersonSummary";
-import { blueContainerStyle } from "../../../../styles/blueContainer";
+import useTheme from "../../../../hooks/useThemeHook";
+
 const SummaryScreen = () => {
   const { goBack } = usePath();
   const { summaries } = useStore();
 
+  const { theme } = useTheme();
   const handleBackPress = () => {
     goBack();
   };
@@ -33,14 +35,18 @@ const SummaryScreen = () => {
           {summariesViewElement}
           <View style={{ padding: 20 }}>
             <View style={styles.totalContainer}>
-              <Text style={{ fontSize: 10, color: "white" }}>In total:</Text>
-              <Text style={styles.total}>900PLN</Text>
+              <Text style={{ fontSize: 10, color: theme.mainFontColor }}>
+                In total:
+              </Text>
+              <Text style={{ fontSize: 25, color: theme.mainFontColor }}>
+                900PLN
+              </Text>
             </View>
           </View>
         </View>
       </ScreenContent>
       <View>
-        <Button color="white" title="back" onPress={handleBackPress} />
+        <Button color={"white"} title="back" onPress={handleBackPress} />
       </View>
     </View>
   );
@@ -64,8 +70,5 @@ const styles = StyleSheet.create({
     borderTopColor: "white",
     padding: 10,
   },
-  total: {
-    fontSize: 25,
-    color: "white",
-  },
+  total: {},
 });

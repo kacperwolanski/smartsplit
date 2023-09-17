@@ -1,13 +1,15 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
-import useStore from "../../../../store";
+
 import DayPayments from "./DayPayments";
 import usePaymentsByDate from "../../../../hooks/usePaymentsByDateHook";
-import { blueContainerStyle } from "../../../../styles/blueContainer";
+
+import useTheme from "../../../../hooks/useThemeHook";
 const HistoryScreen = () => {
   const { goBack } = usePath();
-  const { payments } = useStore();
+
+  const { theme } = useTheme();
   const { getPaymentsByDate } = usePaymentsByDate();
   const handleBackPress = () => {
     goBack();
@@ -29,10 +31,12 @@ const HistoryScreen = () => {
     <View>
       <Text style={headerStyle}>History</Text>
       <ScreenContent>
-        <View style={blueContainerStyle}>{dayPaymentsViewElement}</View>
+        <View style={{ backgroundColor: theme.contentFieldColor }}>
+          {dayPaymentsViewElement}
+        </View>
       </ScreenContent>
       <View style={styles.buttonsContainer}>
-        <Button color="white" title="back" onPress={handleBackPress} />
+        <Button color={"white"} title="back" onPress={handleBackPress} />
       </View>
     </View>
   );

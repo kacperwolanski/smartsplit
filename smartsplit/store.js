@@ -96,6 +96,9 @@ const useStore = create((set, get) => ({
   setAppLanguage: (selectedLanguage) => {
     set(() => ({ appLanguage: selectedLanguage }));
   },
+  setAppTheme: (selectedTheme) => {
+    set(() => ({ appTheme: selectedTheme }));
+  },
 }));
 
 export default useStore;

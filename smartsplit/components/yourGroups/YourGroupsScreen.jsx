@@ -1,14 +1,16 @@
 import React from "react";
 import { Button, ScrollView, Text, View } from "react-native";
 import GroupShortcut from "./GroupShortcut";
-import headerStyle from "../../styles/headerStyle";
+
 import useStore from "../../store";
 import CirclePlusButton from "../buttons/CirclePlusButton";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
+import useTheme from "../../hooks/useThemeHook";
 
 const YourGroupsScreen = () => {
   const { groups } = useStore();
+  const { mainHeader } = useTheme();
   const { moveTo, goBack } = usePath();
   const handlePress = () => {
     moveTo("/addGroup");
@@ -23,7 +25,7 @@ const YourGroupsScreen = () => {
 
   return (
     <View>
-      <Text style={headerStyle}>Your groups</Text>
+      <Text style={mainHeader}>Your groups</Text>
       <ScreenContent>
         <ScrollView>{groupsViewElement}</ScrollView>
       </ScreenContent>
