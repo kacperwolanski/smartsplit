@@ -17,6 +17,37 @@ const useStore = create((set, get) => ({
       groupNote: "this is group of my friends ",
       id: "1",
     },
+    {
+      name: "group1",
+      amount: "4",
+      people: [
+        { name: "krystofer", id: "1", status: 0 },
+        { name: "kacper", id: "2", status: 0 },
+        { name: "kamil", id: "3", status: 0 },
+        { name: "dumin", id: "4", status: 0 },
+      ],
+      createDate: "10.02.2021",
+      groupType: "Friends",
+      groupCurrency: "PLN",
+      groupNote: "this is group of my friends ",
+      id: "1",
+    },
+
+    {
+      name: "group1",
+      amount: "4",
+      people: [
+        { name: "krystofer", id: "1", status: 0 },
+        { name: "kacper", id: "2", status: 0 },
+        { name: "kamil", id: "3", status: 0 },
+        { name: "dumin", id: "4", status: 0 },
+      ],
+      createDate: "10.02.2021",
+      groupType: "Friends",
+      groupCurrency: "PLN",
+      groupNote: "this is group of my friends ",
+      id: "1",
+    },
   ],
   payments: [
     {
@@ -63,7 +94,7 @@ const useStore = create((set, get) => ({
   summaries: [],
   path: ["/mainScreen"],
   appLanguage: "English",
-  appTheme: "light",
+  appTheme: "dark",
 
   setActualGroup: (newGroup) => set(() => ({ actualGroup: newGroup })),
   updateGroups: (updatedGroups) => {
