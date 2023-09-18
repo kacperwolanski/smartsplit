@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, ScrollView, Text, View } from "react-native";
 import GroupShortcut from "./GroupShortcut";
-
 import useStore from "../../store";
 import CirclePlusButton from "../buttons/CirclePlusButton";
 import ScreenContent from "../appComponents/ScreenContent";
@@ -18,7 +17,7 @@ const YourGroupsScreen = () => {
   const groupsViewElement = groups.map((group) => {
     return (
       <View style={{ marginBottom: 20 }} key={group.id}>
-        <GroupShortcut groupData={group} />
+        <GroupShortcut groupData={group} opacity={0} />
       </View>
     );
   });
@@ -35,7 +34,7 @@ const YourGroupsScreen = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           position: "absolute",
-          top: 600,
+          top: 680,
           left: 0,
           right: 0,
           padding: 20,
