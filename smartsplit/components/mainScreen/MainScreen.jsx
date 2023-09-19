@@ -23,6 +23,7 @@ const MainScreen = () => {
   const groupViewElements = slicedGroups.map((group, index) => {
     return (
       <View
+        key={index}
         style={{
           borderWidth: 0.6,
           borderRadius: 10,

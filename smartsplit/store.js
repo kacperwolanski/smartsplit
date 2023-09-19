@@ -37,7 +37,7 @@ const useStore = create((set, get) => ({
   path: ["/mainScreen"],
   appLanguage: "English",
   appTheme: "dark",
-
+  slideDirection: "right",
   setActualGroup: (newGroup) => set(() => ({ actualGroup: newGroup })),
   updateGroups: (updatedGroups) => {
     set(() => ({ groups: updatedGroups }));
@@ -59,10 +59,14 @@ const useStore = create((set, get) => ({
     }
   },
   updatePath: (destination) => {
-    const { path } = get();
+    const { path, setSlideDirection } = get();
     if (destination === "back") {
-      set(() => ({ path: path.slice(0, -1) }));
+      setSlideDirection("left");
+      if (path.length > 1) {
+        set(() => ({ path: path.slice(0, -1) }));
+      }
     } else {
+      setSlideDirection("right");
       set(() => ({ path: [...path, destination] }));
     }
   },
@@ -71,6 +75,9 @@ const useStore = create((set, get) => ({
   },
   setAppTheme: (selectedTheme) => {
     set(() => ({ appTheme: selectedTheme }));
+  },
+  setSlideDirection: (newSlideDirection) => {
+    set(() => ({ slideDirection: newSlideDirection }));
   },
 }));
 
