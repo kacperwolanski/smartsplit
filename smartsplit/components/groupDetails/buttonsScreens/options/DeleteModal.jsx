@@ -10,7 +10,10 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
     setIsDeleting(false);
   };
   return (
-    <Modal opacity={0.8}>
+    <View style={styles.container}>
+      <Modal opacity={0.75}>
+        <Text> </Text>
+      </Modal>
       <View style={styles.decisionContainer}>
         <Text
           style={{
@@ -42,13 +45,16 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
           />
         </View>
       </View>
-    </Modal>
+    </View>
   );
 };
 
 export default DeleteModal;
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+  },
   decisionContainer: {
     borderRadius: 20,
     backgroundColor: "rgba(155,155,155,0.65)",

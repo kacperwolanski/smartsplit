@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   },
   modal: {
     padding: 5,
+    borderRadius: 10,
     backgroundColor: "black",
     minHeight: 2000,
     minWidth: 1000,

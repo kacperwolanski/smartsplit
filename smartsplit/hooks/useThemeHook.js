@@ -22,6 +22,7 @@ const useTheme = () => {
   const contentField = {
     backgroundColor: theme.contentFieldColor,
     borderRadius: 10,
+    overflow: "hidden",
   };
   return { theme, mainHeader, contentField };
 };

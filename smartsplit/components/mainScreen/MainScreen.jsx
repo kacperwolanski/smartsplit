@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { usePath } from "../../hooks/usePathHook";
 import ScreenContent from "../appComponents/ScreenContent";
 import useTheme from "../../hooks/useThemeHook";
@@ -7,6 +7,7 @@ import SettingsField from "../appComponents/SettingsField";
 import GroupShortcut from "../yourGroups/GroupShortcut";
 import useStore from "../../store";
 import Modal from "../appComponents/Modal";
+import { settingsIcon } from "../../appConsts";
 const MainScreen = () => {
   const { mainHeader, contentField } = useTheme();
   const { moveTo } = usePath();
@@ -34,7 +35,7 @@ const MainScreen = () => {
           overflow: "hidden",
         }}
       >
-        <Modal opacity={0.8 - index * 0.2}>
+        <Modal opacity={0.6 - index * 0.2}>
           <GroupShortcut groupData={group} />
         </Modal>
       </View>
@@ -59,10 +60,18 @@ const MainScreen = () => {
               </View>
             </TouchableOpacity>
           </SettingsField>
-          <SettingsField title="APP OPTIONS">
-            <TouchableOpacity onPress={handleOptionsClick} style={contentField}>
-              <Text>jhuj</Text>
-            </TouchableOpacity>
+          <SettingsField title="APP SETTINGS">
+            <View style={styles.settingsContainer}>
+              <TouchableOpacity
+                onPress={handleOptionsClick}
+                style={contentField}
+              >
+                <Image
+                  source={{ uri: settingsIcon }}
+                  style={styles.settingsIcon}
+                />
+              </TouchableOpacity>
+            </View>
           </SettingsField>
         </View>
       </ScreenContent>
@@ -74,4 +83,14 @@ export default MainScreen;
 
 const styles = StyleSheet.create({
   container: { gap: 20 },
+  settingsContainer: {
+    padding: 10,
+  },
+  settingsIcon: {
+    width: 50,
+
+    marginLeft: 140,
+    height: 50,
+    opacity: 0.6,
+  },
 });

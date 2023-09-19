@@ -21,16 +21,6 @@ export const newGroupStyles = StyleSheet.create({
   editButton: {
     marginTop: 15,
   },
-  buttonsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    position: "absolute",
-    top: 700,
-    left: 0,
-    right: 0,
-    padding: 20,
-    marginTop: 10,
-  },
 });
 
 export const friendNameStyles = StyleSheet.create({
