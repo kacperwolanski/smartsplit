@@ -1,22 +1,29 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { mainFontColor } from "../../../../styles/consts";
 import useStore from "../../../../store";
 import { getImagePath } from "./getImagePath";
+import useTheme from "../../../../hooks/useThemeHook";
 
-const ThemeButton = ({ theme }) => {
+const ThemeButton = ({ themeColor }) => {
   const { setAppTheme } = useStore();
-  const imageUrl = getImagePath(theme);
+  const imageUrl = getImagePath(themeColor);
+  const { theme } = useTheme();
 
   const handlePress = () => {
-    setAppTheme(theme);
+    setAppTheme(themeColor);
   };
   return (
     <View>
-      <TouchableOpacity style={styles.container} onPress={handlePress}>
+      <TouchableOpacity
+        style={[styles.container, { backgroundColor: theme.settingsFontColor }]}
+        onPress={handlePress}
+      >
         <Image
           source={{ uri: imageUrl }}
-          style={[styles.icon, { marginLeft: theme === "babyBlue" ? 3 : 0 }]}
+          style={[
+            styles.icon,
+            { marginLeft: themeColor === "babyBlue" ? 3 : 0 },
+          ]}
         />
       </TouchableOpacity>
     </View>
@@ -27,7 +34,6 @@ export default ThemeButton;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#224c8c",
     borderRadius: 20,
     padding: 10,
   },

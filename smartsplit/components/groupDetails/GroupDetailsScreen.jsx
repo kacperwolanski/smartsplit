@@ -11,12 +11,13 @@ import { useSummaries } from "../../hooks/useSummariesHook";
 import useMoneyStatus from "../../hooks/useMoneyStatusHook";
 import useTheme from "../../hooks/useThemeHook";
 import SettingsField from "../appComponents/SettingsField";
+import ButtonsContainer from "../appComponents/ButtonsContainer";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
   const { theme, mainHeader, contentField } = useTheme();
 
-  const { actualGroup, summaries } = useStore();
+  const { actualGroup, summaries, payments } = useStore();
   const { name, people, groupCurrency } = actualGroup;
   const styles = groupDetailsScreen;
   const { addSummaries } = useSummaries();
@@ -37,8 +38,10 @@ const GroupDetailsScreen = () => {
 
   useEffect(() => {
     if (!summaries.length) {
-      addSummaries();
-      getMoneyStatus();
+      if (payments) {
+        addSummaries();
+        getMoneyStatus();
+      }
     }
   }, []);
   return (
@@ -73,7 +76,7 @@ const GroupDetailsScreen = () => {
           paddingHorizontal: 10,
         }}
       >
-        <View style={styles.underButtonsContainer}>
+        <ButtonsContainer top={55}>
           <View style={{ marginTop: 50 }}>
             <Button
               color={theme.mainFontColor}
@@ -85,7 +88,7 @@ const GroupDetailsScreen = () => {
           </View>
 
           <CirclePlusButton onPressFunc={handleAddPaymentPress} />
-        </View>
+        </ButtonsContainer>
       </View>
     </View>
   );
@@ -106,14 +109,5 @@ export const groupDetailsScreen = StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
     paddingBottom: 20,
-  },
-  underButtonsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    position: "absolute",
-    top: 30,
-    left: 0,
-    right: 0,
-    padding: 20,
   },
 });

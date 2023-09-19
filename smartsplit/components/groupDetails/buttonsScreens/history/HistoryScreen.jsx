@@ -1,9 +1,10 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
 import DayPayments from "./DayPayments";
 import usePaymentsByDate from "../../../../hooks/usePaymentsByDateHook";
 import SettingsField from "../../../appComponents/SettingsField";
+import ButtonsContainer from "../../../appComponents/ButtonsContainer";
 
 const HistoryScreen = () => {
   const { goBack } = usePath();
@@ -30,24 +31,11 @@ const HistoryScreen = () => {
       <ScreenContent>
         <SettingsField title="PAYMENTS">{dayPaymentsViewElement}</SettingsField>
       </ScreenContent>
-      <View style={styles.buttonsContainer}>
+      <ButtonsContainer top={710}>
         <Button color={"white"} title="back" onPress={handleBackPress} />
-      </View>
+      </ButtonsContainer>
     </View>
   );
 };
 
 export default HistoryScreen;
-
-const styles = StyleSheet.create({
-  buttonsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    position: "absolute",
-    top: 650,
-    left: 0,
-    right: 0,
-    paddingHorizontal: 20,
-    marginTop: 38,
-  },
-});

@@ -7,6 +7,7 @@ import { useState } from "react";
 import DeleteModal from "./DeleteModal";
 import useTheme from "../../../../hooks/useThemeHook";
 import SettingsField from "../../../appComponents/SettingsField";
+import ButtonsContainer from "../../../appComponents/ButtonsContainer";
 
 const OptionsScreen = () => {
   const { goBack } = usePath();
@@ -86,14 +87,14 @@ const OptionsScreen = () => {
           </View>
         </ScreenContent>
       </View>
-      <View style={styles.buttonsContainer}>
+      <ButtonsContainer top={710}>
         <Button color={theme.passiveSysBtn} title="back" onPress={goBack} />
         <Button
           color={theme.buttonColor}
           title="save"
           onPress={handleSavePress}
         />
-      </View>
+      </ButtonsContainer>
       {isDeleting && (
         <View>
           <DeleteModal
@@ -110,16 +111,6 @@ const OptionsScreen = () => {
 export default OptionsScreen;
 
 const styles = StyleSheet.create({
-  buttonsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    position: "absolute",
-    top: 700,
-    left: 0,
-    right: 0,
-    paddingHorizontal: 20,
-    marginTop: 38,
-  },
   headerStyle: {
     fontSize: 20,
     fontWeight: "bold",

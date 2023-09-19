@@ -6,6 +6,7 @@ import CirclePlusButton from "../buttons/CirclePlusButton";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 import useTheme from "../../hooks/useThemeHook";
+import ButtonsContainer from "../appComponents/ButtonsContainer";
 
 const YourGroupsScreen = () => {
   const { groups } = useStore();
@@ -29,24 +30,12 @@ const YourGroupsScreen = () => {
         <ScrollView>{groupsViewElement}</ScrollView>
       </ScreenContent>
 
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          position: "absolute",
-          top: 680,
-          left: 0,
-          right: 0,
-          padding: 20,
-          marginTop: 10,
-        }}
-      >
+      <ButtonsContainer top={660}>
         <View style={{ marginTop: 50 }}>
           <Button color="white" title="back" onPress={goBack}></Button>
         </View>
-
         <CirclePlusButton onPressFunc={handlePress} />
-      </View>
+      </ButtonsContainer>
     </View>
   );
 };

@@ -6,9 +6,9 @@ const ThemeChanger = () => {
   return (
     <View>
       <View style={styles.buttonsContainer}>
-        <ThemeButton theme={"light"} />
-        <ThemeButton theme={"babyBlue"} />
-        <ThemeButton theme={"dark"} />
+        <ThemeButton themeColor={"light"} />
+        <ThemeButton themeColor={"babyBlue"} />
+        <ThemeButton themeColor={"dark"} />
       </View>
     </View>
   );
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     padding: 20,
     flexDirection: "row",
-    gap: 40,
+    gap: 20,
     justifyContent: "center",
   },
 });

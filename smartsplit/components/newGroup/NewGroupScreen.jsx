@@ -11,6 +11,7 @@ import { newGroupStyles } from "./styles";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 import useTheme from "../../hooks/useThemeHook";
+import ButtonsContainer from "../appComponents/ButtonsContainer";
 
 const NewGroupScreen = () => {
   const { goBack } = usePath();
@@ -136,7 +137,8 @@ const NewGroupScreen = () => {
         />
         <View style={{ minHeight: 200 }}></View>
       </ScreenContent>
-      <View style={styles.buttonsContainer}>
+
+      <ButtonsContainer top={710}>
         <Button color="white" title="cancel" onPress={handleCancelPress} />
         <Button
           color={theme.buttonColor}
@@ -144,7 +146,7 @@ const NewGroupScreen = () => {
           onPress={handleSavePress}
           disabled={!ableToAdd}
         />
-      </View>
+      </ButtonsContainer>
     </View>
   );
 };
