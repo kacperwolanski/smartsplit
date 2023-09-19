@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet, View } from "react-native";
 const ScreenContent = ({ children }) => {
   return (
     <ScrollView style={styles.container}>
-      <View style={{ marginBottom: 50 }}>{children}</View>
+      <View>{children}</View>
     </ScrollView>
   );
 };

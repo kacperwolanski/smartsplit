@@ -1,10 +1,13 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Navigation from "./components/appComponents/Navigation";
 import useTheme from "./hooks/useThemeHook";
-
+import { usePath } from "./hooks/usePathHook";
+import AppearAnimation from "./components/appComponents/AppearAnimation";
+import Navigation from "./components/appComponents/Navigation";
+import { useEffect, useState } from "react";
 export default App = () => {
   const { theme } = useTheme();
+  const { goBack } = usePath();
 
   return (
     <LinearGradient
@@ -13,7 +16,13 @@ export default App = () => {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
-      <View style={styles.container}>
+      <View
+        onTouchStart={(e) => (this.touchX = e.nativeEvent.pageX)}
+        onTouchEnd={(e) => {
+          if (e.nativeEvent.pageX - this.touchX > 200) goBack();
+        }}
+        style={{ flex: 1 }}
+      >
         <Navigation />
       </View>
     </LinearGradient>
