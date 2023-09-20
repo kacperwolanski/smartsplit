@@ -47,7 +47,7 @@ const GroupDetailsScreen = () => {
   return (
     <View>
       <Text style={mainHeader}>{name}</Text>
-      <ScreenContent>
+      <ScreenContent scrollEnabled={false}>
         <SettingsField title="GROUP MEMBERS">
           <View style={{ padding: 10 }}>{friendsViewElement}</View>
         </SettingsField>
@@ -76,7 +76,7 @@ const GroupDetailsScreen = () => {
           paddingHorizontal: 10,
         }}
       >
-        <ButtonsContainer top={55}>
+        <ButtonsContainer top={100}>
           <View style={{ marginTop: 50 }}>
             <Button
               color={theme.mainFontColor}

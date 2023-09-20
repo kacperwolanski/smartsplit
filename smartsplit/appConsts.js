@@ -12,4 +12,4 @@ export const babyBlueModeIconUrl =
   "https://github.com/kacperwolanski/smartsplit/assets/101999487/b6a7b505-3a5a-4503-851c-ef5bff27402f";
 
 export const settingsIcon =
-  "https://github-production-user-asset-6210df.s3.amazonaws.com/135114936/268910254-c820db57-290c-4ec8-ac65-822cddde04ee.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230919%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230919T093745Z&X-Amz-Expires=300&X-Amz-Signature=1bfc0e39a7650ce2df938a332b8239e5ed16702f1ae1088967de4053f869daa6&X-Amz-SignedHeaders=host&actor_id=135114936&key_id=0&repo_id=614053784";
+  "https://github.com/kacperwolanski/smartsplit/assets/101999487/cae0640d-a495-43db-b729-eb2826c52ff7";

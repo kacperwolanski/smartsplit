@@ -14,10 +14,7 @@ const ThemeButton = ({ themeColor }) => {
   };
   return (
     <View>
-      <TouchableOpacity
-        style={[styles.container, { backgroundColor: theme.settingsFontColor }]}
-        onPress={handlePress}
-      >
+      <TouchableOpacity style={[styles.container]} onPress={handlePress}>
         <Image
           source={{ uri: imageUrl }}
           style={[

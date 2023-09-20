@@ -9,6 +9,7 @@ export const DarkTheme = {
   buttonColor: "#e68600",
   passiveSysBtn: "white",
   activeSysBtn: "blue",
+  contentBackground: "rgba(53,54,58,255)",
   contentFieldColor: "rgba(53,54,58,255)",
   settingsFontColor: "#b3b5b3",
 };
@@ -18,6 +19,7 @@ export const LightTheme = {
   buttonColor: "black",
   passiveSysBtn: "white",
   activeSysBtn: "black",
+  contentBackground: "#fbfbfb",
   contentFieldColor: "#fbfbfb",
   settingsFontColor: "#979197",
 };
@@ -32,6 +34,7 @@ export const BlueTheme = {
   buttonColor: "#rgb(126, 177, 242)",
   passiveSysBtn: "white",
   activeSysBtn: "blue",
+  contentBackground: "rgba(126, 177, 242, 1)",
   contentFieldColor: "rgba(126, 177, 242, 0.2)",
   settingsFontColor: "#ebedeb",
 };
