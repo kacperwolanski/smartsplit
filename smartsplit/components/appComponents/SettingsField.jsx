@@ -13,7 +13,6 @@ const SettingsField = ({ title, children }) => {
           marginBottom: 5,
           color: theme.settingsFontColor,
           paddingBottom: 2,
-
           paddingLeft: 14,
         }}
       >

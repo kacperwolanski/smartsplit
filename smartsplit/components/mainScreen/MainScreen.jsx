@@ -34,9 +34,10 @@ const MainScreen = () => {
           marginTop: 20,
           marginRight: 20,
           overflow: "hidden",
+          zIndex: slicedGroups.length - index,
         }}
       >
-        <Modal opacity={0.6 - index * 0.2}>
+        <Modal opacity={0.1 + index * 0.1}>
           <GroupShortcut groupData={group} />
         </Modal>
       </View>
@@ -45,8 +46,16 @@ const MainScreen = () => {
 
   return (
     <View>
-      <Text style={mainHeader}>Hello Kacper</Text>
-      <ScreenContent>
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <Text style={mainHeader}>Hello Kacper</Text>
+        <TouchableOpacity
+          style={styles.settingsContainer}
+          onPress={handleOptionsClick}
+        >
+          <Image source={{ uri: settingsIcon }} style={styles.settingsIcon} />
+        </TouchableOpacity>
+      </View>
+      <ScreenContent scrollEnabled={false}>
         <View style={styles.container}>
           <SettingsField title="YOUR GROUPS">
             <TouchableOpacity onPress={handleGroupsClick} style={contentField}>
@@ -61,19 +70,6 @@ const MainScreen = () => {
               </View>
             </TouchableOpacity>
           </SettingsField>
-          <SettingsField title="APP SETTINGS">
-            <View style={styles.settingsContainer}>
-              <TouchableOpacity
-                onPress={handleOptionsClick}
-                style={contentField}
-              >
-                <Image
-                  source={{ uri: settingsIcon }}
-                  style={styles.settingsIcon}
-                />
-              </TouchableOpacity>
-            </View>
-          </SettingsField>
         </View>
       </ScreenContent>
     </View>
@@ -84,14 +80,10 @@ export default MainScreen;
 
 const styles = StyleSheet.create({
   container: { gap: 20 },
-  settingsContainer: {
-    padding: 10,
-  },
+  settingsContainer: { marginTop: 112, marginRight: 25 },
   settingsIcon: {
-    width: 50,
-
-    marginLeft: 140,
-    height: 50,
-    opacity: 0.6,
+    width: 25,
+    height: 25,
+    opacity: 0.9,
   },
 });

@@ -5,6 +5,7 @@ import { usePath } from "../../hooks/usePathHook";
 import { controlTextLen } from "../../helpers/controlTextLen";
 import useTheme from "../../hooks/useThemeHook";
 import Modal from "../appComponents/Modal";
+import SettingsField from "../appComponents/SettingsField";
 
 const GroupShortcut = ({ groupData }) => {
   const { moveTo } = usePath();

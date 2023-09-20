@@ -18,7 +18,6 @@ export default ThemeChanger;
 
 const styles = StyleSheet.create({
   buttonsContainer: {
-    padding: 20,
     flexDirection: "row",
     gap: 20,
     justifyContent: "center",

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useStore from "../../store";
 import MainScreen from "../mainScreen/MainScreen";
-import { Animated, View } from "react-native";
+import { View } from "react-native";
 import NewGroupScreen from "../newGroup/NewGroupScreen";
 import GroupDetailsScreen from "../groupDetails/GroupDetailsScreen";
 import OptionsScreen from "../groupDetails/buttonsScreens/options/OptionsScreen";
@@ -11,35 +11,45 @@ import NewPaymentScreen from "../newPayment/NewPaymentScreen";
 import YourGroupsScreen from "../yourGroups/YourGroupsScreen";
 import MainOptions from "../mainScreen/mainOptions/MainOptions";
 import AppearAnimation from "./AppearAnimation";
+import AboutScreen from "../mainScreen/mainOptions/about/AboutScreen";
 
 const Navigation = () => {
   const { path, actualGroup, slideDirection } = useStore();
   const lastPathElement = path[path.length - 1];
 
+  const chooseScreen = () => {
+    switch (lastPathElement) {
+      case "/mainScreen":
+        return <MainScreen />;
+      case "/mainOptions":
+        return <MainOptions />;
+      case "/yourGroups":
+        return <YourGroupsScreen />;
+      case "/addGroup":
+        return <NewGroupScreen />;
+      case "/addPayment":
+        return <NewPaymentScreen />;
+      case "/about":
+        return <AboutScreen />;
+    }
+    if (actualGroup) {
+      switch (lastPathElement) {
+        case `/group/${actualGroup.id}`:
+          return <GroupDetailsScreen />;
+        case `/group/${actualGroup.id}/summary`:
+          return <SummaryScreen />;
+        case `/group/${actualGroup.id}/history`:
+          return <HistoryScreen />;
+        case `/group/${actualGroup.id}/options`:
+          return <OptionsScreen />;
+      }
+    }
+    return <MainScreen />;
+  };
+
   return (
     <AppearAnimation offset={1} direction={slideDirection}>
-      <View>
-        {lastPathElement === "/mainScreen" && <MainScreen />}
-        {lastPathElement === "/mainOptions" && <MainOptions />}
-        {lastPathElement === "/yourGroups" && <YourGroupsScreen />}
-        {lastPathElement === "/addGroup" && <NewGroupScreen />}
-        {lastPathElement === "/addPayment" && <NewPaymentScreen />}
-        {actualGroup && lastPathElement === `/group/${actualGroup.id}` && (
-          <GroupDetailsScreen />
-        )}
-        {actualGroup &&
-          lastPathElement === `/group/${actualGroup.id}/summary` && (
-            <SummaryScreen />
-          )}
-        {actualGroup &&
-          lastPathElement === `/group/${actualGroup.id}/history` && (
-            <HistoryScreen />
-          )}
-        {actualGroup &&
-          lastPathElement === `/group/${actualGroup.id}/options` && (
-            <OptionsScreen />
-          )}
-      </View>
+      <View>{chooseScreen()}</View>
     </AppearAnimation>
   );
 };

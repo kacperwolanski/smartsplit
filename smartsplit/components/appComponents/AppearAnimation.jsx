@@ -5,10 +5,9 @@ import useStore from "../../store";
 const AppearAnimation = ({ children, direction }) => {
   const { path } = useStore();
   const [slideAnim] = useState(new Animated.Value(0));
-
   const slideValue = 300;
   const slideDirection = direction === "left" ? -1 * slideValue : slideValue;
-  console.log(slideDirection);
+
   const slideIn = () => {
     Animated.timing(slideAnim, {
       toValue: 0,

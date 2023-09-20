@@ -20,7 +20,7 @@ const useTheme = () => {
 
   const mainHeader = [headerStyle, { color: theme.mainFontColor }];
   const contentField = {
-    backgroundColor: theme.contentFieldColor,
+    backgroundColor: theme.contentBackground,
     borderRadius: 10,
     overflow: "hidden",
   };

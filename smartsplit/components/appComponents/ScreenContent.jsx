@@ -1,9 +1,9 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
-const ScreenContent = ({ children }) => {
+const ScreenContent = ({ children, scrollEnabled }) => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} scrollEnabled={scrollEnabled}>
       <View>{children}</View>
     </ScrollView>
   );
