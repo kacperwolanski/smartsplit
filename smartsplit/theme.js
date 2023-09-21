@@ -1,11 +1,6 @@
 export const DarkTheme = {
   mainFontColor: "white",
-  mainBackground: [
-    "rgba(0,0,0,1)",
-    "rgba(0,0,0,1)",
-    "rgba(0,0,0,1)",
-    "rgba(0,0,0,1)",
-  ],
+  mainBackground: ["rgb(0,0,0)"],
   buttonColor: "#e68600",
   passiveSysBtn: "white",
   activeSysBtn: "blue",

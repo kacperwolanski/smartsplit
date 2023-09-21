@@ -11,7 +11,7 @@ import NewPaymentScreen from "../newPayment/NewPaymentScreen";
 import YourGroupsScreen from "../yourGroups/YourGroupsScreen";
 import MainOptions from "../mainScreen/mainOptions/MainOptions";
 import AppearAnimation from "./AppearAnimation";
-import AboutScreen from "../mainScreen/mainOptions/about/AboutScreen";
+import AboutScreen from "../mainScreen/mainOptions/AboutScreen";
 
 const Navigation = () => {
   const { path, actualGroup, slideDirection } = useStore();
@@ -44,13 +44,17 @@ const Navigation = () => {
           return <OptionsScreen />;
       }
     }
+
     return <MainScreen />;
   };
+  const chosenScreen = chooseScreen();
 
   return (
-    <AppearAnimation offset={1} direction={slideDirection}>
-      <View>{chooseScreen()}</View>
-    </AppearAnimation>
+    <View>
+      <AppearAnimation offset={1} direction={slideDirection}>
+        <View>{chosenScreen}</View>
+      </AppearAnimation>
+    </View>
   );
 };
 

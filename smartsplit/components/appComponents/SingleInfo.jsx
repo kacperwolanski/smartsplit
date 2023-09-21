@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import useTheme from "../../../../hooks/useThemeHook";
+import useTheme from "../../hooks/useThemeHook";
 
 const SingleInfo = ({ title, value, first }) => {
   const { theme } = useTheme();

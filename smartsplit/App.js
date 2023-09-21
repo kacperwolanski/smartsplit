@@ -2,9 +2,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import useTheme from "./hooks/useThemeHook";
 import { usePath } from "./hooks/usePathHook";
-import AppearAnimation from "./components/appComponents/AppearAnimation";
 import Navigation from "./components/appComponents/Navigation";
-import { useEffect, useState } from "react";
+
 export default App = () => {
   const { theme } = useTheme();
   const { goBack } = usePath();

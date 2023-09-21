@@ -15,13 +15,12 @@ import ButtonsContainer from "../appComponents/ButtonsContainer";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
-  const { theme, mainHeader, contentField } = useTheme();
-
+  const { theme, mainHeader } = useTheme();
   const { actualGroup, summaries, payments } = useStore();
   const { name, people, groupCurrency } = actualGroup;
   const styles = groupDetailsScreen;
   const { addSummaries } = useSummaries();
-  const { getMoneyStatus } = useMoneyStatus();
+  // const { getMoneyStatus } = useMoneyStatus();
   const friendsViewElement = people.map((person, index) => {
     return (
       <FriendName
@@ -40,7 +39,7 @@ const GroupDetailsScreen = () => {
     if (!summaries.length) {
       if (payments) {
         addSummaries();
-        getMoneyStatus();
+        //getMoneyStatus();
       }
     }
   }, []);
