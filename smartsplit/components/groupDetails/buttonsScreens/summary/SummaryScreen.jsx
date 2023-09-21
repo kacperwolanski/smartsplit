@@ -5,6 +5,8 @@ import useStore from "../../../../store";
 import PersonSummary from "./PersonSummary";
 import useTheme from "../../../../hooks/useThemeHook";
 import ButtonsContainer from "../../../appComponents/ButtonsContainer";
+import SettingsField from "../../../appComponents/SettingsField";
+import SingleInfo from "../../../appComponents/SingleInfo";
 
 const SummaryScreen = () => {
   const { goBack } = usePath();
@@ -33,16 +35,21 @@ const SummaryScreen = () => {
       <Text style={headerStyle}>Summary</Text>
       <ScreenContent>
         <View style={styles.container}>
-          {summariesViewElement}
-          <View style={{ padding: 20 }}>
-            <View style={styles.totalContainer}>
-              <Text style={{ fontSize: 10, color: theme.mainFontColor }}>
-                In total:
-              </Text>
-              <Text style={{ fontSize: 25, color: theme.mainFontColor }}>
-                900PLN
-              </Text>
-            </View>
+          <SettingsField title={"GROUP DEBTS"}>
+            {summariesViewElement}
+          </SettingsField>
+          <View style={{ marginTop: 20 }}>
+            <SettingsField title={"OTHER DETAILS"}>
+              <View style={styles.totalContainer}>
+                <SingleInfo
+                  title={"Total expense:"}
+                  value={"900PLN"}
+                  first={true}
+                />
+                <SingleInfo title={"Total expense:"} value={"900PLN"} />
+                <SingleInfo title={"Total expense:"} value={"900PLN"} />
+              </View>
+            </SettingsField>
           </View>
         </View>
       </ScreenContent>
@@ -57,8 +64,6 @@ export default SummaryScreen;
 
 const styles = StyleSheet.create({
   totalContainer: {
-    borderTopWidth: 1,
-    borderTopColor: "white",
     padding: 10,
   },
   total: {},

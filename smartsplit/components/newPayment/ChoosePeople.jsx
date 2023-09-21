@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import FriendName from "./FriendName";
+import useTheme from "../../hooks/useThemeHook";
 
 const ChoosePeople = ({
   people,
@@ -8,6 +9,7 @@ const ChoosePeople = ({
   chosenPeopleFunc,
   chosenPeople,
 }) => {
+  const { contentField } = useTheme();
   const onPressFunc = (person, action) => {
     if (action === "add" && !chosenPeople.includes(person))
       chosenPeopleFunc([...chosenPeople, person]);
@@ -29,9 +31,7 @@ const ChoosePeople = ({
       />
     );
   });
-  return (
-    <View style={[styles.container, blueContainerStyle]}>{ViewElements}</View>
-  );
+  return <View style={[styles.container, contentField]}>{ViewElements}</View>;
 };
 
 export default ChoosePeople;

@@ -1,12 +1,12 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-import useTheme from "../../../../hooks/useThemeHook";
-import ScreenContent from "../../../appComponents/ScreenContent";
-import ButtonsContainer from "../../../appComponents/ButtonsContainer";
-import { usePath } from "../../../../hooks/usePathHook";
-import SettingsField from "../../../appComponents/SettingsField";
-import SingleInfo from "./SingleInfo";
+import useTheme from "../../../hooks/useThemeHook";
+import ScreenContent from "../../appComponents/ScreenContent";
+import ButtonsContainer from "../../appComponents/ButtonsContainer";
+import { usePath } from "../../../hooks/usePathHook";
+import SettingsField from "../../appComponents/SettingsField";
+import SingleInfo from "../../appComponents/SingleInfo";
 
 const AboutScreen = () => {
   const { theme, mainHeader } = useTheme();

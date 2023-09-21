@@ -7,6 +7,7 @@ import useStore from "../../store";
 import ChoosePeople from "./ChoosePeople";
 import getFormattedDate from "../../helpers/getFormattedDate";
 import useTheme from "../../hooks/useThemeHook";
+import ButtonsContainer from "../appComponents/ButtonsContainer";
 
 const NewPaymentScreen = () => {
   const [whoPays, setWhoPays] = useState([]);
@@ -17,7 +18,6 @@ const NewPaymentScreen = () => {
   const { mainHeader } = useTheme();
   const { actualGroup, addPayment, addSummary } = useStore();
   const { people, groupCurrency } = actualGroup;
-
   const { goBack } = usePath();
 
   const handleAddPayment = () => {
@@ -35,7 +35,7 @@ const NewPaymentScreen = () => {
     }
   };
   useEffect(() => {
-    setIsAbleToAdd(whoPays.length && forWho.length && amount.length);
+    setIsAbleToAdd(whoPays.length && forWho.length && parseInt(amount));
   }, [whoPays, forWho, amount, note]);
   return (
     <View>
@@ -66,14 +66,16 @@ const NewPaymentScreen = () => {
           />
         </View>
 
-        <BlueTextInput
-          placeholder={note}
-          saveFunction={setNote}
-          header={"Note"}
-        />
+        <View>
+          <BlueTextInput
+            placeholder={note}
+            saveFunction={setNote}
+            header={"Note"}
+          />
+        </View>
       </ScreenContent>
 
-      <View style={styles.buttonsContainer}>
+      <ButtonsContainer top={700}>
         <View>
           <Button
             color="white"
@@ -88,7 +90,7 @@ const NewPaymentScreen = () => {
           onPress={handleAddPayment}
           disabled={!isAbleToAdd}
         />
-      </View>
+      </ButtonsContainer>
     </View>
   );
 };
@@ -102,16 +104,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 20,
     marginBottom: 5,
-  },
-
-  buttonsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    position: "absolute",
-    top: 700,
-    left: 0,
-    right: 0,
-    padding: 20,
-    marginTop: 10,
   },
 });

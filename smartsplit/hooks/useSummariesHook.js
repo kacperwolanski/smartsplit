@@ -2,7 +2,7 @@ import { isObjInArray, isObjectEqual } from "../helpers/isObjInArray";
 import useStore from "../store";
 
 export const useSummaries = () => {
-  const { actualGroup, payments, addSummary, summaries } = useStore();
+  const { actualGroup, payments, addSummary } = useStore();
   const { people } = actualGroup;
 
   const addSummaries = () => {
@@ -10,42 +10,23 @@ export const useSummaries = () => {
       const newSummary = { person: person, payments: [] };
       payments.forEach((payment) => {
         const payer = payment.person;
+
         if (
           isObjInArray(payment.forWho, person) &&
           !isObjectEqual(payer, person)
         ) {
           const amount = (payment.amount / payment.forWho.length).toFixed(2);
-          const addedPayments = newSummary.payments;
-          if (addedPayments.length) {
-            addedPayments.forEach((payment) => {
-              if (isObjectEqual(payment.forWho, payer)) {
-                const previousAmount = payment.amount;
-                newSummary.payments = updatedPayment(
-                  payer,
-                  parseInt(previousAmount) + parseInt(amount),
-                  addedPayments
-                );
-              } else {
-                newSummary.payments = addNewPayment(
-                  newSummary.payments,
-                  payer.name,
-                  payer.id,
-                  amount
-                );
-              }
-            });
-          } else {
-            newSummary.payments = addNewPayment(
-              newSummary.payments,
-              payer.name,
-              payer.id,
-              amount
-            );
-          }
+
+          const newPayment = {
+            forWho: { name: payer.name, id: payer.id },
+            amount: amount,
+          };
+          newSummary.payments = [...newSummary.payments, newPayment];
         }
       });
 
       if (newSummary.payments.length) {
+        newSummary.payments = optimizeSummaries(newSummary);
         addSummary(newSummary);
       }
     });
@@ -53,20 +34,27 @@ export const useSummaries = () => {
   return { addSummaries };
 };
 
-const addNewPayment = (payments, payerName, payerId, amount) => {
-  const newPayment = {
-    forWho: { name: payerName, id: payerId },
-    amount: amount,
-  };
-  return [...payments, newPayment];
-};
-const updatedPayment = (forWho, newAmount, payments) => {
-  const newPayments = payments.filter((payment) => {
-    !isObjectEqual(payment.forWho, forWho);
+const optimizeSummaries = (summary) => {
+  const { payments } = summary;
+  const result = [];
+  const nameSums = {};
+
+  payments.forEach((item) => {
+    const { forWho, amount } = item;
+
+    const name = forWho.name;
+    const id = forWho.id;
+
+    if (!nameSums[name]) {
+      nameSums[name] = { forWho: { name, id }, amount: parseInt(amount, 10) };
+    } else {
+      nameSums[name].amount += parseInt(amount, 10);
+    }
   });
-  const updatedPayment = {
-    forWho: forWho,
-    amount: newAmount,
-  };
-  return [...newPayments, updatedPayment];
+
+  for (const name in nameSums) {
+    result.push(nameSums[name]);
+  }
+
+  return result;
 };

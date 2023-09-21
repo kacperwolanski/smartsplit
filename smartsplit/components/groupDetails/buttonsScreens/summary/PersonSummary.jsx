@@ -10,8 +10,16 @@ const PersonSummary = ({ index, summaryPerson, summaries }) => {
     return <SingleSummary summary={summary} key={index} />;
   });
   return (
-    <View style={{ padding: 25 }}>
-      <View style={[styles.container, { borderTopWidth: index ? 0.2 : 0 }]}>
+    <View style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
+      <View
+        style={[
+          styles.container,
+          {
+            borderTopColor: theme.settingsFontColor,
+            borderTopWidth: index ? 0.2 : 0,
+          },
+        ]}
+      >
         <View>
           <Text style={[styles.personName, { color: theme.mainFontColor }]}>
             {name}
@@ -20,7 +28,7 @@ const PersonSummary = ({ index, summaryPerson, summaries }) => {
             <Text
               style={[
                 styles.stateStyle,
-                { color: status >= 0 ? "green" : "red" },
+                { color: parseInt(status) >= 0 ? "green" : "red" },
               ]}
             >
               {status}
@@ -42,7 +50,6 @@ export default PersonSummary;
 
 const styles = StyleSheet.create({
   container: {
-    borderTopColor: "white",
     flexDirection: "row",
     padding: 5,
     justifyContent: "space-between",
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
 
   personName: {
     minWidth: 90,
-    fontSize: 20,
+    fontSize: 16,
   },
   stateStyle: {
     paddingVertical: 5,

@@ -74,7 +74,7 @@ const OptionsScreen = () => {
             saveFunction={setNewNote}
             header="GROUP NOTE"
           />
-          <View style={{ marginTop: 20 }}>
+          <View style={{ marginTop: 20, marginBottom: 20 }}>
             <SettingsField title="DELETE GROUP">
               <View style={[styles.deleteButtonContainer]}>
                 <Button

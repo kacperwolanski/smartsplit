@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet, View } from "react-native";
 const ScreenContent = ({ children, scrollEnabled }) => {
   return (
     <ScrollView style={styles.container} scrollEnabled={scrollEnabled}>
-      <View>{children}</View>
+      <View style={{ marginBottom: 20 }}>{children}</View>
     </ScrollView>
   );
 };
