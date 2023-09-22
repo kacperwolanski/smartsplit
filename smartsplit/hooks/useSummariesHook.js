@@ -1,9 +1,12 @@
 import { isObjInArray, isObjectEqual } from "../helpers/isObjInArray";
 import useStore from "../store";
+import useActualGroup from "./useActualGroupHook";
 
 export const useSummaries = () => {
-  const { actualGroup, payments, addSummary } = useStore();
-  const { people } = actualGroup;
+  const { updateSummaries } = useStore();
+  const { actualGroup } = useActualGroup();
+  const { people, payments, id } = actualGroup;
+  const summaries = [];
 
   const addSummaries = () => {
     people.forEach((person) => {
@@ -27,9 +30,11 @@ export const useSummaries = () => {
 
       if (newSummary.payments.length) {
         newSummary.payments = optimizeSummaries(newSummary);
-        addSummary(newSummary);
+        summaries.push(newSummary);
       }
     });
+
+    if (summaries.length) updateSummaries(summaries, id);
   };
   return { addSummaries };
 };
@@ -42,13 +47,14 @@ const optimizeSummaries = (summary) => {
   payments.forEach((item) => {
     const { forWho, amount } = item;
 
+    const floatAmount = parseFloat(amount);
     const name = forWho.name;
     const id = forWho.id;
 
     if (!nameSums[name]) {
-      nameSums[name] = { forWho: { name, id }, amount: parseInt(amount, 10) };
+      nameSums[name] = { forWho: { name, id }, amount: floatAmount };
     } else {
-      nameSums[name].amount += parseInt(amount, 10);
+      nameSums[name].amount += floatAmount;
     }
   });
 

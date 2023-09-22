@@ -15,7 +15,7 @@ const GroupShortcut = ({ groupData }) => {
   const { name, amount, createDate, id, groupType, groupNote } = groupData;
 
   const handlePress = () => {
-    setActualGroup(groupData);
+    setActualGroup(id);
     moveTo(`/group/${id}`);
   };
   return (

@@ -8,18 +8,24 @@ import DeleteModal from "./DeleteModal";
 import useTheme from "../../../../hooks/useThemeHook";
 import SettingsField from "../../../appComponents/SettingsField";
 import ButtonsContainer from "../../../appComponents/ButtonsContainer";
+import useActualGroup from "../../../../hooks/useActualGroupHook";
+import DiscardModal from "./DiscardModal";
 
 const OptionsScreen = () => {
-  const { goBack } = usePath();
+  const { goBack, moveTo } = usePath();
   const { theme, mainHeader } = useTheme();
-  const { actualGroup, setActualGroup, groups, updateGroups } = useStore();
+  const { groups, updateGroups } = useStore();
+  const { actualGroup } = useActualGroup();
+
   const { name, groupCurrency, groupType, groupNote } = actualGroup;
+
   const [newName, setNewName] = useState(name);
   const [newType, setNewType] = useState(groupType);
   const [newCurrency, setNewCurrency] = useState(groupCurrency);
   const [newNote, setNewNote] = useState(groupNote);
   const [isDeleting, setIsDeleting] = useState(false);
-  const { moveTo } = usePath();
+  const [isDiscarding, setIsDiscarding] = useState(false);
+
   const handleDeletePress = () => {
     setIsDeleting(true);
   };
@@ -34,17 +40,29 @@ const OptionsScreen = () => {
     const filteredGroups = groups.filter((group) => {
       group.id !== actualGroup.id;
     });
-    setActualGroup(updatedGroup);
+
     updateGroups([...filteredGroups, updatedGroup]);
     goBack();
   };
 
+  const handleBackPress = () => {
+    if (
+      name !== newName ||
+      groupCurrency !== newCurrency ||
+      groupType !== newType ||
+      groupNote !== newNote
+    ) {
+      setIsDiscarding(true);
+    } else goBack();
+  };
+
   const handleDeleteGroup = () => {
     const filteredGroups = groups.filter((group) => {
-      group.id !== actualGroup.id;
+      return group.id !== actualGroup.id;
     });
+
     updateGroups(filteredGroups);
-    moveTo("/mainScreen");
+    moveTo("/yourGroups");
   };
 
   return (
@@ -88,7 +106,11 @@ const OptionsScreen = () => {
         </ScreenContent>
       </View>
       <ButtonsContainer top={710}>
-        <Button color={theme.passiveSysBtn} title="back" onPress={goBack} />
+        <Button
+          color={theme.passiveSysBtn}
+          title="back"
+          onPress={handleBackPress}
+        />
         <Button
           color={theme.buttonColor}
           title="save"
@@ -96,13 +118,17 @@ const OptionsScreen = () => {
         />
       </ButtonsContainer>
       {isDeleting && (
-        <View>
-          <DeleteModal
-            setIsDeleting={setIsDeleting}
-            handleDeleteGroup={handleDeleteGroup}
-            groupName={name}
-          />
-        </View>
+        <DeleteModal
+          setIsDeleting={setIsDeleting}
+          handleDeleteGroup={handleDeleteGroup}
+          groupName={name}
+        />
+      )}
+      {isDiscarding && (
+        <DiscardModal
+          setIsDiscarding={setIsDiscarding}
+          handleDiscard={goBack}
+        />
       )}
     </View>
   );

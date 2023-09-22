@@ -1,8 +1,9 @@
 import React from "react";
-import useStore from "../store";
+import useActualGroup from "./useActualGroupHook";
 
 const usePaymentsByDate = () => {
-  const { payments } = useStore();
+  const { actualGroup } = useActualGroup();
+  const { payments } = actualGroup;
 
   const getPaymentsByDate = () => {
     let paymentsByDate = [];

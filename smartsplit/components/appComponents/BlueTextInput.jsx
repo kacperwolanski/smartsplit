@@ -73,7 +73,11 @@ const BlueTextInput = ({
                 }}
               >
                 <Button color="white" title="cancel" onPress={cancelEditing} />
-                <Button title="save" onPress={saveChanges} />
+                <Button
+                  title="save"
+                  onPress={saveChanges}
+                  disabled={!editedValue.length}
+                />
               </View>
             </View>
           )}

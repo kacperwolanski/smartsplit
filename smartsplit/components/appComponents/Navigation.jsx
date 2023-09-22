@@ -12,9 +12,11 @@ import YourGroupsScreen from "../yourGroups/YourGroupsScreen";
 import MainOptions from "../mainScreen/mainOptions/MainOptions";
 import AppearAnimation from "./AppearAnimation";
 import AboutScreen from "../mainScreen/mainOptions/AboutScreen";
+import useActualGroup from "../../hooks/useActualGroupHook";
 
 const Navigation = () => {
-  const { path, actualGroup, slideDirection } = useStore();
+  const { path, actualGroupId, slideDirection } = useStore();
+  const { actualGroup } = useActualGroup();
   const lastPathElement = path[path.length - 1];
 
   const chooseScreen = () => {
@@ -34,7 +36,7 @@ const Navigation = () => {
     }
     if (actualGroup) {
       switch (lastPathElement) {
-        case `/group/${actualGroup.id}`:
+        case `/group/${actualGroupId}`:
           return <GroupDetailsScreen />;
         case `/group/${actualGroup.id}/summary`:
           return <SummaryScreen />;
@@ -48,7 +50,7 @@ const Navigation = () => {
     return <MainScreen />;
   };
   const chosenScreen = chooseScreen();
-
+  console.log(lastPathElement);
   return (
     <View>
       <AppearAnimation offset={1} direction={slideDirection}>

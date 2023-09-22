@@ -36,6 +36,9 @@ const NewGroupScreen = () => {
       groupType: groupType,
       groupCurrency: groupCurrency,
       groupNote: groupNote,
+      summaries: [],
+      payments: [],
+      statuses: [],
       id: Math.floor(Math.random() * 10000),
     };
     addGroup(newGroup);

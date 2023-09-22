@@ -8,6 +8,7 @@ import ChoosePeople from "./ChoosePeople";
 import getFormattedDate from "../../helpers/getFormattedDate";
 import useTheme from "../../hooks/useThemeHook";
 import ButtonsContainer from "../appComponents/ButtonsContainer";
+import useActualGroup from "../../hooks/useActualGroupHook";
 
 const NewPaymentScreen = () => {
   const [whoPays, setWhoPays] = useState([]);
@@ -16,8 +17,9 @@ const NewPaymentScreen = () => {
   const [note, setNote] = useState("");
   const [isAbleToAdd, setIsAbleToAdd] = useState(false);
   const { mainHeader } = useTheme();
-  const { actualGroup, addPayment, addSummary } = useStore();
-  const { people, groupCurrency } = actualGroup;
+  const { updatePayments, updateSummaries, actualGroupId } = useStore();
+  const { actualGroup } = useActualGroup();
+  const { people, groupCurrency, payments } = actualGroup;
   const { goBack } = usePath();
 
   const handleAddPayment = () => {
@@ -29,8 +31,9 @@ const NewPaymentScreen = () => {
         amount: amount,
         date: getFormattedDate(),
       };
-      addPayment(newPayment);
-      addSummary(null);
+
+      updatePayments([...payments, newPayment], actualGroupId);
+      updateSummaries([], actualGroupId);
       goBack();
     }
   };

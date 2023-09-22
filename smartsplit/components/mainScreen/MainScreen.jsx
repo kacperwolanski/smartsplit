@@ -11,7 +11,7 @@ import { settingsIcon } from "../../appConsts";
 const MainScreen = () => {
   const { mainHeader, contentField } = useTheme();
   const { moveTo } = usePath();
-  const { groups } = useStore();
+  const { groups, signedUser } = useStore();
   const handleGroupsClick = () => {
     moveTo("/yourGroups");
   };
@@ -47,7 +47,7 @@ const MainScreen = () => {
   return (
     <View>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text style={mainHeader}>Hello Kacper</Text>
+        <Text style={mainHeader}>{`Hello ${signedUser}`}</Text>
         <TouchableOpacity
           style={styles.settingsContainer}
           onPress={handleOptionsClick}

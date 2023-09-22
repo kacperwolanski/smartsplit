@@ -4,11 +4,12 @@ import { historyIconUrl, optionsIconUrl } from "../../appConsts";
 import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
 import useTheme from "../../hooks/useThemeHook";
+import useActualGroup from "../../hooks/useActualGroupHook";
 
 const OptionButton = ({ imagePath, pathKeyword }) => {
   const { moveTo } = usePath();
   const { theme } = useTheme();
-  const { actualGroup } = useStore();
+  const { actualGroup } = useActualGroup();
   const { id } = actualGroup;
   let additionalStyle = {
     marginTop: imagePath === optionsIconUrl ? 3 : -2,

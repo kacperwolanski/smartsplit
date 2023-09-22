@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import CirclePlusButton from "../buttons/CirclePlusButton";
-import useStore from "../../store";
 import FriendName from "./FriendName";
 import OptionButton from "../buttons/OptionButton";
 import { coinsIconUrl, historyIconUrl, optionsIconUrl } from "../../appConsts";
@@ -12,21 +11,26 @@ import useMoneyStatus from "../../hooks/useMoneyStatusHook";
 import useTheme from "../../hooks/useThemeHook";
 import SettingsField from "../appComponents/SettingsField";
 import ButtonsContainer from "../appComponents/ButtonsContainer";
+import useActualGroup from "../../hooks/useActualGroupHook";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
+
   const { theme, mainHeader } = useTheme();
-  const { actualGroup, summaries, payments } = useStore();
-  const { name, people, groupCurrency } = actualGroup;
-  const styles = groupDetailsScreen;
+  const { actualGroup } = useActualGroup();
   const { addSummaries } = useSummaries();
-  // const { getMoneyStatus } = useMoneyStatus();
+  const { getMoneyStatus } = useMoneyStatus();
+  const { name, people, groupCurrency, statuses } = actualGroup;
+
+  const styles = groupDetailsScreen;
   const friendsViewElement = people.map((person, index) => {
+    const statusObject = statuses.find((status) => status.id === person.id);
+    const money = statusObject ? statusObject.status : 0;
     return (
       <FriendName
         key={index}
         friendName={person.name}
-        moneyStatus={person.status}
+        moneyStatus={money}
         groupCurrency={groupCurrency}
       />
     );
@@ -36,10 +40,10 @@ const GroupDetailsScreen = () => {
   };
 
   useEffect(() => {
-    if (!summaries.length) {
-      if (payments) {
+    if (!actualGroup.summaries.length) {
+      if (actualGroup.payments) {
         addSummaries();
-        //getMoneyStatus();
+        getMoneyStatus();
       }
     }
   }, []);

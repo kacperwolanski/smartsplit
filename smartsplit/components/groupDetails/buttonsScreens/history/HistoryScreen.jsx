@@ -5,6 +5,7 @@ import DayPayments from "./DayPayments";
 import usePaymentsByDate from "../../../../hooks/usePaymentsByDateHook";
 import SettingsField from "../../../appComponents/SettingsField";
 import ButtonsContainer from "../../../appComponents/ButtonsContainer";
+import PaymentsPlaceholder from "../../../placeholders/PaymentsPlaceholder";
 
 const HistoryScreen = () => {
   const { goBack } = usePath();
@@ -28,8 +29,14 @@ const HistoryScreen = () => {
   return (
     <View>
       <Text style={headerStyle}>History</Text>
-      <ScreenContent>
-        <SettingsField title="PAYMENTS">{dayPaymentsViewElement}</SettingsField>
+      <ScreenContent scrollEnabled={false}>
+        {paymentsByDate.length > 0 ? (
+          <SettingsField title="PAYMENTS">
+            {dayPaymentsViewElement}
+          </SettingsField>
+        ) : (
+          <PaymentsPlaceholder />
+        )}
       </ScreenContent>
       <ButtonsContainer top={710}>
         <Button color={"white"} title="back" onPress={handleBackPress} />
