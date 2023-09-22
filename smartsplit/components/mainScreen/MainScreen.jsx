@@ -7,7 +7,7 @@ import SettingsField from "../appComponents/SettingsField";
 import GroupShortcut from "../yourGroups/GroupShortcut";
 import useStore from "../../store";
 import Modal from "../appComponents/Modal";
-import { settingsIcon } from "../../appConsts";
+
 const MainScreen = () => {
   const { mainHeader, contentField, theme } = useTheme();
   const { moveTo } = usePath();
@@ -36,11 +36,14 @@ const MainScreen = () => {
           marginTop: 20,
           marginRight: 20,
           overflow: "hidden",
+
           zIndex: slicedGroups.length - index,
         }}
       >
         <Modal opacity={0.1 + index * 0.1}>
-          <GroupShortcut groupData={group} />
+          <View style={{ minWidth: 180, maxWidth: 200, maxHeight: 120 }}>
+            <GroupShortcut groupData={group} />
+          </View>
         </Modal>
       </View>
     );

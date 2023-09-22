@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, ScrollView, Text, TextInput, View } from "react-native";
-
 import FriendName from "./FriendName";
 import AddFriend from "./AddFriend";
 import { inputColor } from "../../styles/consts";
@@ -23,7 +22,7 @@ const NewGroupScreen = () => {
   const [groupName, setGroupName] = useState("");
   const [groupType, setGroupType] = useState("Friends");
   const [groupCurrency, setGroupCurrency] = useState("PLN");
-  const [groupNote, setGroupNote] = useState("note");
+  const [groupNote, setGroupNote] = useState("");
   const [isAddingFriend, setIsAddingFriend] = useState(false);
   const [friends, setFriends] = useState([]);
 

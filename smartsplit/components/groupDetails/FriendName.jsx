@@ -13,7 +13,7 @@ const FriendName = ({ friendName, moneyStatus, groupCurrency }) => {
       </Text>
       <View style={styles.buttonsContainer}>
         <Text style={{ color: theme.mainFontColor, marginTop: 5 }}>
-          {moneyStatus}
+          {moneyStatus.toFixed(2)}
           {groupCurrency}
         </Text>
         <Image source={{ uri: coinsIconUrl }} style={styles.coinsIcon} />

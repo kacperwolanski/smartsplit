@@ -28,9 +28,7 @@ const YourGroupsScreen = () => {
     <View>
       <Text style={mainHeader}>Your groups</Text>
       {groupsViewElement.length > 0 ? (
-        <ScreenContent>
-          <ScrollView>{groupsViewElement}</ScrollView>
-        </ScreenContent>
+        <ScreenContent>{groupsViewElement}</ScreenContent>
       ) : (
         <GroupsPlaceHolder />
       )}

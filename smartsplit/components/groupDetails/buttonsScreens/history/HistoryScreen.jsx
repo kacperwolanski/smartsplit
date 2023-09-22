@@ -31,7 +31,7 @@ const HistoryScreen = () => {
   return (
     <View>
       <Text style={mainHeader}>History</Text>
-      <ScreenContent scrollEnabled={false}>
+      <ScreenContent>
         {paymentsByDate.length > 0 ? (
           <SettingsField title="PAYMENTS">
             {dayPaymentsViewElement}
