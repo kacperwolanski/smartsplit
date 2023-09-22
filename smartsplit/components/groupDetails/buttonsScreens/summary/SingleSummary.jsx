@@ -1,12 +1,12 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import useStore from "../../../../store";
 import useTheme from "../../../../hooks/useThemeHook";
 import { rightArrow } from "../../../../appConsts";
+import useActualGroup from "../../../../hooks/useActualGroupHook";
 
 const SingleSummary = ({ summary }) => {
   const { theme } = useTheme();
-  const { actualGroup } = useStore();
+  const { actualGroup } = useActualGroup();
   const { groupCurrency } = actualGroup;
   const { forWho, amount } = summary;
   const { name } = forWho;

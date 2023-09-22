@@ -17,3 +17,9 @@ export const settingsIcon =
 
 export const rightArrow =
   "https://github.com/kacperwolanski/smartsplit/assets/101999487/4ddf68cb-7bac-4e80-886d-f94f5de14a53";
+
+export const paymentPlaceholderImage =
+  "https://github.com/kacperwolanski/smartsplit/assets/101999487/bdefa5b6-bfb9-4138-984e-ad8aa530df0c";
+
+export const groupsPlaceholderImage =
+  "https://github.com/kacperwolanski/smartsplit/assets/101999487/e9139741-8921-4646-bc15-de8c815ffaa2";

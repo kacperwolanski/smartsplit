@@ -7,6 +7,7 @@ import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 import useTheme from "../../hooks/useThemeHook";
 import ButtonsContainer from "../appComponents/ButtonsContainer";
+import GroupsPlaceHolder from "../placeholders/GroupsPlaceholder";
 
 const YourGroupsScreen = () => {
   const { groups } = useStore();
@@ -26,9 +27,13 @@ const YourGroupsScreen = () => {
   return (
     <View>
       <Text style={mainHeader}>Your groups</Text>
-      <ScreenContent>
-        <ScrollView>{groupsViewElement}</ScrollView>
-      </ScreenContent>
+      {groupsViewElement.length > 0 ? (
+        <ScreenContent>
+          <ScrollView>{groupsViewElement}</ScrollView>
+        </ScreenContent>
+      ) : (
+        <GroupsPlaceHolder />
+      )}
 
       <ButtonsContainer top={660}>
         <View style={{ marginTop: 50 }}>

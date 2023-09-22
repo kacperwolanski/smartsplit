@@ -1,25 +1,24 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import ScreenContent from "../../../appComponents/ScreenContent";
 import { usePath } from "../../../../hooks/usePathHook";
-import useStore from "../../../../store";
 import PersonSummary from "./PersonSummary";
-import useTheme from "../../../../hooks/useThemeHook";
 import ButtonsContainer from "../../../appComponents/ButtonsContainer";
 import SettingsField from "../../../appComponents/SettingsField";
 import SingleInfo from "../../../appComponents/SingleInfo";
-
+import useActualGroup from "../../../../hooks/useActualGroupHook";
+import PaymentsPlaceholder from "../../../placeholders/PaymentsPlaceholder";
+import useTotalExpense from "../../../../hooks/useTotalExpenceHook";
 const SummaryScreen = () => {
   const { goBack } = usePath();
-  const { summaries } = useStore();
-
-  const { theme } = useTheme();
+  const { actualGroup } = useActualGroup();
+  const { summaries, groupCurrency } = actualGroup;
   const handleBackPress = () => {
     goBack();
   };
+  const { totalExpense } = useTotalExpense();
 
   const summariesViewElement = summaries.map((summary, index) => {
     const summaryPerson = summary.person;
-
     return (
       <PersonSummary
         key={index}
@@ -33,24 +32,28 @@ const SummaryScreen = () => {
   return (
     <View>
       <Text style={headerStyle}>Summary</Text>
-      <ScreenContent>
+      <ScreenContent scrollEnabled={false}>
         <View style={styles.container}>
-          <SettingsField title={"GROUP DEBTS"}>
-            {summariesViewElement}
-          </SettingsField>
-          <View style={{ marginTop: 20 }}>
-            <SettingsField title={"OTHER DETAILS"}>
-              <View style={styles.totalContainer}>
-                <SingleInfo
-                  title={"Total expense:"}
-                  value={"900PLN"}
-                  first={true}
-                />
-                <SingleInfo title={"Total expense:"} value={"900PLN"} />
-                <SingleInfo title={"Total expense:"} value={"900PLN"} />
+          {summaries.length > 0 ? (
+            <>
+              <SettingsField title={"GROUP DEBTS"}>
+                {summariesViewElement}
+              </SettingsField>
+              <View style={{ marginTop: 20 }}>
+                <SettingsField title={"OTHER DETAILS"}>
+                  <View style={styles.totalContainer}>
+                    <SingleInfo
+                      title={"Total expense:"}
+                      value={totalExpense + groupCurrency}
+                      first={true}
+                    />
+                  </View>
+                </SettingsField>
               </View>
-            </SettingsField>
-          </View>
+            </>
+          ) : (
+            <PaymentsPlaceholder />
+          )}
         </View>
       </ScreenContent>
       <ButtonsContainer top={710}>

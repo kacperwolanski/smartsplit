@@ -3,11 +3,11 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import useTheme from "../../../../hooks/useThemeHook";
 import Modal from "../../../appComponents/Modal";
 
-const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
+const DiscardModal = ({ setIsDiscarding, handleDiscard }) => {
   const { theme } = useTheme();
   const handleYesPress = () => {
-    handleDeleteGroup();
-    setIsDeleting(false);
+    handleDiscard();
+    setIsDiscarding(false);
   };
   return (
     <View style={styles.container}>
@@ -22,10 +22,7 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
             fontSize: 18,
             textAlign: "justify",
           }}
-        >
-          Do you want to delete
-          <Text style={{ fontWeight: "600" }}> {groupName}</Text>?
-        </Text>
+        >{`Do you want to discard changes ?`}</Text>
         <View
           style={{
             flexDirection: "row",
@@ -38,7 +35,7 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
             title="cancel"
             color={theme.mainFontColor}
             onPress={() => {
-              setIsDeleting(false);
+              setIsDiscarding(false);
             }}
           />
           <Button
@@ -52,7 +49,7 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
   );
 };
 
-export default DeleteModal;
+export default DiscardModal;
 
 const styles = StyleSheet.create({
   container: {

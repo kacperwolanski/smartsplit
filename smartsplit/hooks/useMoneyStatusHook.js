@@ -1,53 +1,34 @@
 import React from "react";
 import useStore from "../store";
-import { isObjectEqual } from "../helpers/isObjInArray";
+import useActualGroup from "./useActualGroupHook";
 
 const useMoneyStatus = () => {
-  const { payments, actualGroup, updateGroups, groups, setActualGroup } =
-    useStore();
-  const updatedPeople = [];
-
-  const updatePeopleGroups = () => {
-    const updatedGroups = groups.map((group) => {
-      if (group.id === actualGroup.id) {
-        const newGroup = { ...group, people: updatedPeople };
-        setActualGroup(newGroup);
-        return newGroup;
-      }
-      return group;
-    });
-    updateGroups(updatedGroups);
-  };
+  const { updateGroupsByKey } = useStore();
+  const { actualGroup } = useActualGroup();
+  const { payments, people, id } = actualGroup;
 
   const getMoneyStatus = () => {
-    actualGroup.people.forEach((friend) => {
-      let status = 0;
-      payments.forEach((payment) => {
-        const { forWho, person, amount } = payment;
-        const moneyPerEach = (amount / forWho.length).toFixed(2);
+    const moneyStatuses = {};
 
-        // -1 is in forwho 0 is not
-        let friendInForWho = 0;
-        forWho.forEach((paidPerson) => {
-          if (isObjectEqual(paidPerson, friend)) {
-            friendInForWho = -1;
-            return;
-          }
-        });
+    people.forEach((person) => {
+      moneyStatuses[person.id] = {
+        id: person.id,
+        status: 0,
+      };
+    });
 
-        //friend pays +
-        if (isObjectEqual(person, friend)) {
-          status += moneyPerEach * (forWho.length + friendInForWho);
-        } else {
-          status -= moneyPerEach * (forWho.length + friendInForWho);
-        }
-      });
-      updatedPeople.push({
-        ...friend,
-        status: status,
+    payments.forEach((payment) => {
+      const { person, forWho, amount } = payment;
+      const intAmount = parseInt(amount);
+      moneyStatuses[person.id].status += intAmount;
+      const splitAmount = (intAmount / forWho.length).toFixed(2);
+      forWho.forEach((recipient) => {
+        moneyStatuses[recipient.id].status -= splitAmount;
       });
     });
-    updatePeopleGroups();
+
+    const moneyStatusesArray = Object.values(moneyStatuses);
+    updateGroupsByKey(moneyStatusesArray, "statuses", id);
   };
   return { getMoneyStatus };
 };
