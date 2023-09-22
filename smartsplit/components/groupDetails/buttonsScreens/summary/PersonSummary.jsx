@@ -24,20 +24,6 @@ const PersonSummary = ({ index, summaryPerson, summaries }) => {
           <Text style={[styles.personName, { color: theme.mainFontColor }]}>
             {name}
           </Text>
-          <View style={{ flexDirection: "row" }}>
-            <Text
-              style={[
-                styles.stateStyle,
-                { color: parseInt(status) >= 0 ? "green" : "red" },
-              ]}
-            >
-              {status}
-            </Text>
-            <Image
-              source={require("../../../../assets/coins.png")}
-              style={styles.coinsIcon}
-            />
-          </View>
         </View>
 
         <View style={styles.summariesContainer}>{summariesViewElement}</View>

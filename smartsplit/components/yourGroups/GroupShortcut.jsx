@@ -4,8 +4,6 @@ import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
 import { controlTextLen } from "../../helpers/controlTextLen";
 import useTheme from "../../hooks/useThemeHook";
-import Modal from "../appComponents/Modal";
-import SettingsField from "../appComponents/SettingsField";
 
 const GroupShortcut = ({ groupData }) => {
   const { moveTo } = usePath();
@@ -30,7 +28,7 @@ const GroupShortcut = ({ groupData }) => {
         <Text style={{ fontSize: 24, color: theme.mainFontColor }}>{name}</Text>
         <View style={{ flexDirection: "row", gap: 2, marginTop: 6 }}>
           <Image
-            source={require("../../assets/personIcon.png")}
+            source={{ uri: theme.icons.groupsPlaceholderImage }}
             style={styles.personImage}
           />
           <Text style={{ color: theme.mainFontColor }}>{amount}</Text>

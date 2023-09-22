@@ -63,9 +63,10 @@ const NewGroupScreen = () => {
 
   const ableToAdd = groupName && friends.length > 1;
 
-  const friendsViewElement = friends.map((friend) => {
+  const friendsViewElement = friends.map((friend, index) => {
     return (
       <FriendName
+        key={index}
         friend={friend}
         friends={friends}
         updateFriends={updateFriends}

@@ -41,11 +41,7 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
               setIsDeleting(false);
             }}
           />
-          <Button
-            color={theme.buttonColor}
-            title="yes"
-            onPress={handleYesPress}
-          />
+          <Button color="#C7372F" title="yes" onPress={handleYesPress} />
         </View>
       </View>
     </View>

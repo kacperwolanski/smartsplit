@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import useTheme from "../../hooks/useThemeHook";
 
 const FriendName = ({ person, onPressFunc, ableToMark }) => {
   const { name } = person;
   const [isClicked, setIsClicked] = useState(false);
+  const { theme } = useTheme();
 
   const handleClick = () => {
     if (ableToMark) {
@@ -22,8 +24,8 @@ const FriendName = ({ person, onPressFunc, ableToMark }) => {
   const clickDisabled = !ableToMark && !isClicked;
   const getBorderColor = () => {
     if (clickDisabled) return "#D3D3D3";
-    if (!isClicked) return "white";
-    else return "#007AFF";
+    if (!isClicked) return theme.mainFontColor;
+    else return theme.activeSysBtn;
   };
   return (
     <TouchableOpacity

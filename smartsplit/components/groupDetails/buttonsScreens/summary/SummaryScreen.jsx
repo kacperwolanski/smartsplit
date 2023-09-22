@@ -11,7 +11,7 @@ import useTotalExpense from "../../../../hooks/useTotalExpenceHook";
 import useTheme from "../../../../hooks/useThemeHook";
 const SummaryScreen = () => {
   const { goBack } = usePath();
-  const { mainHeader } = useTheme();
+  const { mainHeader, theme } = useTheme();
   const { actualGroup } = useActualGroup();
   const { summaries, groupCurrency } = actualGroup;
   const handleBackPress = () => {
@@ -46,7 +46,7 @@ const SummaryScreen = () => {
                   <View style={styles.totalContainer}>
                     <SingleInfo
                       title={"Total expense:"}
-                      value={totalExpense + groupCurrency}
+                      value={totalExpense + " " + groupCurrency}
                       first={true}
                     />
                   </View>
@@ -59,7 +59,11 @@ const SummaryScreen = () => {
         </View>
       </ScreenContent>
       <ButtonsContainer top={710}>
-        <Button color={"white"} title="back" onPress={handleBackPress} />
+        <Button
+          color={theme.passiveSysBtn}
+          title="back"
+          onPress={handleBackPress}
+        />
       </ButtonsContainer>
     </View>
   );

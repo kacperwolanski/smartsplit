@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import CirclePlusButton from "../buttons/CirclePlusButton";
 import FriendName from "./FriendName";
 import OptionButton from "../buttons/OptionButton";
-import { coinsIconUrl, historyIconUrl, optionsIconUrl } from "../../appConsts";
+import { historyIconUrl, optionsIconUrl } from "../../appConsts";
 import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 import { useSummaries } from "../../hooks/useSummariesHook";
@@ -12,10 +12,10 @@ import useTheme from "../../hooks/useThemeHook";
 import SettingsField from "../appComponents/SettingsField";
 import ButtonsContainer from "../appComponents/ButtonsContainer";
 import useActualGroup from "../../hooks/useActualGroupHook";
+import { lightIcons } from "../../assets/urls";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
-
   const { theme, mainHeader } = useTheme();
   const { actualGroup } = useActualGroup();
   const { addSummaries } = useSummaries();
@@ -58,7 +58,10 @@ const GroupDetailsScreen = () => {
           <SettingsField title="DETAILS">
             <View style={styles.buttonsContainer}>
               <View style={{ flexDirection: "row", gap: 20 }}>
-                <OptionButton imagePath={coinsIconUrl} pathKeyword="summary" />
+                <OptionButton
+                  imagePath={lightIcons.coinsIconUrl}
+                  pathKeyword="summary"
+                />
                 <OptionButton
                   imagePath={historyIconUrl}
                   pathKeyword="history"

@@ -50,7 +50,7 @@ const Navigation = () => {
     return <MainScreen />;
   };
   const chosenScreen = chooseScreen();
-  console.log(lastPathElement);
+
   return (
     <View>
       <AppearAnimation offset={1} direction={slideDirection}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { paymentPlaceholderImage } from "../../appConsts";
+
 import useTheme from "../../hooks/useThemeHook";
 
 const PaymentsPlaceholder = () => {
@@ -8,7 +8,7 @@ const PaymentsPlaceholder = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: paymentPlaceholderImage }}
+        source={{ uri: theme.icons.paymentPlaceholderImage }}
         style={styles.paymentImage}
       />
       <Text style={[{ color: theme.mainFontColor }]}>Lack of payments</Text>
