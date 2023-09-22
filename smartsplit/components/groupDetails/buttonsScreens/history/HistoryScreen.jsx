@@ -6,9 +6,11 @@ import usePaymentsByDate from "../../../../hooks/usePaymentsByDateHook";
 import SettingsField from "../../../appComponents/SettingsField";
 import ButtonsContainer from "../../../appComponents/ButtonsContainer";
 import PaymentsPlaceholder from "../../../placeholders/PaymentsPlaceholder";
+import useTheme from "../../../../hooks/useThemeHook";
 
 const HistoryScreen = () => {
   const { goBack } = usePath();
+  const { mainHeader } = useTheme();
   const { getPaymentsByDate } = usePaymentsByDate();
   const handleBackPress = () => {
     goBack();
@@ -28,7 +30,7 @@ const HistoryScreen = () => {
 
   return (
     <View>
-      <Text style={headerStyle}>History</Text>
+      <Text style={mainHeader}>History</Text>
       <ScreenContent scrollEnabled={false}>
         {paymentsByDate.length > 0 ? (
           <SettingsField title="PAYMENTS">

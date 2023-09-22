@@ -38,7 +38,7 @@ const useStore = create((set, get) => ({
 
   path: ["/mainScreen"],
   appLanguage: "English",
-  appTheme: "dark",
+  appTheme: "babyBlue",
   slideDirection: "right",
   signedUser: "Kacper",
   setActualGroup: (newGroupId) => set(() => ({ actualGroupId: newGroupId })),

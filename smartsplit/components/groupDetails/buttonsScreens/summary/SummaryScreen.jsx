@@ -8,8 +8,10 @@ import SingleInfo from "../../../appComponents/SingleInfo";
 import useActualGroup from "../../../../hooks/useActualGroupHook";
 import PaymentsPlaceholder from "../../../placeholders/PaymentsPlaceholder";
 import useTotalExpense from "../../../../hooks/useTotalExpenceHook";
+import useTheme from "../../../../hooks/useThemeHook";
 const SummaryScreen = () => {
   const { goBack } = usePath();
+  const { mainHeader } = useTheme();
   const { actualGroup } = useActualGroup();
   const { summaries, groupCurrency } = actualGroup;
   const handleBackPress = () => {
@@ -31,7 +33,7 @@ const SummaryScreen = () => {
 
   return (
     <View>
-      <Text style={headerStyle}>Summary</Text>
+      <Text style={mainHeader}>Summary</Text>
       <ScreenContent scrollEnabled={false}>
         <View style={styles.container}>
           {summaries.length > 0 ? (

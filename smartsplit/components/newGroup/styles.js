@@ -14,7 +14,6 @@ export const newGroupStyles = StyleSheet.create({
     justifyContent: "space-between",
   },
   groupNameInput: {
-    color: "white",
     fontSize: 24,
     paddingVertical: 12,
   },
@@ -30,12 +29,16 @@ export const friendNameStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  friendName: {
-    color: "white",
-    fontSize: 18,
-  },
+
   buttonsContainer: {
     flexDirection: "row",
     gap: 5,
+  },
+
+  textInput: {
+    textAlign: "center",
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    fontSize: 20,
   },
 });

@@ -4,9 +4,10 @@ import EditButton from "../buttons/EditButton";
 import RemoveButton from "../buttons/RemoveButton";
 import { friendNameStyles } from "./styles";
 import { inputColor } from "../../styles/consts";
-
+import useTheme from "../../hooks/useThemeHook";
 const FriendName = ({ friend, friends, updateFriends }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const { theme } = useTheme();
   const [editedName, setEditedName] = useState("");
   const { name, id } = friend;
   const styles = friendNameStyles;
@@ -43,7 +44,9 @@ const FriendName = ({ friend, friends, updateFriends }) => {
     <View>
       {!isEditing ? (
         <View style={styles.container}>
-          <Text style={styles.friendName}>{name}</Text>
+          <Text style={{ fontSize: 18, color: theme.mainFontColor }}>
+            {name}
+          </Text>
           <View style={styles.buttonsContainer}>
             <EditButton onPressFunc={handleEdit} />
             <RemoveButton removeFunction={handleRemoveFriend} />
@@ -58,9 +61,7 @@ const FriendName = ({ friend, friends, updateFriends }) => {
               setEditedName(newValue);
             }}
             placeholderTextColor={inputColor}
-            style={{
-              ...styles.textInput,
-            }}
+            style={[styles.textInput, { color: theme.mainFontColor }]}
           />
           <View
             style={{
@@ -69,8 +70,16 @@ const FriendName = ({ friend, friends, updateFriends }) => {
               marginTop: 10,
             }}
           >
-            <Button color="white" title="cancel" onPress={handleCancel} />
-            <Button title="save" onPress={handleSaveEdit} />
+            <Button
+              color={theme.passiveSysBtn}
+              title="cancel"
+              onPress={handleCancel}
+            />
+            <Button
+              color={theme.activeSysBtn}
+              title="save"
+              onPress={handleSaveEdit}
+            />
           </View>
         </View>
       )}
@@ -79,13 +88,3 @@ const FriendName = ({ friend, friends, updateFriends }) => {
 };
 
 export default FriendName;
-
-const styles = StyleSheet.create({
-  textInput: {
-    textAlign: "center",
-    color: "white",
-    paddingHorizontal: 20,
-    paddingTop: 10,
-    fontSize: 20,
-  },
-});

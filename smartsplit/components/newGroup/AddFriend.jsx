@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 import { inputColor } from "../../styles/consts";
+import useTheme from "../../hooks/useThemeHook";
 
 const AddFriend = ({ handleAddingFriend, updateFriends, friends }) => {
   const [newFriendName, setNewFriendName] = useState("");
+  const { theme } = useTheme();
   const cancelAddingFriend = () => {
     handleAddingFriend(false);
   };
@@ -16,7 +18,7 @@ const AddFriend = ({ handleAddingFriend, updateFriends, friends }) => {
   return (
     <View style={styles.container}>
       <TextInput
-        style={styles.friendNameInput}
+        style={{ color: theme.mainFontColor, fontSize: 18 }}
         placeholder="friend name"
         placeholderTextColor={inputColor}
         value={newFriendName}
@@ -25,8 +27,12 @@ const AddFriend = ({ handleAddingFriend, updateFriends, friends }) => {
         }}
       />
       <View style={styles.buttonsContainer}>
-        <Button color="white" title="cancel" onPress={cancelAddingFriend} />
-        <Button title="save" onPress={addFriend} />
+        <Button
+          color={theme.passiveSysBtn}
+          title="cancel"
+          onPress={cancelAddingFriend}
+        />
+        <Button color={theme.activeSysBtn} title="save" onPress={addFriend} />
       </View>
     </View>
   );
@@ -38,10 +44,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
   },
-  friendNameInput: {
-    color: "white",
-    fontSize: 18,
-  },
+  friendNameInput: {},
   buttonsContainer: {
     marginTop: 8,
     flexDirection: "row",

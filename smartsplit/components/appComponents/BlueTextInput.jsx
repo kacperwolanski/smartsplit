@@ -72,9 +72,14 @@ const BlueTextInput = ({
                   marginTop: 10,
                 }}
               >
-                <Button color="white" title="cancel" onPress={cancelEditing} />
+                <Button
+                  color={theme.passiveSysBtn}
+                  title="cancel"
+                  onPress={cancelEditing}
+                />
                 <Button
                   title="save"
+                  color={theme.activeSysBtn}
                   onPress={saveChanges}
                   disabled={!editedValue.length}
                 />
