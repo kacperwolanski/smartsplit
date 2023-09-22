@@ -8,8 +8,10 @@ import SingleInfo from "../../../appComponents/SingleInfo";
 import useActualGroup from "../../../../hooks/useActualGroupHook";
 import PaymentsPlaceholder from "../../../placeholders/PaymentsPlaceholder";
 import useTotalExpense from "../../../../hooks/useTotalExpenceHook";
+import useTheme from "../../../../hooks/useThemeHook";
 const SummaryScreen = () => {
   const { goBack } = usePath();
+  const { mainHeader, theme } = useTheme();
   const { actualGroup } = useActualGroup();
   const { summaries, groupCurrency } = actualGroup;
   const handleBackPress = () => {
@@ -31,7 +33,7 @@ const SummaryScreen = () => {
 
   return (
     <View>
-      <Text style={headerStyle}>Summary</Text>
+      <Text style={mainHeader}>Summary</Text>
       <ScreenContent scrollEnabled={false}>
         <View style={styles.container}>
           {summaries.length > 0 ? (
@@ -44,7 +46,7 @@ const SummaryScreen = () => {
                   <View style={styles.totalContainer}>
                     <SingleInfo
                       title={"Total expense:"}
-                      value={totalExpense + groupCurrency}
+                      value={totalExpense + " " + groupCurrency}
                       first={true}
                     />
                   </View>
@@ -57,7 +59,11 @@ const SummaryScreen = () => {
         </View>
       </ScreenContent>
       <ButtonsContainer top={710}>
-        <Button color={"white"} title="back" onPress={handleBackPress} />
+        <Button
+          color={theme.passiveSysBtn}
+          title="back"
+          onPress={handleBackPress}
+        />
       </ButtonsContainer>
     </View>
   );

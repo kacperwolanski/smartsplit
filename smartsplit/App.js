@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import useTheme from "./hooks/useThemeHook";
 import { usePath } from "./hooks/usePathHook";
@@ -27,10 +27,3 @@ export default App = () => {
     </LinearGradient>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    borderWidth: 1,
-  },
-});

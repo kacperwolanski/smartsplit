@@ -8,22 +8,37 @@ const SinglePayment = ({ payment }) => {
   const { groupCurrency } = actualGroup;
   const { person, note, amount } = payment;
   const { theme } = useTheme();
-  const boldText = { fontWeight: "bold", color: theme.mainFontColor };
+  const boldText = {
+    fontWeight: "bold",
+    color: theme.mainFontColor,
+    marginTop: 10,
+  };
   return (
-    <View style={styles.container}>
-      <View style={{ flexDirection: "row" }}>
-        <Text style={boldText}>{person.name} </Text>
+    <View>
+      <View style={styles.borderContainer}>
+        <View
+          style={{
+            flexDirection: "row",
+            borderTopWidth: 0.3,
+            borderTopColor: theme.settingsFontColor,
+          }}
+        >
+          <Text style={boldText}>{person.name} </Text>
 
-        <Text style={boldText}>
-          {amount} {groupCurrency}
+          <Text style={boldText}>
+            {amount} {groupCurrency}
+          </Text>
+        </View>
+
+        <Text style={{ fontSize: 12, color: theme.mainFontColor }}>
+          {note.length > 0 ? note : "No description"}
         </Text>
       </View>
-      <Text style={{ fontSize: 12, color: theme.mainFontColor }}>{note}</Text>
     </View>
   );
 };
 
 export default SinglePayment;
 const styles = StyleSheet.create({
-  container: { padding: 5 },
+  borderContainer: { padding: 10 },
 });

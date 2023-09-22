@@ -16,7 +16,7 @@ const NewPaymentScreen = () => {
   const [amount, setAmount] = useState("0");
   const [note, setNote] = useState("");
   const [isAbleToAdd, setIsAbleToAdd] = useState(false);
-  const { mainHeader } = useTheme();
+  const { mainHeader, theme } = useTheme();
   const { updatePayments, updateSummaries, actualGroupId } = useStore();
   const { actualGroup } = useActualGroup();
   const { people, groupCurrency, payments } = actualGroup;
@@ -45,7 +45,9 @@ const NewPaymentScreen = () => {
       <Text style={mainHeader}>Add new payment</Text>
       <ScreenContent>
         <View>
-          <Text style={styles.headerStyle}>Who pays?</Text>
+          <Text style={[styles.headerStyle, { color: theme.mainFontColor }]}>
+            Who pays?
+          </Text>
           <ChoosePeople
             people={people}
             peopleAmount={1}
@@ -60,7 +62,9 @@ const NewPaymentScreen = () => {
           inputType={"numbers"}
         />
         <View>
-          <Text style={styles.headerStyle}>For who?</Text>
+          <Text style={[styles.headerStyle, { color: theme.mainFontColor }]}>
+            For who?
+          </Text>
           <ChoosePeople
             people={people}
             peopleAmount={people.length}
@@ -81,7 +85,7 @@ const NewPaymentScreen = () => {
       <ButtonsContainer top={700}>
         <View>
           <Button
-            color="white"
+            color={theme.passiveSysBtn}
             title="back"
             onPress={() => {
               goBack();
@@ -89,6 +93,7 @@ const NewPaymentScreen = () => {
           />
         </View>
         <Button
+          color={theme.activeSysBtn}
           title="add"
           onPress={handleAddPayment}
           disabled={!isAbleToAdd}
@@ -102,7 +107,6 @@ export default NewPaymentScreen;
 
 const styles = StyleSheet.create({
   headerStyle: {
-    color: "white",
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 20,

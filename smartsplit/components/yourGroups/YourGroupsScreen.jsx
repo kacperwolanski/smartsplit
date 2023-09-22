@@ -11,7 +11,7 @@ import GroupsPlaceHolder from "../placeholders/GroupsPlaceholder";
 
 const YourGroupsScreen = () => {
   const { groups } = useStore();
-  const { mainHeader } = useTheme();
+  const { mainHeader, theme } = useTheme();
   const { moveTo, goBack } = usePath();
   const handlePress = () => {
     moveTo("/addGroup");
@@ -37,7 +37,11 @@ const YourGroupsScreen = () => {
 
       <ButtonsContainer top={660}>
         <View style={{ marginTop: 50 }}>
-          <Button color="white" title="back" onPress={goBack}></Button>
+          <Button
+            color={theme.passiveSysBtn}
+            title="back"
+            onPress={goBack}
+          ></Button>
         </View>
         <CirclePlusButton onPressFunc={handlePress} />
       </ButtonsContainer>

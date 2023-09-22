@@ -9,9 +9,10 @@ import useStore from "../../store";
 import Modal from "../appComponents/Modal";
 import { settingsIcon } from "../../appConsts";
 const MainScreen = () => {
-  const { mainHeader, contentField } = useTheme();
+  const { mainHeader, contentField, theme } = useTheme();
   const { moveTo } = usePath();
   const { groups, signedUser } = useStore();
+
   const handleGroupsClick = () => {
     moveTo("/yourGroups");
   };
@@ -20,6 +21,7 @@ const MainScreen = () => {
   };
 
   const slicedGroups = groups.length > 4 ? groups.slice(0, 4) : groups;
+
   const groupViewElements = slicedGroups.map((group, index) => {
     return (
       <View
@@ -52,7 +54,10 @@ const MainScreen = () => {
           style={styles.settingsContainer}
           onPress={handleOptionsClick}
         >
-          <Image source={{ uri: settingsIcon }} style={styles.settingsIcon} />
+          <Image
+            source={{ uri: theme.icons.settingsIcon }}
+            style={styles.settingsIcon}
+          />
         </TouchableOpacity>
       </View>
       <ScreenContent scrollEnabled={false}>

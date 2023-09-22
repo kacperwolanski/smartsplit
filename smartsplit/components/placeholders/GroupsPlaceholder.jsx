@@ -1,9 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import {
-  groupsPlaceholderImage,
-  paymentPlaceholderImage,
-} from "../../appConsts";
+
 import useTheme from "../../hooks/useThemeHook";
 
 const GroupsPlaceHolder = () => {
@@ -11,7 +8,7 @@ const GroupsPlaceHolder = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: groupsPlaceholderImage }}
+        source={{ uri: theme.icons.groupsPlaceholderImage }}
         style={styles.paymentImage}
       />
       <Text style={[{ color: theme.mainFontColor }]}>No groups to show</Text>

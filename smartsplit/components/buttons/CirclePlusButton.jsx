@@ -12,7 +12,7 @@ const CirclePlusButton = ({ onPressFunc }) => {
       <Text
         style={{
           fontSize: 45,
-          color: theme.passiveSysBtn,
+          color: "white",
           textAlign: "center",
           marginBottom: 5,
         }}

@@ -63,9 +63,10 @@ const NewGroupScreen = () => {
 
   const ableToAdd = groupName && friends.length > 1;
 
-  const friendsViewElement = friends.map((friend) => {
+  const friendsViewElement = friends.map((friend, index) => {
     return (
       <FriendName
+        key={index}
         friend={friend}
         friends={friends}
         updateFriends={updateFriends}
@@ -83,7 +84,7 @@ const NewGroupScreen = () => {
               placeholder="group name"
               value={groupName}
               placeholderTextColor={inputColor}
-              style={styles.groupNameInput}
+              style={[styles.groupNameInput, { color: theme.mainFontColor }]}
               onChangeText={handleGroupNameChange}
             />
           </View>
@@ -142,7 +143,11 @@ const NewGroupScreen = () => {
       </ScreenContent>
 
       <ButtonsContainer top={710}>
-        <Button color="white" title="cancel" onPress={handleCancelPress} />
+        <Button
+          color={theme.passiveSysBtn}
+          title="cancel"
+          onPress={handleCancelPress}
+        />
         <Button
           color={theme.buttonColor}
           title="save"

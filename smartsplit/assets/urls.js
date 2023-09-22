@@ -1,0 +1,36 @@
+export const darkIcons = {
+  coinsIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/3173ab56-1760-4810-a2dc-05911bca5a11",
+  darkModeIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/edc548be-7837-4b4b-bde1-f19bf9f5ac6a",
+  lightModeIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/ed05bacf-2e6c-467b-aee9-af59555ffa46",
+  babyBlueModeIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/0751e9ee-00cb-4fd2-83a7-81561ac53617",
+  settingsIcon:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/2b707486-ad8b-4260-b729-6f6ad4dca9b4",
+  rightArrow:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/3b2d32f8-ad77-4d5c-8e56-3edcde2f013f",
+  paymentPlaceholderImage:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/74f224dd-9d26-4b99-ac3a-b49ec71c4557",
+  groupsPlaceholderImage:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/4d1b8065-2b3f-40d1-8c53-30ff1c29627d",
+};
+export const lightIcons = {
+  coinsIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/2b83f7ca-75b0-4ff4-9cf8-16e954b0b030",
+  darkModeIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/f667b64d-99df-4d44-8687-13970d11d24b",
+  lightModeIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/a72d31b0-1282-477a-98ad-fe4b60b92168",
+  babyBlueModeIconUrl:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/b6a7b505-3a5a-4503-851c-ef5bff27402f",
+  settingsIcon:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/cae0640d-a495-43db-b729-eb2826c52ff7",
+  rightArrow:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/4ddf68cb-7bac-4e80-886d-f94f5de14a53",
+  paymentPlaceholderImage:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/bdefa5b6-bfb9-4138-984e-ad8aa530df0c",
+  groupsPlaceholderImage:
+    "https://github.com/kacperwolanski/smartsplit/assets/101999487/e9139741-8921-4646-bc15-de8c815ffaa2",
+};

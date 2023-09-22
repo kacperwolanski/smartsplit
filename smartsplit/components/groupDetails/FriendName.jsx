@@ -4,6 +4,8 @@ import useTheme from "../../hooks/useThemeHook";
 
 const FriendName = ({ friendName, moneyStatus, groupCurrency }) => {
   const { theme } = useTheme();
+
+  const coinsIconUrl = theme.icons.coinsIconUrl;
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 18, color: theme.mainFontColor }}>
@@ -14,10 +16,7 @@ const FriendName = ({ friendName, moneyStatus, groupCurrency }) => {
           {moneyStatus}
           {groupCurrency}
         </Text>
-        <Image
-          source={require("../../assets/coins.png")}
-          style={styles.coinsIcon}
-        />
+        <Image source={{ uri: coinsIconUrl }} style={styles.coinsIcon} />
       </View>
     </View>
   );

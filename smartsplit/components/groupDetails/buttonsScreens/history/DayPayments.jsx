@@ -11,11 +11,7 @@ const DayPayments = ({ date, payments, index }) => {
   return (
     <View style={{ paddingHorizontal: 20 }}>
       <View style={[styles.container, { borderTopWidth: index ? 0.2 : 0 }]}>
-        <Text
-          style={{ fontWeight: "bold", fontSize: 18, color: theme.buttonColor }}
-        >
-          {date}
-        </Text>
+        <Text style={{ fontSize: 18, color: theme.buttonColor }}>{date}</Text>
         <View>{paymentViewElements}</View>
       </View>
     </View>
