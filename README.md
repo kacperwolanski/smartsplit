@@ -3,7 +3,7 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
+<div align="center" id="readme-top">
 <div>
     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/66a6c127-8bcf-4776-8e66-fe42fb01e812" alt="Logo" width="135" height="282">
   </div>
