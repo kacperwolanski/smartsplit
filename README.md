@@ -5,7 +5,7 @@
 <br />
 <div align="center">
 <div>
-    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/fd99d3bf-ad36-436b-8935-957a926fe932" alt="Logo" width="395" height="632">
+    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/fd99d3bf-ad36-436b-8935-957a926fe932" alt="Logo" width="195" height="332">
   </div>
 
 
