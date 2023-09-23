@@ -103,6 +103,6 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     opacity: 0.9,
-    marginTop: screenHeight > 700 ? -25 : -65,
+    marginTop: screenHeight > 700 ? -28 : -65,
   },
 });

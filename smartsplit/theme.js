@@ -2,7 +2,7 @@ import { darkIcons, lightIcons } from "./assets/urls";
 
 export const DarkTheme = {
   mainFontColor: "white",
-  mainBackground: ["rgba(73,74,78,255)", "#000000", "#000000", "#000000"],
+  mainBackground: ["hsla(227, 16%, 18%, 1)", "hsla(0, 0%, 1%, 1)"],
   buttonColor: "#e68600",
   passiveSysBtn: "white",
   activeSysBtn: "#e68600",
@@ -11,6 +11,7 @@ export const DarkTheme = {
   settingsFontColor: "#b3b5b3",
   icons: lightIcons,
   inputColor: "#8e8f8c",
+  groupColors: ["hsla(227, 16%, 18%, 1)", "hsla(210, 4%, 20%, 1)"],
 };
 export const LightTheme = {
   mainFontColor: "black",
@@ -18,11 +19,12 @@ export const LightTheme = {
   buttonColor: "black",
   passiveSysBtn: "black",
   activeSysBtn: "#0095ff",
-  contentBackground: "#fbfbfb",
-  contentFieldColor: "#fbfbfb",
+  contentBackground: "#f9f9f9",
+  contentFieldColor: "#f7f5f5",
   settingsFontColor: "#979197",
   icons: darkIcons,
   inputColor: "#8e8f8c",
+  groupColors: ["hsla(0, 3%, 92%, 1)", "hsla(260, 3%, 59%, 1)"],
 };
 export const BlueTheme = {
   mainFontColor: "white",
@@ -40,4 +42,5 @@ export const BlueTheme = {
   settingsFontColor: "#537ec2",
   icons: lightIcons,
   inputColor: "white",
+  groupColors: ["hsla(211, 40%, 66%, 1)", "hsla(216, 64%, 69%, 1)"],
 };
