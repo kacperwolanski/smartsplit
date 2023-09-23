@@ -7,13 +7,34 @@ import SettingsField from "../../../appComponents/SettingsField";
 import ButtonsContainer from "../../../appComponents/ButtonsContainer";
 import PaymentsPlaceholder from "../../../placeholders/PaymentsPlaceholder";
 import useTheme from "../../../../hooks/useThemeHook";
+import { useState } from "react";
+import DeletePaymentModal from "./DeletePaymentModal";
+import useActualGroup from "../../../../hooks/useActualGroupHook";
+import { isObjectEqual } from "../../../../helpers/isObjInArray";
+import useStore from "../../../../store";
 
 const HistoryScreen = () => {
   const { goBack } = usePath();
+  const { updateGroupsByKey } = useStore();
   const { mainHeader, theme } = useTheme();
   const { getPaymentsByDate } = usePaymentsByDate();
+
+  const { actualGroup } = useActualGroup();
+  const { payments, id } = actualGroup;
+
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [paymentToDelete, setPaymentToDelete] = useState(null);
+
   const handleBackPress = () => {
     goBack();
+  };
+
+  const handleDelPaymentPress = () => {
+    setIsDeleting(false);
+    const updatedPayments = payments.filter((payment) => {
+      return !isObjectEqual(paymentToDelete, payment);
+    });
+    updateGroupsByKey(updatedPayments, "payments", id);
   };
 
   const paymentsByDate = getPaymentsByDate();
@@ -23,7 +44,13 @@ const HistoryScreen = () => {
 
     return (
       <View key={index}>
-        <DayPayments date={date} payments={payments} index={0} />
+        <DayPayments
+          date={date}
+          payments={payments}
+          index={0}
+          setIsDeleting={setIsDeleting}
+          setPaymentToDelete={setPaymentToDelete}
+        />
       </View>
     );
   });
@@ -47,6 +74,14 @@ const HistoryScreen = () => {
           onPress={handleBackPress}
         />
       </ButtonsContainer>
+      <View style={{ marginTop: 350 }}>
+        {isDeleting && (
+          <DeletePaymentModal
+            setIsDeleting={setIsDeleting}
+            handleDeletePayment={handleDelPaymentPress}
+          />
+        )}
+      </View>
     </View>
   );
 };

@@ -9,6 +9,7 @@ import useActualGroup from "../../../../hooks/useActualGroupHook";
 import PaymentsPlaceholder from "../../../placeholders/PaymentsPlaceholder";
 import useTotalExpense from "../../../../hooks/useTotalExpenceHook";
 import useTheme from "../../../../hooks/useThemeHook";
+
 const SummaryScreen = () => {
   const { goBack } = usePath();
   const { mainHeader, theme } = useTheme();
