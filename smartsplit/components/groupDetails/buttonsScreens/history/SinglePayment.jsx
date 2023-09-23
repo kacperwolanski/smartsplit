@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import useTheme from "../../../../hooks/useThemeHook";
 import useActualGroup from "../../../../hooks/useActualGroupHook";
 import RemoveButton from "../../../buttons/RemoveButton";
 
-const SinglePayment = ({ payment }) => {
+const SinglePayment = ({ payment, setIsDeleting, setPaymentToDelete }) => {
   const { actualGroup } = useActualGroup();
   const { groupCurrency } = actualGroup;
   const { person, note, amount } = payment;
@@ -14,7 +14,7 @@ const SinglePayment = ({ payment }) => {
     color: theme.mainFontColor,
     marginTop: 10,
   };
-  const handleRemovePayment = () => {};
+
   return (
     <View>
       <View>
@@ -38,7 +38,12 @@ const SinglePayment = ({ payment }) => {
           </Text>
         </View>
         <View style={{ position: "absolute", top: 25, right: 10 }}>
-          <RemoveButton removeFunction={handleRemovePayment} />
+          <RemoveButton
+            removeFunction={() => {
+              setIsDeleting(true);
+              setPaymentToDelete(payment);
+            }}
+          />
         </View>
       </View>
     </View>

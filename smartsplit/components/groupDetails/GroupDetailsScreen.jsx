@@ -16,11 +16,12 @@ import { lightIcons } from "../../assets/urls";
 
 const GroupDetailsScreen = () => {
   const { goBack, moveTo } = usePath();
+
   const { theme, mainHeader } = useTheme();
   const { actualGroup } = useActualGroup();
   const { addSummaries } = useSummaries();
   const { getMoneyStatus } = useMoneyStatus();
-  const { name, people, groupCurrency, statuses } = actualGroup;
+  const { name, people, groupCurrency, statuses, payments } = actualGroup;
 
   const styles = groupDetailsScreen;
   const friendsViewElement = people.map((person, index) => {
@@ -40,13 +41,9 @@ const GroupDetailsScreen = () => {
   };
 
   useEffect(() => {
-    if (!actualGroup.summaries.length) {
-      if (actualGroup.payments) {
-        addSummaries();
-        getMoneyStatus();
-      }
-    }
-  }, []);
+    addSummaries();
+    getMoneyStatus();
+  }, [payments]);
   return (
     <View>
       <Text style={mainHeader}>{name}</Text>

@@ -9,32 +9,36 @@ export const useSummaries = () => {
   const summaries = [];
 
   const addSummaries = () => {
-    people.forEach((person) => {
-      const newSummary = { person: person, payments: [] };
-      payments.forEach((payment) => {
-        const payer = payment.person;
+    if (!payments.length) {
+      updateSummaries([], id);
+    } else {
+      people.forEach((person) => {
+        const newSummary = { person: person, payments: [] };
+        payments.forEach((payment) => {
+          const payer = payment.person;
 
-        if (
-          isObjInArray(payment.forWho, person) &&
-          !isObjectEqual(payer, person)
-        ) {
-          const amount = (payment.amount / payment.forWho.length).toFixed(2);
+          if (
+            isObjInArray(payment.forWho, person) &&
+            !isObjectEqual(payer, person)
+          ) {
+            const amount = (payment.amount / payment.forWho.length).toFixed(2);
 
-          const newPayment = {
-            forWho: { name: payer.name, id: payer.id },
-            amount: amount,
-          };
-          newSummary.payments = [...newSummary.payments, newPayment];
+            const newPayment = {
+              forWho: { name: payer.name, id: payer.id },
+              amount: amount,
+            };
+            newSummary.payments = [...newSummary.payments, newPayment];
+          }
+        });
+
+        if (newSummary.payments.length) {
+          newSummary.payments = optimizeSummaries(newSummary);
+          summaries.push(newSummary);
         }
       });
 
-      if (newSummary.payments.length) {
-        newSummary.payments = optimizeSummaries(newSummary);
-        summaries.push(newSummary);
-      }
-    });
-
-    if (summaries.length) updateSummaries(summaries, id);
+      if (summaries.length) updateSummaries(summaries, id);
+    }
   };
   return { addSummaries };
 };

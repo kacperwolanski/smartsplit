@@ -3,10 +3,23 @@ import { StyleSheet, Text, View } from "react-native";
 import SinglePayment from "./SinglePayment";
 import useTheme from "../../../../hooks/useThemeHook";
 
-const DayPayments = ({ date, payments, index }) => {
+const DayPayments = ({
+  date,
+  payments,
+  index,
+  setIsDeleting,
+  setPaymentToDelete,
+}) => {
   const { theme } = useTheme();
   const paymentViewElements = payments.map((payment, index) => {
-    return <SinglePayment payment={payment} key={index} />;
+    return (
+      <SinglePayment
+        payment={payment}
+        key={index}
+        setIsDeleting={setIsDeleting}
+        setPaymentToDelete={setPaymentToDelete}
+      />
+    );
   });
   return (
     <View style={{ paddingHorizontal: 20, marginBottom: -10 }}>

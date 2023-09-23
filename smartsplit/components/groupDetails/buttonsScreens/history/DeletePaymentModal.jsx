@@ -3,14 +3,14 @@ import { Text, View } from "react-native";
 import useTheme from "../../../../hooks/useThemeHook";
 import DecisionModal from "../../../appComponents/DecisionModal";
 
-const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
+const DeletePaymentModal = ({ setIsDeleting, handleDeletePayment }) => {
   const { theme } = useTheme();
 
   return (
     <View>
       <DecisionModal
         setIsHandlingFunc={setIsDeleting}
-        handleActionFunc={handleDeleteGroup}
+        handleActionFunc={handleDeletePayment}
         modalQuestion={
           <Text
             style={{
@@ -20,8 +20,7 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
               textAlign: "justify",
             }}
           >
-            Do you want to delete
-            <Text style={{ fontWeight: "600" }}> {groupName}</Text>?
+            Do you want to remove this payment ?
           </Text>
         }
       />
@@ -29,4 +28,4 @@ const DeleteModal = ({ setIsDeleting, handleDeleteGroup, groupName }) => {
   );
 };
 
-export default DeleteModal;
+export default DeletePaymentModal;
