@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
-import { inputColor } from "../../styles/consts";
 import useTheme from "../../hooks/useThemeHook";
 
 const AddFriend = ({ handleAddingFriend, updateFriends, friends }) => {
@@ -20,7 +19,7 @@ const AddFriend = ({ handleAddingFriend, updateFriends, friends }) => {
       <TextInput
         style={{ color: theme.mainFontColor, fontSize: 18 }}
         placeholder="friend name"
-        placeholderTextColor={inputColor}
+        placeholderTextColor={theme.inputColor}
         value={newFriendName}
         onChangeText={(value) => {
           setNewFriendName(value);
@@ -32,7 +31,12 @@ const AddFriend = ({ handleAddingFriend, updateFriends, friends }) => {
           title="cancel"
           onPress={cancelAddingFriend}
         />
-        <Button color={theme.activeSysBtn} title="save" onPress={addFriend} />
+        <Button
+          color={theme.activeSysBtn}
+          title="save"
+          disabled={!newFriendName}
+          onPress={addFriend}
+        />
       </View>
     </View>
   );

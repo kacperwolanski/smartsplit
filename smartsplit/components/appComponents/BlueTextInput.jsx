@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-import { inputColor } from "../../styles/consts";
 import useTheme from "../../hooks/useThemeHook";
 import SettingsField from "./SettingsField";
 
@@ -34,12 +33,14 @@ const BlueTextInput = ({
   };
 
   return (
-    <View style={{ marginTop: 20 }}>
+    <View style={{ marginTop: 20, flex: 1 }}>
       <SettingsField title={header}>
-        <View style={{ marginTop: 5, width: width }}>
+        <View style={{ marginTop: 5 }}>
           {!isEditing ? (
             <View>
-              <Text style={styles.textInput}>{placeholder}</Text>
+              <Text style={[styles.textInput, { color: theme.inputColor }]}>
+                {placeholder}
+              </Text>
               <View style={{ marginTop: 10 }}>
                 <Button
                   color={theme.buttonColor}
@@ -58,10 +59,10 @@ const BlueTextInput = ({
                 placeholder={placeholder}
                 value={editedValue}
                 onChangeText={handleValueChange}
-                placeholderTextColor={inputColor}
+                placeholderTextColor={theme.inputColor}
                 style={{
                   ...styles.textInput,
-
+                  color: theme.inputColor,
                   width: width,
                 }}
               />
@@ -100,7 +101,6 @@ const styles = StyleSheet.create({
   },
   textInput: {
     textAlign: "center",
-    color: inputColor,
     paddingHorizontal: 20,
     paddingTop: 10,
     fontSize: 20,

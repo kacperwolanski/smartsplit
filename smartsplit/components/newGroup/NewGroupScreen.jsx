@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Button, ScrollView, Text, TextInput, View } from "react-native";
-
 import FriendName from "./FriendName";
 import AddFriend from "./AddFriend";
-import { inputColor } from "../../styles/consts";
 import useStore from "../../store";
 import getFormattedDate from "../../helpers/getFormattedDate";
 import BlueTextInput from "../appComponents/BlueTextInput";
@@ -23,7 +21,7 @@ const NewGroupScreen = () => {
   const [groupName, setGroupName] = useState("");
   const [groupType, setGroupType] = useState("Friends");
   const [groupCurrency, setGroupCurrency] = useState("PLN");
-  const [groupNote, setGroupNote] = useState("note");
+  const [groupNote, setGroupNote] = useState("");
   const [isAddingFriend, setIsAddingFriend] = useState(false);
   const [friends, setFriends] = useState([]);
 
@@ -83,7 +81,7 @@ const NewGroupScreen = () => {
             <TextInput
               placeholder="group name"
               value={groupName}
-              placeholderTextColor={inputColor}
+              placeholderTextColor={theme.inputColor}
               style={[styles.groupNameInput, { color: theme.mainFontColor }]}
               onChangeText={handleGroupNameChange}
             />
@@ -116,20 +114,19 @@ const NewGroupScreen = () => {
             flexDirection: "row",
             justifyContent: "space-between",
             marginTop: 10,
+            gap: 10,
           }}
         >
           <BlueTextInput
             placeholder={groupType}
             saveFunction={handleGroupTypeChange}
             header="Group type"
-            width={150}
             inputType="strings"
           />
           <BlueTextInput
             placeholder={groupCurrency}
             saveFunction={setGroupCurrency}
             header="Currency"
-            width={150}
             inputType={"strings"}
           />
         </View>

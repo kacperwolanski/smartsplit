@@ -34,7 +34,7 @@ const SummaryScreen = () => {
   return (
     <View>
       <Text style={mainHeader}>Summary</Text>
-      <ScreenContent scrollEnabled={false}>
+      <ScreenContent>
         <View style={styles.container}>
           {summaries.length > 0 ? (
             <>

@@ -17,7 +17,7 @@ const MainOptions = () => {
   return (
     <View>
       <Text style={mainHeader}>App settings</Text>
-      <ScreenContent scrollEnabled={false}>
+      <ScreenContent>
         <View style={styles.container}>
           <SettingsField title={"LANGUAGE"}>
             <LanguageChanger />

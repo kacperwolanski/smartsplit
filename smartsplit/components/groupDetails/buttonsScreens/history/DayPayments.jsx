@@ -9,7 +9,7 @@ const DayPayments = ({ date, payments, index }) => {
     return <SinglePayment payment={payment} key={index} />;
   });
   return (
-    <View style={{ paddingHorizontal: 20 }}>
+    <View style={{ paddingHorizontal: 20, marginBottom: -10 }}>
       <View style={[styles.container, { borderTopWidth: index ? 0.2 : 0 }]}>
         <Text style={{ fontSize: 18, color: theme.buttonColor }}>{date}</Text>
         <View>{paymentViewElements}</View>
