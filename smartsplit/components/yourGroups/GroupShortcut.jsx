@@ -4,6 +4,7 @@ import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
 import { controlTextLen } from "../../helpers/controlTextLen";
 import useTheme from "../../hooks/useThemeHook";
+import { LinearGradient } from "expo-linear-gradient";
 
 const GroupShortcut = ({ groupData }) => {
   const { moveTo } = usePath();
@@ -17,29 +18,37 @@ const GroupShortcut = ({ groupData }) => {
     moveTo(`/group/${id}`);
   };
   return (
-    <TouchableOpacity
-      style={[groupShortcutStyles.container, contentField]}
-      onPress={handlePress}
-    >
-      <Text style={[styles.date, { color: theme.buttonColor }]}>
-        {createDate}
-      </Text>
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text style={{ fontSize: 24, color: theme.mainFontColor }}>{name}</Text>
-        <View style={{ flexDirection: "row", gap: 2, marginTop: 6 }}>
-          <Image
-            source={{ uri: theme.icons.groupsPlaceholderImage }}
-            style={styles.personImage}
-          />
-          <Text style={{ color: theme.mainFontColor }}>{amount}</Text>
+    <TouchableOpacity onPress={handlePress}>
+      <LinearGradient
+        colors={theme.groupColors}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={[groupShortcutStyles.container, contentField]}
+      >
+        <Text style={[styles.date, { color: theme.buttonColor }]}>
+          {createDate}
+        </Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Text style={{ fontSize: 24, color: theme.mainFontColor }}>
+            {name}
+          </Text>
+          <View style={{ flexDirection: "row", gap: 2, marginTop: 6 }}>
+            <Image
+              source={{ uri: theme.icons.groupsPlaceholderImage }}
+              style={styles.personImage}
+            />
+            <Text style={{ color: theme.mainFontColor }}>{amount}</Text>
+          </View>
         </View>
-      </View>
-      <Text style={{ textAlign: "right", color: theme.mainFontColor }}>
-        {groupType}
-      </Text>
-      <Text style={{ marginTop: 20, fontSize: 12, color: theme.mainFontColor }}>
-        {controlTextLen(groupNote, 30)}
-      </Text>
+        <Text style={{ textAlign: "right", color: theme.mainFontColor }}>
+          {groupType}
+        </Text>
+        <Text
+          style={{ marginTop: 20, fontSize: 12, color: theme.mainFontColor }}
+        >
+          {controlTextLen(groupNote, 30)}
+        </Text>
+      </LinearGradient>
     </TouchableOpacity>
   );
 };
