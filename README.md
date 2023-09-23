@@ -39,9 +39,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-
-
 <p align="right"><a href="#readme-top">back to top ⬆</a></p>
 
 
@@ -64,18 +61,12 @@ This app was designed for the following IOS devices:
 
 <!-- ABOUT APP USAGE-->
 ## About App Usage
-
-
-
 <p align="right"><a href="#readme-top">back to top ⬆</a></p>
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage Examples
-
-
-
 <p align="right"><a href="#readme-top">back to top ⬆</a></p>
 
 
@@ -105,7 +96,7 @@ Here You can find features which have been added already, or these I am planning
 <!-- CONTACT -->
 ## Contact
 
-
+Let's make something big together. You can find me here:
 
 👥 LinkedIn: https://www.linkedin.com/in/kacper-wolanski/
 
