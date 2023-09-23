@@ -5,8 +5,9 @@
 <br />
 <div align="center">
 <div>
-    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/664d8f35-a421-4a9a-8a75-90c8d84eadd2" alt="Logo" width="180" height="320">
+    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/19e6bdb2-dc69-4daf-b888-1cbf18c79b01" alt="Logo" width="180" height="320">
   </div>
+
 
 
   <h3 align="center">SmartSplit mobile app</h3>
