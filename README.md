@@ -48,8 +48,7 @@
 
 ### Supported Devices📱 
 
-
-
+This app was designed for the following IOS devices:
 * Iphone SE
 * Iphone 12
 * Iphone 12 Pro
@@ -63,8 +62,8 @@
 
 
 
-<!-- APP FEATURES -->
-## App features
+<!-- ABOUT APP USAGE-->
+## About App Usage
 
 
 
@@ -84,12 +83,21 @@
 <!-- ROADMAP -->
 ## Roadmap
 
+Here You can find features which have been added already, or these I am planning to add.
+
 - [x] 3 themes to choose 
+    - [x] Dark
+    - [x] BabyBlue
+    - [x] Light
+    
 - [ ] Multi-language Support
-    - [ ] English
+    - [x] English
     - [ ] Spanish
     - [ ] Polish
+    
+- [ ] Account switches
 
+- [ ] Android support
 
 <p align="right"><a href="#readme-top">back to top ⬆</a></p>
 
@@ -97,12 +105,13 @@
 <!-- CONTACT -->
 ## Contact
 
+
+
 👥 LinkedIn: https://www.linkedin.com/in/kacper-wolanski/
 
 📩 Gmail: wolanski055@gmail.com
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<p align="right"><a href="#readme-top">back to top ⬆</a></p>
 
 
 
