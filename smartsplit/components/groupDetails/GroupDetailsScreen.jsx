@@ -55,7 +55,7 @@ const GroupDetailsScreen = () => {
           <View style={{ padding: 10 }}>{friendsViewElement}</View>
         </SettingsField>
         <View style={{ marginTop: 20 }}>
-          <SettingsField title="DETAILS">
+          <SettingsField title="MORE ACTIONS">
             <View style={styles.buttonsContainer}>
               <View style={{ flexDirection: "row", gap: 20 }}>
                 <OptionButton
@@ -83,7 +83,7 @@ const GroupDetailsScreen = () => {
         }}
       >
         <ButtonsContainer top={100}>
-          <View style={{ marginTop: 50 }}>
+          <View style={{ marginBottom: 15 }}>
             <Button
               color={theme.mainFontColor}
               title="back"

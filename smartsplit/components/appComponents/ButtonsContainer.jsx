@@ -1,14 +1,18 @@
 import React from "react";
-import { View } from "react-native";
+import { Dimensions, View } from "react-native";
 
 const ButtonsContainer = ({ children, top }) => {
+  const screenHeight = Dimensions.get("window").height;
+  const marginTopOffset = screenHeight > 700 ? 840 : 800;
+
   return (
     <View
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
+        alignItems: "flex-end",
         position: "absolute",
-        top: top,
+        top: screenHeight + top - marginTopOffset,
         left: 0,
         right: 0,
         padding: 20,

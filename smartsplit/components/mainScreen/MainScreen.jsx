@@ -7,6 +7,8 @@ import SettingsField from "../appComponents/SettingsField";
 import GroupShortcut from "../yourGroups/GroupShortcut";
 import useStore from "../../store";
 import Modal from "../appComponents/Modal";
+import { screenHeight } from "../../appConsts";
+import GroupsPlaceHolder from "../placeholders/GroupsPlaceholder";
 
 const MainScreen = () => {
   const { mainHeader, contentField, theme } = useTheme();
@@ -21,6 +23,7 @@ const MainScreen = () => {
   };
 
   const slicedGroups = groups.length > 4 ? groups.slice(0, 4) : groups;
+  const marginLeftOffset = screenHeight > 700 ? 100 : 75;
 
   const groupViewElements = slicedGroups.map((group, index) => {
     return (
@@ -32,7 +35,7 @@ const MainScreen = () => {
           borderColor: "white",
           position: "absolute",
           top: 0,
-          left: 100 + index * 40 - groups.length * 17,
+          left: marginLeftOffset + index * 40 - groups.length * 17,
           marginTop: 20,
           marginRight: 20,
           overflow: "hidden",
@@ -72,9 +75,16 @@ const MainScreen = () => {
                   overflow: "hidden",
                   minHeight: 170,
                   position: "relative",
+                  paddingBottom: 10,
                 }}
               >
-                <Modal opacity={0.2}>{groupViewElements}</Modal>
+                <Modal opacity={0.2}>
+                  {groupViewElements.length > 0 ? (
+                    groupViewElements
+                  ) : (
+                    <GroupsPlaceHolder marginTop={10} />
+                  )}
+                </Modal>
               </View>
             </TouchableOpacity>
           </SettingsField>
@@ -93,5 +103,6 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     opacity: 0.9,
+    marginTop: screenHeight > 700 ? -25 : -65,
   },
 });

@@ -1,50 +1,95 @@
 import { create } from "zustand";
 import { updateValueByKey } from "./helpers/updateValueByKey";
-import MainScreen from "./components/mainScreen/MainScreen";
+
 const useStore = create((set, get) => ({
   actualGroupId: "",
   groups: [
-    // {
-    //   name: "group1",
-    //   amount: "4",
-    //   people: [
-    //     { name: "krystofer", id: "1" },
-    //     { name: "kacper", id: "2" },
-    //     { name: "kamil", id: "3" },
-    //     { name: "dumin", id: "4" },
-    //   ],
-    //   createDate: "10.02.2021",
-    //   groupType: "Friends",
-    //   groupCurrency: "PLN",
-    //   groupNote: "this is group of my friends ",
-    //   summaries: [],
-    //   statuses: [],
-    //   payments: [
-    //     {
-    //       person: { name: "kacper", id: "2" },
-    //       forWho: [
-    //         { name: "kacper", id: "2" },
-    //         { name: "krystofer", id: "1" },
-    //         { name: "dumin", id: "4" },
-    //       ],
-    //       note: "koktajle",
-    //       amount: 20,
-    //       date: "01.05.2023",
-    //     },
-    //     {
-    //       person: { name: "kacper", id: "2" },
-    //       forWho: [
-    //         { name: "kacper", id: "2" },
-    //         { name: "krystofer", id: "1" },
-    //         { name: "dumin", id: "4" },
-    //       ],
-    //       note: "koktajle",
-    //       amount: 20,
-    //       date: "01.05.2023",
-    //     },
-    //   ],
-    //   id: "1",
-    // },
+    {
+      name: "Tents in Masuria",
+      amount: "3",
+      people: [
+        { name: "Ola", id: "1" },
+        { name: "Kacper", id: "2" },
+        { name: "Natalia", id: "3" },
+      ],
+      createDate: "10.06.2023",
+      groupType: "Friends",
+      groupCurrency: "PLN",
+      groupNote: "spontaneous trip",
+      summaries: [],
+      statuses: [],
+      payments: [
+        {
+          person: { name: "Kacper", id: "2" },
+          forWho: [
+            { name: "Ola", id: "1" },
+            { name: "Natalia", id: "3" },
+          ],
+          note: "Sunday drinks",
+          amount: 100,
+          date: "11.06.2023",
+        },
+      ],
+      id: "1",
+    },
+    {
+      name: "Trip to Krakow",
+      amount: "3",
+      people: [
+        { name: "Karol", id: "1" },
+        { name: "Kacper", id: "2" },
+        { name: "Krystian", id: "3" },
+      ],
+      createDate: "10.02.2021",
+      groupType: "Friends",
+      groupCurrency: "PLN",
+      groupNote: "this is group of my friends ",
+      summaries: [],
+      statuses: [],
+      payments: [],
+      id: "2",
+    },
+    {
+      name: "Mountain trip",
+      amount: "4",
+      people: [
+        { name: "Krystian", id: "1" },
+        { name: "Kacper", id: "2" },
+        { name: "Dominik", id: "3" },
+        { name: "Karol", id: "4" },
+      ],
+      createDate: "10.02.2021",
+      groupType: "Friends",
+      groupCurrency: "PLN",
+      groupNote: "this is group of my friends ",
+      summaries: [],
+      statuses: [],
+      payments: [
+        {
+          person: { name: "kacper", id: "2" },
+          forWho: [
+            { name: "kacper", id: "2" },
+            { name: "krystofer", id: "1" },
+            { name: "dumin", id: "4" },
+          ],
+          note: "koktajle",
+          amount: 20,
+          date: "01.05.2023",
+        },
+        {
+          person: { name: "kacper", id: "2" },
+          forWho: [
+            { name: "kacper", id: "2" },
+            { name: "krystofer", id: "1" },
+            { name: "dumin", id: "4" },
+          ],
+          note: "koktajle",
+          amount: 20,
+          date: "01.05.2023",
+        },
+      ],
+      id: "3",
+    },
   ],
 
   path: ["/mainScreen"],

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Text, TextInput, View } from "react-native";
 import EditButton from "../buttons/EditButton";
 import RemoveButton from "../buttons/RemoveButton";
 import { friendNameStyles } from "./styles";
-import { inputColor } from "../../styles/consts";
 import useTheme from "../../hooks/useThemeHook";
 const FriendName = ({ friend, friends, updateFriends }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -60,7 +59,7 @@ const FriendName = ({ friend, friends, updateFriends }) => {
             onChangeText={(newValue) => {
               setEditedName(newValue);
             }}
-            placeholderTextColor={inputColor}
+            placeholderTextColor={theme.inputColor}
             style={[styles.textInput, { color: theme.mainFontColor }]}
           />
           <View

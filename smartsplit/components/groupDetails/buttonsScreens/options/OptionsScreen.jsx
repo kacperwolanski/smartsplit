@@ -67,7 +67,7 @@ const OptionsScreen = () => {
 
   return (
     <View>
-      <Text style={mainHeader}>Options</Text>
+      <Text style={mainHeader}>Group settings</Text>
       <View style={{ marginTop: -20 }}>
         <ScreenContent>
           <BlueTextInput

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ScrollView, Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import GroupShortcut from "./GroupShortcut";
 import useStore from "../../store";
 import CirclePlusButton from "../buttons/CirclePlusButton";
@@ -30,11 +30,11 @@ const YourGroupsScreen = () => {
       {groupsViewElement.length > 0 ? (
         <ScreenContent>{groupsViewElement}</ScreenContent>
       ) : (
-        <GroupsPlaceHolder />
+        <GroupsPlaceHolder marginTop={150} />
       )}
 
       <ButtonsContainer top={660}>
-        <View style={{ marginTop: 50 }}>
+        <View style={{ marginBottom: 15 }}>
           <Button
             color={theme.passiveSysBtn}
             title="back"

@@ -1,8 +1,6 @@
-import React from "react";
 import useStore from "../store";
 import { BlueTheme, DarkTheme, LightTheme } from "../theme";
 import headerStyle from "../styles/headerStyle";
-import { darkIcons, lightIcons } from "../assets/urls";
 
 const useTheme = () => {
   const { appTheme } = useStore();

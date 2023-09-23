@@ -3,10 +3,16 @@ import { Image, StyleSheet, Text, View } from "react-native";
 
 import useTheme from "../../hooks/useThemeHook";
 
-const GroupsPlaceHolder = () => {
+const GroupsPlaceHolder = ({ marginTop }) => {
   const { theme } = useTheme();
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        marginTop: marginTop,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Image
         source={{ uri: theme.icons.groupsPlaceholderImage }}
         style={styles.paymentImage}
@@ -19,11 +25,7 @@ const GroupsPlaceHolder = () => {
 export default GroupsPlaceHolder;
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 100,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  container: {},
   paymentImage: {
     marginLeft: 10,
     width: 150,

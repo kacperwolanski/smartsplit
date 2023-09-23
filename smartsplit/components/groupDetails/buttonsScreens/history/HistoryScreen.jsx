@@ -10,7 +10,7 @@ import useTheme from "../../../../hooks/useThemeHook";
 
 const HistoryScreen = () => {
   const { goBack } = usePath();
-  const { mainHeader } = useTheme();
+  const { mainHeader, theme } = useTheme();
   const { getPaymentsByDate } = usePaymentsByDate();
   const handleBackPress = () => {
     goBack();
@@ -30,7 +30,7 @@ const HistoryScreen = () => {
 
   return (
     <View>
-      <Text style={mainHeader}>History</Text>
+      <Text style={mainHeader}>Payments history</Text>
       <ScreenContent>
         {paymentsByDate.length > 0 ? (
           <SettingsField title="PAYMENTS">
@@ -41,7 +41,11 @@ const HistoryScreen = () => {
         )}
       </ScreenContent>
       <ButtonsContainer top={710}>
-        <Button color={"white"} title="back" onPress={handleBackPress} />
+        <Button
+          color={theme.passiveSysBtn}
+          title="back"
+          onPress={handleBackPress}
+        />
       </ButtonsContainer>
     </View>
   );
