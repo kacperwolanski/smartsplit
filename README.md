@@ -46,8 +46,9 @@ This is a mobile app create to divide costs between members of a group of friend
 <!-- ABOUT APP USAGE-->
 ## About App Usage
 <div>
-    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/9b12700e-5d6d-4ada-85f4-1cf0837dc342" alt="Logo" >
+    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/afc7b97b-59c8-4561-85bb-92735bc7dd07" alt="Logo" >
   </div>
+
 
 
 
