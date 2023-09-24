@@ -40,13 +40,22 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is a mobile app create to divide costs between members of a group of friends. After each trip with friends, you had to remember to return the money, often in multiple transfers to many people. This was always irritating and sometimes stressful because you wouldn't want any of your friends to feel offended if you didn't give them their cash back. You no longer have to remember to transfer money to your friend every time he buys you something. SmartSplit will do it for You! 
-<p align="right"><a href="#readme-top">back to top ⬆</a></p>
+
 
 
 <!-- ABOUT APP USAGE-->
 ## About App Usage
+
 <p align="right"><a href="#readme-top">back to top ⬆</a></p>
 
+
+<!--RUN IT ON YOUR MOBILE-->
+## RUN IT ON YOUR PHONE
+To run app on Your IOS device:
+* Download Expo Go App from App Store
+
+
+<p align="right"><a href="#readme-top">back to top ⬆</a></p>
 ### Supported Devices📱 
 
 This app was designed for the following IOS devices:
