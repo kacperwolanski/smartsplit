@@ -5,7 +5,7 @@
 <br />
 <div align="center" id='readme-top'>
 <div>
-    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/66a6c127-8bcf-4776-8e66-fe42fb01e812" alt="Logo" width="135" height="282">
+    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/61482132-da85-4d9f-a527-71ce68cd4531" alt="Logo" >
   </div>
 
   <h3 align="center">SmartSplit mobile app</h3>
