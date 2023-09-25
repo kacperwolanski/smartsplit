@@ -69,9 +69,9 @@ Each payment should be added using a round button in the bottom right corner of 
 Create a group with your friends and edit it whenever necessary from the group's details screen.
 
 <div align="center">
-   <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3f1ea502-1e31-40df-a170-192c7d42c6e4" alt="Logo"  width="200" height="650"/>
-     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/1a32c57b-eea6-4b01-a87b-0578c7d92d21" alt="Logo" width="200" height="650"/>
-      <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3a860e13-128d-4e58-9d58-01504dbd20f2" alt="Logo" width="200" height="650" />
+   <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3f1ea502-1e31-40df-a170-192c7d42c6e4" alt="Logo"  width="200" height="750"/>
+     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/1a32c57b-eea6-4b01-a87b-0578c7d92d21" alt="Logo" width="200" height="750"/>
+      <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3a860e13-128d-4e58-9d58-01504dbd20f2" alt="Logo" width="200" height="750" />
   </div>
 <p align="right"><a href="#readme-top">⬆</a></p>
 
