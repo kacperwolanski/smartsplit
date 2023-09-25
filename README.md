@@ -58,14 +58,14 @@ The main functionality of the application is to analyze expenses within a given 
 Each payment should be added using a round button in the bottom right corner of the details screen for each group. It is possible to track the payment history, edit, and delete each of them.
 
 <div align="center">
-    <img src="" alt="Logo" >
+   <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/0bc8b1d4-37a0-4535-978d-123ca48098c3" alt="Logo" />
+      <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3a73052b-7dba-4240-b1e5-6a0a6b2a6664" alt="Logo" />
   </div>
 
 ### Themes
 There are three different app themes user can choose from. There are classic ones light and dark, but also colorful sea-blue one, so that everyone can find something for themselves. 
 <div align="center">
-    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/0bc8b1d4-37a0-4535-978d-123ca48098c3" alt="Logo" />
-      <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3a73052b-7dba-4240-b1e5-6a0a6b2a6664" alt="Logo" />
+    
   </div>
 
 
