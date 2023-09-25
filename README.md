@@ -120,6 +120,8 @@ This app was designed for the following IOS devices:
 
 https://github.com/kacperwolanski/smartsplit/assets/101999487/b6e4a415-5f22-49ca-bf7c-25c21effe070
 
+![Screen Recording 2023-09-25 at 20 44 48](https://github.com/kacperwolanski/smartsplit/assets/101999487/7caa432b-0f51-4fef-a661-73325917054a)
+
 
 <p align="right"><a href="#readme-top">⬆</a></p>
 
