@@ -124,7 +124,7 @@ This app was designed for the following IOS devices:
 <p align="right"><a href="#readme-top">⬆</a></p>
 
 
-
+https://github.com/kacperwolanski/smartsplit/assets/101999487/b6e4a415-5f22-49ca-bf7c-25c21effe070
 
 
 
