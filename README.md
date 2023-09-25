@@ -117,12 +117,15 @@ This app was designed for the following IOS devices:
 <!-- USAGE EXAMPLES -->
 ## Usage Examples
 ### How to add payment?
-<iframe width="560" height="315" src="https://github.com/kacperwolanski/smartsplit/assets/101999487/f03f4ed5-028e-4f43-822d-2c0d7d958e32" frameborder="0" allowfullscreen></iframe>
-
-https://github.com/kacperwolanski/smartsplit/assets/101999487/f03f4ed5-028e-4f43-822d-2c0d7d958e32
-
+<div align="center">
+<iframe width="560" height="315" src="https://github.com/kacperwolanski/smartsplit/assets/101999487/b6e4a415-5f22-49ca-bf7c-25c21effe070" frameborder="0" allowfullscreen></iframe>
+</div>
 
 <p align="right"><a href="#readme-top">⬆</a></p>
+
+
+
+
 
 
 
