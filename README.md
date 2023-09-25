@@ -52,6 +52,7 @@ The main functionality of the application is to analyze expenses within a given 
 <div align="center">
     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3b2b66c4-4c25-43fe-87e9-8af16421a1a5" alt="Logo" />
   </div>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 ### Payments
 
@@ -61,19 +62,20 @@ Each payment should be added using a round button in the bottom right corner of 
    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/0bc8b1d4-37a0-4535-978d-123ca48098c3" alt="Logo" />
       <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3a73052b-7dba-4240-b1e5-6a0a6b2a6664" alt="Logo" />
   </div>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 ### Themes
 There are three different app themes user can choose from. There are classic ones light and dark, but also colorful sea-blue one, so that everyone can find something for themselves. 
 <div align="center">
      <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/7c054187-3bd7-43b3-8205-e26a537f64e6" alt="Logo" />
   </div>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 
 
 
 
-
-<p align="right"><a href="#readme-top">back to top ⬆</a></p>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 
 <!--RUN IT ON YOUR MOBILE-->
@@ -82,7 +84,7 @@ To run app on Your IOS device:
 * Download Expo Go App from App Store
 
 
-<p align="right"><a href="#readme-top">back to top ⬆</a></p>
+<p align="right"><a href="#readme-top">⬆</a></p>
 ### Supported Devices📱 
 
 This app was designed for the following IOS devices:
@@ -95,7 +97,7 @@ This app was designed for the following IOS devices:
 * Iphone 15
 * Iphone 15 Pro
 
-<p align="right"><a href="#readme-top">back to top ⬆</a></p>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 
 
@@ -104,7 +106,7 @@ This app was designed for the following IOS devices:
 
 <!-- USAGE EXAMPLES -->
 ## Usage Examples
-<p align="right"><a href="#readme-top">back to top ⬆</a></p>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 
 
@@ -127,7 +129,7 @@ Here You can find features which have been added already, or these I am planning
 
 - [ ] Android support
 
-<p align="right"><a href="#readme-top">back to top ⬆</a></p>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 
 <!-- CONTACT -->
@@ -139,7 +141,7 @@ Let's make something big together. You can find me here:
 
 📩 Gmail: wolanski055@gmail.com
 
-<p align="right"><a href="#readme-top">back to top ⬆</a></p>
+<p align="right"><a href="#readme-top">⬆</a></p>
 
 
 
