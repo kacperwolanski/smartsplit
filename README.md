@@ -87,10 +87,6 @@ There are three different app themes user can choose from. There are classic one
 
 
 
-
-<p align="right"><a href="#readme-top">⬆</a></p>
-
-
 <!--RUN IT ON YOUR MOBILE-->
 ## RUN IT ON YOUR PHONE
 To run app on Your IOS device:
