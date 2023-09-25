@@ -118,19 +118,7 @@ This app was designed for the following IOS devices:
 ## Usage Examples
 ### How to add payment?
 
-
-
-
-<div align="center" >
-    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/7caa432b-0f51-4fef-a661-73325917054a" alt="Logo" width="200" height="420" />
-  </div>
-
-
-<p align="right"><a href="#readme-top">⬆</a></p>
-
-
-
-
+https://github.com/kacperwolanski/smartsplit/assets/101999487/5c3980e4-1f20-4221-baab-d5baa3556a98
 
 
 
