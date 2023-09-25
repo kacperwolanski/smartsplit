@@ -49,7 +49,7 @@ This is a mobile app create to divide costs between members of a group of friend
 ### Main feature
 The main functionality of the application is to analyze expenses within a given group and calculate the amount that each user should return to their friends. These calculated amounts can be found in "summary" screen, indicated by a coins icon on the details screen of each group. Here user can find total group expense also.
 
-<div>
+<div style={{'text-align':'center'}}>
     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/3b2b66c4-4c25-43fe-87e9-8af16421a1a5" alt="Logo" >
   </div>
 
