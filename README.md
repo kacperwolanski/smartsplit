@@ -117,8 +117,11 @@ This app was designed for the following IOS devices:
 <!-- USAGE EXAMPLES -->
 ## Usage Examples
 ### How to add payment?
+
 <div align="center">
-https://github.com/kacperwolanski/smartsplit/assets/101999487/b6e4a415-5f22-49ca-bf7c-25c21effe070
+    <video controls>
+      <source src="https://github.com/kacperwolanski/smartsplit/assets/101999487/b6e4a415-5f22-49ca-bf7c-25c21effe070" type="video/mp4">
+    </video>
 </div>
 
 <p align="right"><a href="#readme-top">⬆</a></p>
