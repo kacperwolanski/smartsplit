@@ -148,7 +148,7 @@ Here You can find features which have been added already, or these I am planning
 
 - [ ] Android support
 
-<p align="right"><a href="#readme-top">⬆</a></p>
+
 
 
 <!-- CONTACT -->
