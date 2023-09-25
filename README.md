@@ -65,8 +65,9 @@ Each payment should be added using a round button in the bottom right corner of 
 ### Themes
 There are three different app themes user can choose from. There are classic ones light and dark, but also colorful sea-blue one, so that everyone can find something for themselves. 
 <div align="center">
-     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/561ed871-2c07-4c9e-8e12-88c96848245f" alt="Logo" />
+     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/7c054187-3bd7-43b3-8205-e26a537f64e6" alt="Logo" />
   </div>
+
 
 
 
