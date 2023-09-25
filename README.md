@@ -121,8 +121,8 @@ This app was designed for the following IOS devices:
 
 
 
-<div align="center" width="200" height="420">
-    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/7caa432b-0f51-4fef-a661-73325917054a" alt="Logo" />
+<div align="center" >
+    <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/7caa432b-0f51-4fef-a661-73325917054a" alt="Logo" width="200" height="420" />
   </div>
 
 
