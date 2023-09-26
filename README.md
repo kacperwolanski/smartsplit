@@ -40,7 +40,14 @@
          <a href="#themes">Themes</a>
       </ul>
     </li>
-    <li><a href="#run-it-on-ios-device">Run it on IOS device</a></li>
+    <li><a href="#run-it-on-ios-device">Run it on IOS device</a>
+      <ul>
+         <a href="#supported-devices">Supported Devices</a>
+      </ul>
+        </li>
+       <li>
+      <a href="#usage-examples">Usage Examples</a>
+    </li>
     <li>
       <a href="#about-the-project">Road map</a>
     </li>
@@ -49,7 +56,7 @@
 </details>
 
        
-     
+    
 
 
 <!-- ABOUT THE PROJECT -->
@@ -103,7 +110,7 @@ There are three different app themes user can choose from. There are classic one
 
 
 <!--RUN IT ON YOUR MOBILE-->
-## RUN IT ON YOUR IOS PHONE
+## Run it on IOS device
 To run app on Your IOS device:
 * Download Expo Go App from App Store
 * Scan the following QR code with Your phone camera and click the link to open app
