@@ -7,7 +7,7 @@ const useStore = create((set, get) => ({
 
   path: ["/mainScreen"],
   appLanguage: "English",
-  appTheme: "light",
+  appTheme: "dark",
   slideDirection: "right",
   signedUser: "Kacper",
   previousScreen: <></>,
