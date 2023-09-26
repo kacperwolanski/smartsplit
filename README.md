@@ -40,7 +40,7 @@
          <a href="#themes">Themes</a>
       </ul>
     </li>
-    <li><a href="#run-it-on-ios-device">Run it on IOS device📱</a></li>
+    <li><a href="#run-it-on-ios-device">Run it on IOS device</a></li>
     <li>
       <a href="#about-the-project">Road map</a>
     </li>
