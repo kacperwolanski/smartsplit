@@ -30,13 +30,13 @@
          <a href="#about-app-usage">About App Usage</a>
       </ul>
          <ul>
-         <a href="#main-feature">Main feature></a>
+         <a href="#main-feature">Main feature</a>
       </ul>
          <ul>
          <a href="#payments">Payments</a>
       </ul>
          <ul>
-         <a href="#group">Groups</a>
+         <a href="#groups">Groups</a>
       </ul>
          <ul>
          <a href="#themes">Themes</a>
