@@ -9,6 +9,7 @@ import getFormattedDate from "../../helpers/getFormattedDate";
 import useTheme from "../../hooks/useThemeHook";
 import ButtonsContainer from "../appComponents/ButtonsContainer";
 import useActualGroup from "../../hooks/useActualGroupHook";
+import { isArraysEqual } from "../../helpers/compareArrays";
 
 const NewPaymentScreen = () => {
   const [whoPays, setWhoPays] = useState([]);
@@ -37,9 +38,15 @@ const NewPaymentScreen = () => {
       goBack();
     }
   };
+
   useEffect(() => {
-    setIsAbleToAdd(whoPays.length && forWho.length && parseInt(amount));
+    const paymentToYourself = isArraysEqual(whoPays, forWho);
+
+    setIsAbleToAdd(
+      whoPays.length && forWho.length && parseInt(amount) && !paymentToYourself
+    );
   }, [whoPays, forWho, amount, note]);
+
   return (
     <View>
       <Text style={mainHeader}>Add new payment</Text>

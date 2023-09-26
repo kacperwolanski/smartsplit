@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import Select from "../../appComponents/Select";
 import useStore from "../../../store";
 
@@ -9,7 +9,6 @@ const LanguageChanger = () => {
 
   const handleSelect = (option) => {
     setAppLanguage(option);
-    setIsClicked(false);
   };
   return (
     <View>
@@ -26,10 +25,3 @@ const LanguageChanger = () => {
 };
 
 export default LanguageChanger;
-
-const styles = StyleSheet.create({
-  defaultLanguage: {
-    textAlign: "center",
-    fontSize: 16,
-  },
-});

@@ -10,6 +10,8 @@ import ScreenContent from "../appComponents/ScreenContent";
 import { usePath } from "../../hooks/usePathHook";
 import useTheme from "../../hooks/useThemeHook";
 import ButtonsContainer from "../appComponents/ButtonsContainer";
+import DiscardGroupModal from "./DiscardModal";
+import { defaultGroupCurrency, defaultGroupType } from "../../appConsts";
 
 const NewGroupScreen = () => {
   const { goBack } = usePath();
@@ -19,11 +21,13 @@ const NewGroupScreen = () => {
   const styles = newGroupStyles;
 
   const [groupName, setGroupName] = useState("");
-  const [groupType, setGroupType] = useState("Friends");
-  const [groupCurrency, setGroupCurrency] = useState("PLN");
+  const [groupType, setGroupType] = useState(defaultGroupType);
+  const [groupCurrency, setGroupCurrency] = useState(defaultGroupCurrency);
   const [groupNote, setGroupNote] = useState("");
   const [isAddingFriend, setIsAddingFriend] = useState(false);
   const [friends, setFriends] = useState([]);
+
+  const [isDiscarding, setIsDiscarding] = useState(false);
 
   const handleSavePress = () => {
     const newGroup = {
@@ -43,7 +47,15 @@ const NewGroupScreen = () => {
     goBack();
   };
   const handleCancelPress = () => {
-    goBack();
+    if (
+      groupName.length ||
+      groupNote.length ||
+      friends.length ||
+      groupType !== defaultGroupType ||
+      groupCurrency !== defaultGroupCurrency
+    )
+      setIsDiscarding(true);
+    else goBack();
   };
 
   const handleAddingFriend = (isAdding) => {
@@ -152,6 +164,12 @@ const NewGroupScreen = () => {
           disabled={!ableToAdd}
         />
       </ButtonsContainer>
+      {isDiscarding && (
+        <DiscardGroupModal
+          setIsDiscarding={setIsDiscarding}
+          handleDiscard={goBack}
+        />
+      )}
     </View>
   );
 };
