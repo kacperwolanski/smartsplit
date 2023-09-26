@@ -49,9 +49,9 @@
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
- <ul>
+
        
-      </ul>
+     
 
 
 <!-- ABOUT THE PROJECT -->
