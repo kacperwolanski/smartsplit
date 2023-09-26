@@ -12,10 +12,7 @@ const SingleSummary = ({ summary }) => {
   const { name } = forWho;
   return (
     <View style={styles.container}>
-      <Image
-        source={{ uri: theme.icons.rightArrow }}
-        style={[styles.arrowIcon]}
-      />
+      <Image source={theme.icons.rightArrow} style={[styles.arrowIcon]} />
       <Text
         style={{ marginTop: 5, color: theme.settingsFontColor }}
       >{`${amount}${groupCurrency} for ${name}`}</Text>

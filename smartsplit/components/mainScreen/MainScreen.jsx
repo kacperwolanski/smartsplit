@@ -61,7 +61,7 @@ const MainScreen = () => {
           onPress={handleOptionsClick}
         >
           <Image
-            source={{ uri: theme.icons.settingsIcon }}
+            source={theme.icons.settingsIcon}
             style={styles.settingsIcon}
           />
         </TouchableOpacity>
