@@ -16,7 +16,7 @@ const FriendName = ({ friendName, moneyStatus, groupCurrency }) => {
           {moneyStatus.toFixed(2)}
           {groupCurrency}
         </Text>
-        <Image source={{ uri: coinsIconUrl }} style={styles.coinsIcon} />
+        <Image source={coinsIconUrl} style={styles.coinsIcon} />
       </View>
     </View>
   );

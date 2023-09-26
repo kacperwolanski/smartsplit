@@ -1,7 +1,5 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
-import { historyIconUrl, optionsIconUrl } from "../../appConsts";
-import useStore from "../../store";
 import { usePath } from "../../hooks/usePathHook";
 import useTheme from "../../hooks/useThemeHook";
 import useActualGroup from "../../hooks/useActualGroupHook";
@@ -12,9 +10,9 @@ const OptionButton = ({ imagePath, pathKeyword }) => {
   const { actualGroup } = useActualGroup();
   const { id } = actualGroup;
   let additionalStyle = {
-    marginTop: imagePath === optionsIconUrl ? 3 : -2,
-    marginLeft: imagePath === optionsIconUrl ? 5 : 0,
-    marginRight: imagePath === historyIconUrl ? 5 : 0,
+    marginTop: pathKeyword === "summary" ? -3 : 0,
+    marginLeft: pathKeyword === "history" ? -2 : 0,
+    marginRight: pathKeyword === "options" ? -4 : 0,
   };
 
   const handleNavigateToScreen = () => {
@@ -26,10 +24,7 @@ const OptionButton = ({ imagePath, pathKeyword }) => {
       style={[styles.container, { backgroundColor: theme.buttonColor }]}
       onPress={handleNavigateToScreen}
     >
-      <Image
-        source={{ uri: imagePath }}
-        style={[styles.icon, additionalStyle]}
-      />
+      <Image source={imagePath} style={[styles.icon, additionalStyle]} />
     </TouchableOpacity>
   );
 };

@@ -11,7 +11,7 @@ const ThemeButton = ({ themeColor, iconUrl }) => {
     <View>
       <TouchableOpacity style={[styles.container]} onPress={handlePress}>
         <Image
-          source={{ uri: iconUrl }}
+          source={iconUrl}
           style={[
             styles.icon,
             { marginLeft: themeColor === "babyBlue" ? 3 : 0 },

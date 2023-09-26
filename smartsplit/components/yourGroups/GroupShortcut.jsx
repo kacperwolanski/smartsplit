@@ -34,7 +34,7 @@ const GroupShortcut = ({ groupData }) => {
           </Text>
           <View style={{ flexDirection: "row", gap: 2, marginTop: 6 }}>
             <Image
-              source={{ uri: theme.icons.groupsPlaceholderImage }}
+              source={theme.icons.groupsPlaceholderImage}
               style={styles.personImage}
             />
             <Text style={{ color: theme.mainFontColor }}>{amount}</Text>

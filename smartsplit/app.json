@@ -3,17 +3,16 @@
     "name": "smartsplit",
     "slug": "smartsplit",
     "version": "1.0.0",
+    "description": "This is a mobile app create to divide costs between members of a group of friends. After each trip with friends, you had to remember to return the money, often in multiple transfers to many people. This was always irritating and sometimes stressful because you wouldn't want any of your friends to feel offended if you didn't give them their cash back. You no longer have to remember to transfer money to your friend every time he buys you something. SmartSplit will do it for You!",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/coins.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/coins.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

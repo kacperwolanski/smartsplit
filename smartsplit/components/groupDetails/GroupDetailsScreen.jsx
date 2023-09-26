@@ -59,12 +59,14 @@ const GroupDetailsScreen = () => {
                   imagePath={lightIcons.coinsIconUrl}
                   pathKeyword="summary"
                 />
+
                 <OptionButton
-                  imagePath={historyIconUrl}
+                  imagePath={theme.icons.history}
                   pathKeyword="history"
                 />
+
                 <OptionButton
-                  imagePath={optionsIconUrl}
+                  imagePath={theme.icons.circleSettings}
                   pathKeyword="options"
                 />
               </View>

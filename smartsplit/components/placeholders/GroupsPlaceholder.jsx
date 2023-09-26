@@ -14,7 +14,7 @@ const GroupsPlaceHolder = ({ marginTop }) => {
       }}
     >
       <Image
-        source={{ uri: theme.icons.groupsPlaceholderImage }}
+        source={theme.icons.groupsPlaceholderImage}
         style={styles.paymentImage}
       />
       <Text style={[{ color: theme.mainFontColor }]}>No groups to show</Text>

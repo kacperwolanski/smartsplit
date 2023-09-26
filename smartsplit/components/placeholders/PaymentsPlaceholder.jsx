@@ -8,7 +8,7 @@ const PaymentsPlaceholder = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: theme.icons.paymentPlaceholderImage }}
+        source={theme.icons.paymentPlaceholderImage}
         style={styles.paymentImage}
       />
       <Text style={[{ color: theme.mainFontColor }]}>Lack of payments</Text>
