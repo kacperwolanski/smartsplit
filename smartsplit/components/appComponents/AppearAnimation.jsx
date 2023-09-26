@@ -5,7 +5,7 @@ import useStore from "../../store";
 const AppearAnimation = ({ children, direction }) => {
   const { path } = useStore();
   const [slideAnim] = useState(new Animated.Value(0));
-  const slideValue = 300;
+  const slideValue = 500;
   const slideDirection = direction === "left" ? -1 * slideValue : slideValue;
 
   const slideIn = () => {

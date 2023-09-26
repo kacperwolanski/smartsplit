@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { updateValueByKey } from "./helpers/updateValueByKey";
+import MainScreen from "./components/mainScreen/MainScreen";
 
 const useStore = create((set, get) => ({
   actualGroupId: "",
@@ -94,9 +95,10 @@ const useStore = create((set, get) => ({
 
   path: ["/mainScreen"],
   appLanguage: "English",
-  appTheme: "babyBlue",
+  appTheme: "dark",
   slideDirection: "right",
   signedUser: "Kacper",
+  previousScreen: <></>,
   setActualGroup: (newGroupId) => set(() => ({ actualGroupId: newGroupId })),
   updateGroups: (updatedGroups) => {
     set(() => ({ groups: updatedGroups }));
@@ -143,6 +145,9 @@ const useStore = create((set, get) => ({
   },
   setSlideDirection: (newSlideDirection) => {
     set(() => ({ slideDirection: newSlideDirection }));
+  },
+  setPreviousScreen: (newScreen) => {
+    set(() => ({ previousScreen: newScreen }));
   },
 }));
 

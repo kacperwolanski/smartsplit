@@ -74,7 +74,7 @@ const HistoryScreen = () => {
           onPress={handleBackPress}
         />
       </ButtonsContainer>
-      <View style={{ marginTop: 350 }}>
+      <View style={{ position: "absolute", top: 590, left: 12 }}>
         {isDeleting && (
           <DeletePaymentModal
             setIsDeleting={setIsDeleting}
