@@ -26,16 +26,32 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
-      <a href="#about-app-usage">About App Usage</a>
-      <ul>
-        <li><a href="#installation">Installation📱</a></li>
+       <ul>
+         <a href="#about-app-usage">About App Usage</a>
+      </ul>
+         <ul>
+         <a href="#main-feature">Main feature></a>
+      </ul>
+         <ul>
+         <a href="#payments">Payments</a>
+      </ul>
+         <ul>
+         <a href="#group">Groups</a>
+      </ul>
+         <ul>
+         <a href="#themes">Themes</a>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#run-it-on-ios-device">Run it on IOS device📱</a></li>
+    <li>
+      <a href="#about-the-project">Road map</a>
+    </li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
-
+ <ul>
+       
+      </ul>
 
 
 <!-- ABOUT THE PROJECT -->
