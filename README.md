@@ -16,7 +16,6 @@
 </div>
 
 
-![image]()
 
 
 <!-- TABLE OF CONTENTS -->
