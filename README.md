@@ -26,9 +26,7 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
-       <ul>
          <a href="#about-app-usage">About App Usage</a>
-      </ul>
          <ul>
          <a href="#main-feature">Main feature</a>
       </ul>
