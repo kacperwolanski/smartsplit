@@ -46,7 +46,7 @@
       </ul>
         </li>
        <li>
-      <a href="#usage-examples">Usage Examples</a>
+      <a href="#usage-example">Usage Example</a>
     </li>
     <li>
       <a href="#about-the-project">Road map</a>
@@ -147,7 +147,7 @@ This app was designed for the following IOS devices:
 
 
 <!-- USAGE EXAMPLES -->
-## Usage Examples
+## Usage Example
 ### How to add payment?
 
 https://github.com/kacperwolanski/smartsplit/assets/101999487/5c3980e4-1f20-4221-baab-d5baa3556a98
