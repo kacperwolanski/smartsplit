@@ -16,6 +16,8 @@
 </div>
 
 
+![image]()
+
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -91,6 +93,10 @@ There are three different app themes user can choose from. There are classic one
 ## RUN IT ON YOUR PHONE
 To run app on Your IOS device:
 * Download Expo Go App from App Store
+* Scan the following QR code with Your phone camera and click the link to open app
+  <div align="center">
+     <img src="https://github.com/kacperwolanski/smartsplit/assets/101999487/58f3519b-a537-4a6c-b697-c141baf1d390" alt="Logo" />
+  </div>
 
 
 <p align="right"><a href="#readme-top">⬆</a></p>
